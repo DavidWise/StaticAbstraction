@@ -95,10 +95,7 @@ namespace StaticAbstraction.IO
         {
             return _fileInfoRef.OpenWrite();
         }
-        public void Refresh()
-        {
-            _fileInfoRef.Refresh();
-        }
+
         public IFileInfo Replace(string destinationFileName, string destinationBackupFileName)
         {
             return _fileInfoRef.Replace(destinationFileName, destinationBackupFileName).ToStaticAbstraction();

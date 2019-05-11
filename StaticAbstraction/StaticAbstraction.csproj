@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.2;netstandard2.0;net45;net46;net47;net48;net40</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>David Wise</Authors>
+    <Company />
+    <Copyright>@2019 David Wise</Copyright>
+    <PackageId>StaticAbstraction</PackageId>
+    <PackageReleaseNotes>Some Release Notes</PackageReleaseNotes>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Description>This is the description</Description>
+    <RepositoryUrl>https://github.com/DavidWise/StaticAbstraction</RepositoryUrl>
+    <Product>Static Abstraction</Product>
   </PropertyGroup>
   
 	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
