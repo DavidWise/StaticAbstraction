@@ -9,6 +9,7 @@ namespace StaticAbstraction
         protected IDirectory _directory;
         protected IDriveInfo _driveInfo;
         protected IConsole _console;
+        protected IDateTime _dateTime;
 
         public IFile File {
             get {
@@ -59,17 +60,28 @@ namespace StaticAbstraction
             set { _console = value; }
         }
 
+        public IDateTime DateTime
+        {
+            get
+            {
+                if (_dateTime == null) _dateTime = new StAbDateTime();
+                return _dateTime;
+            }
+            set { _dateTime = value; }
+        }
+
         public StaticAbstractionWrapper()
         {
         }
 
-        public StaticAbstractionWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo) : this()
+        public StaticAbstractionWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime) : this()
         {
             this.File = file;
             this.Path = path;
             this.Directory = directory;
             this.Console = console;
             this.DriveInfo = driveInfo;
+            this.DateTime = dateTime;
         }
 
         public IFileInfo NewFileInfo(string path)
