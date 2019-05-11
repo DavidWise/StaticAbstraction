@@ -39,3 +39,9 @@ to implementing the interface, they also offer setters for all properties so tha
 
 All methods either do nothing or return `NULL` if the method returned a value.  They are all virtual so that they can be further subclassed if needed.
 
+
+# Still TODO
+- override basic object methods such as ToString and Equals() (more investigation needed)
+- Implement ISerializable 
+
+

@@ -33,6 +33,13 @@ namespace StaticAbstraction.IO
             return result;
         }
 
+        public static IDriveInfoDetails ToStaticAbstraction(this DriveInfo info)
+        {
+            IDriveInfoDetails result = null;
+            if (info != null) result = new StAbDriveInfoDetails(info);
+            return result;
+        }
+
         public static IFileInfo[] ToStaticAbstraction(this FileInfo[] items)
         {
             if (items == null) return null;
@@ -75,6 +82,24 @@ namespace StaticAbstraction.IO
 
             var len = items.Length;
             var result = new IFileSystemInfo[len];
+
+            if (len > 0)
+            {
+                for (var i = 0; i < len; i++)
+                {
+                    result[i] = items[i].ToStaticAbstraction();
+                }
+            }
+
+            return result;
+        }
+
+        public static IDriveInfoDetails[] ToStaticAbstraction(this DriveInfo[] items)
+        {
+            if (items == null) return null;
+
+            var len = items.Length;
+            var result = new IDriveInfoDetails[len];
 
             if (len > 0)
             {
