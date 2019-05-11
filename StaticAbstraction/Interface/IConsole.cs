@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace StaticAbstraction.IO
+namespace StaticAbstraction
 {
     public interface IConsole
     {

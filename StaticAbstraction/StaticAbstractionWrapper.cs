@@ -1,12 +1,14 @@
-﻿namespace StaticAbstraction.IO
+﻿using StaticAbstraction.IO;
+
+namespace StaticAbstraction
 {
-    public class SystemIO : ISystemIO
+    public class StaticAbstractionWrapper : IStaticAbstraction
     {
         protected IFile _file;
         protected IPath _path;
         protected IDirectory _directory;
-        protected IConsole _console;
         protected IDriveInfo _driveInfo;
+        protected IConsole _console;
 
         public IFile File {
             get {
@@ -36,15 +38,6 @@
             set { _directory = value; }
         }
 
-        public IConsole Console
-        {
-            get
-            {
-                if (_console == null) _console = new StAbConsole();
-                return _console;
-            }
-            set { _console = value; }
-        }
 
         public IDriveInfo DriveInfo
         {
@@ -56,12 +49,21 @@
             set { _driveInfo = value; }
         }
 
+        public IConsole Console
+        {
+            get
+            {
+                if (_console == null) _console = new StAbConsole();
+                return _console;
+            }
+            set { _console = value; }
+        }
 
-        public SystemIO()
+        public StaticAbstractionWrapper()
         {
         }
 
-        public SystemIO(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo) : this()
+        public StaticAbstractionWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo) : this()
         {
             this.File = file;
             this.Path = path;

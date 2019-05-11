@@ -1,8 +1,10 @@
-﻿namespace StaticAbstraction.IO
+﻿using StaticAbstraction.IO;
+
+namespace StaticAbstraction
 {
     /// This whole file exists so that unit tests can be run without needing to have existing files in place
 
-    public interface ISystemIO
+    public interface IStaticAbstraction
     {
         IFile File { get; set; }
         IPath Path { get; set; }
