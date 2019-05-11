@@ -1,5 +1,7 @@
 # StaticAdbstraction
-A library that wraps static methods on common objects for easier testing
+A library that wraps the static methods on common objects in the System.IO 
+
+This is intended to alleviate developers from having to figure out and code ways around testing objects that use those static methods
 
 
 This is meant solely to wrapper commonly used objects that provide untestable static methods so that they can be tested.

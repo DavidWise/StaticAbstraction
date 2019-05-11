@@ -7,9 +7,10 @@
         IFile File { get; set; }
         IPath Path { get; set; }
         IDirectory Directory { get; set; }
+        IConsole Console { get; set; }
 
-        IFileInfo GetFileInfo(string path);
-        IDirectoryInfo GetDirectoryInfo(string path);
+        IFileInfo NewFileInfo(string path);
+        IDirectoryInfo NewDirectoryInfo(string path);
 
     }
 }

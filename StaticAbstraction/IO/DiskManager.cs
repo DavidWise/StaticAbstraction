@@ -1,47 +1,36 @@
 ﻿namespace StaticAbstraction.IO
 {
-
-
     public class DiskManager : IDiskManager
     {
-        private static DiskManager _current;
-
         public IFile File { get; set; }
         public IPath Path { get; set; }
         public IDirectory Directory { get; set; }
+        public IConsole Console { get; set; }
 
         public DiskManager()
         {
             this.File = new StAbFile();
             this.Path = new StAbPath();
             this.Directory = new StAbDirectory();
+            this.Console = new StAbConsole();
         }
 
-        public DiskManager(IFile file, IPath path, IDirectory directory)
+        public DiskManager(IFile file, IPath path, IDirectory directory, IConsole console)
         {
             this.File = file;
             this.Path = path;
             this.Directory = directory;
+            this.Console = console;
         }
 
-        public IFileInfo GetFileInfo(string path)
+        public IFileInfo NewFileInfo(string path)
         {
             return new StAbFileInfo(path);
         }
 
-        public IDirectoryInfo GetDirectoryInfo(string path)
+        public IDirectoryInfo NewDirectoryInfo(string path)
         {
             return new StAbDirectoryInfo(path);
-        }
-
-
-        public static DiskManager Current
-        {
-            get
-            {
-                if (_current == null) _current = new DiskManager();
-                return _current;
-            }
         }
     }
 }
