@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace StaticAbstraction
 {
-    public interface IDateTime
+    public interface IDateTime 
     {
         DateTime MaxValue { get; }
         DateTime MinValue { get; }

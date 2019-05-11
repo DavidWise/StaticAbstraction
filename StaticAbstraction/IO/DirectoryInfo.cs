@@ -6,9 +6,33 @@ namespace StaticAbstraction.IO
     public class StAbDirectoryInfo : StAbFileSystemInfo, IDirectoryInfo
     {
         private DirectoryInfo _info = null;
+        private IDirectoryInfo _parent = null;
+        private IDirectoryInfo _root = null;
 
-        public IDirectoryInfo Parent { get; protected set; }
-        public IDirectoryInfo Root { get; protected set; }
+        public IDirectoryInfo Parent
+        {
+            get
+            {
+                if (_parent == null && _info != null && _info.Parent != null)
+                {
+                    _parent = _info.Parent.ToStaticAbstraction();
+                }
+                return _parent;
+            }
+        }
+
+        public IDirectoryInfo Root
+        {
+            get
+            {
+                if (_root == null && _info != null && _info.Root != null)
+                {
+                    _root = _info.Root.ToStaticAbstraction();
+                }
+                return _root;
+            }
+        }
+
 
         public override bool Exists => _info.Exists;
 
@@ -29,9 +53,6 @@ namespace StaticAbstraction.IO
             if (BaseInfo != null)
             {
                 _info = (DirectoryInfo)this.BaseInfo;
-
-                if (_info.Parent != null) this.Parent = _info.Parent.ToStaticAbstraction();
-                if (_info.Root != null) this.Root = _info.Root.ToStaticAbstraction();
             }
         }
 

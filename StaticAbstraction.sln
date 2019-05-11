@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{A1009EF1-9
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7FCF7154-9DF0-41DE-BEE3-393179063362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticAbstractionTests", "Tests\StaticAbstractionTests\StaticAbstractionTests.csproj", "{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{A09537C2-9CEE-4E7B-AB14-76F3EC9EDD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A09537C2-9CEE-4E7B-AB14-76F3EC9EDD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A09537C2-9CEE-4E7B-AB14-76F3EC9EDD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6550DE74-B492-4DB1-94ED-0D154F4B8F7F} = {7FCF7154-9DF0-41DE-BEE3-393179063362}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6236914-9E9D-4300-80C5-676070A370C9}

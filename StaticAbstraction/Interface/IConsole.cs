@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StaticAbstraction
 {
-    public interface IConsole
+    public interface IConsole 
     {
         ConsoleColor BackgroundColor { get; set; }
         int BufferHeight { get; set; }
