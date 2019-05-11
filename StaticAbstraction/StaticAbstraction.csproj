@@ -1,7 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFrameworks>netcoreapp2.2;netstandard2.0;net45;net46;net47;net40</TargetFrameworks>
   </PropertyGroup>
+  
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net45'">
+		<DefineConstants>NET45;NETFULL</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net46'">
+		<DefineConstants>NET46;NETFULL</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net47'">
+		<DefineConstants>NET47;NETFULL</DefineConstants>
+	</PropertyGroup>	
 
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2'">
+		<DefineConstants>NETCORE22;NETCORE</DefineConstants>
+	</PropertyGroup>
 </Project>

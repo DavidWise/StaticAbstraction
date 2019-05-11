@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -73,20 +72,7 @@ namespace StaticAbstraction.IO
             set { Console.InputEncoding = value; }
         }
 
-        public bool IsErrorRedirected
-        {
-            get { return Console.IsErrorRedirected; }
-        }
 
-        public bool IsInputRedirected
-        {
-            get { return Console.IsInputRedirected; }
-        }
-
-        public bool IsOutputRedirected
-        {
-            get { return Console.IsOutputRedirected; }
-        }
 
         public bool KeyAvailable
         {
@@ -406,5 +392,22 @@ namespace StaticAbstraction.IO
             Console.WriteLine(value);
         }
 
+#if NETCORE22
+        public bool IsErrorRedirected
+        {
+            get { return Console.IsErrorRedirected; }
+        }
+
+        public bool IsInputRedirected
+        {
+            get { return Console.IsInputRedirected; }
+        }
+
+        public bool IsOutputRedirected
+        {
+            get { return Console.IsOutputRedirected; }
+        }
+
+#endif
     }
 }

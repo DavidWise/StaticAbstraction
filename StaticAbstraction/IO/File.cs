@@ -18,14 +18,7 @@ namespace StaticAbstraction.IO
             File.AppendAllLines(path, contents, encoding);
         }
 
-        public Task AppendAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return File.AppendAllLinesAsync(path, contents, cancellationToken);
-        }
-        public Task AppendAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return File.AppendAllLinesAsync(path, contents, encoding, cancellationToken);
-        }
+
 
         public void AppendAllText(string path, string contents)
         {
@@ -36,14 +29,7 @@ namespace StaticAbstraction.IO
             File.AppendAllText(path, contents, encoding);
         }
 
-        public Task AppendAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return File.AppendAllTextAsync(path, contents, cancellationToken);
-        }
-        public Task AppendAllTextAsync(string path, string contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return File.AppendAllTextAsync(path, contents, encoding, cancellationToken);
-        }
+
 
         public StreamWriter AppendText(string path)
         {
@@ -160,28 +146,19 @@ namespace StaticAbstraction.IO
         {
             return File.ReadAllBytes(path);
         }
-        public Task<byte[]> ReadAllBytesAsync(string path)
-        {
-            return File.ReadAllBytesAsync(path);
-        }
+
 
         public string[] ReadAllLines(string path)
         {
             return File.ReadAllLines(path);
         }
-        public Task<string[]> ReadAllLinesAsync(string path)
-        {
-            return File.ReadAllLinesAsync(path);
-        }
+
 
         public string ReadAllText(string path)
         {
             return File.ReadAllText(path);
         }
-        public Task<string> ReadAllTextAsync(string path)
-        {
-            return File.ReadAllTextAsync(path);
-        }
+
 
         public IEnumerable<string> ReadLines(string path)
         {
@@ -238,10 +215,7 @@ namespace StaticAbstraction.IO
         {
             File.WriteAllBytes(path, bytes);
         }
-        public Task WriteAllBytesAsync(string path, byte[] bytes)
-        {
-            return File.WriteAllBytesAsync(path, bytes);
-        }
+
 
         public void WriteAllLines(string path, string[] contents)
         {
@@ -260,14 +234,7 @@ namespace StaticAbstraction.IO
             File.WriteAllLines(path, contents, encoding);
         }
 
-        public Task WriteAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return File.WriteAllLinesAsync(path, contents, cancellationToken);
-        }
-        public Task WriteAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return File.WriteAllLinesAsync(path, contents, encoding, cancellationToken);
-        }
+
 
         public void WriteAllText(string path, string contents)
         {
@@ -278,6 +245,49 @@ namespace StaticAbstraction.IO
             File.WriteAllText(path, contents, encoding);
         }
 
+
+
+#if NETCORE22
+        public Task AppendAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return File.AppendAllLinesAsync(path, contents, cancellationToken);
+        }
+        public Task AppendAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return File.AppendAllLinesAsync(path, contents, encoding, cancellationToken);
+        }
+        public Task AppendAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return File.AppendAllTextAsync(path, contents, cancellationToken);
+        }
+        public Task AppendAllTextAsync(string path, string contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return File.AppendAllTextAsync(path, contents, encoding, cancellationToken);
+        }
+        public Task<byte[]> ReadAllBytesAsync(string path)
+        {
+            return File.ReadAllBytesAsync(path);
+        }
+        public Task<string[]> ReadAllLinesAsync(string path)
+        {
+            return File.ReadAllLinesAsync(path);
+        }
+        public Task<string> ReadAllTextAsync(string path)
+        {
+            return File.ReadAllTextAsync(path);
+        }
+        public Task WriteAllBytesAsync(string path, byte[] bytes)
+        {
+            return File.WriteAllBytesAsync(path, bytes);
+        }
+        public Task WriteAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return File.WriteAllLinesAsync(path, contents, cancellationToken);
+        }
+        public Task WriteAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return File.WriteAllLinesAsync(path, contents, encoding, cancellationToken);
+        }
         public void WriteAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken))
         {
             File.WriteAllTextAsync(path, contents, cancellationToken);
@@ -286,5 +296,6 @@ namespace StaticAbstraction.IO
         {
             File.WriteAllTextAsync(path, contents, encoding, cancellationToken);
         }
+#endif
     }
 }

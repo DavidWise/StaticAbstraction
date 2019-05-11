@@ -18,9 +18,6 @@ namespace StaticAbstraction.IO
         ConsoleColor ForegroundColor { get; set; }
         TextReader In { get; }
         Encoding InputEncoding { get; set; }
-        bool IsErrorRedirected { get; }
-        bool IsInputRedirected { get; }
-        bool IsOutputRedirected { get; }
         bool KeyAvailable { get; }
         int LargestWindowHeight { get; }
         int LargestWindowWidth { get; }
@@ -91,5 +88,11 @@ namespace StaticAbstraction.IO
         void WriteLine(string format, params object[] arg);
         void WriteLine(uint value);
         void WriteLine(ulong value);
+
+#if NETCORE22
+        bool IsErrorRedirected { get; }
+        bool IsInputRedirected { get; }
+        bool IsOutputRedirected { get; }
+#endif
     }
 }

@@ -14,16 +14,13 @@ namespace StaticAbstraction.IO
 
         IEnumerable<IDirectoryInfo> EnumerateDirectories();
         IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern);
-        IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions);
         IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, SearchOption searchOption);
 
         IEnumerable<IFileInfo> EnumerateFiles();
         IEnumerable<IFileInfo> EnumerateFiles(string searchPattern);
-        IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions);
 
         IDirectoryInfo[] GetDirectories();
         IDirectoryInfo[] GetDirectories(string searchPattern);
-        IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions);
         IDirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption);
 
         IFileInfo[] GetFiles();
@@ -32,9 +29,16 @@ namespace StaticAbstraction.IO
 
         IFileSystemInfo[] GetFileSystemInfos();
         IFileSystemInfo[] GetFileSystemInfos(string searchPattern);
-        IFileSystemInfo[] GetFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions);
         IFileSystemInfo[] GetFileSystemInfos(string searchPattern, SearchOption searchOption);
 
         void MoveTo(string destDirName);
+
+#if NETCORE22
+        IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions);
+        IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions);
+        IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions);
+        IFileSystemInfo[] GetFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions);
+
+#endif
     }
 }

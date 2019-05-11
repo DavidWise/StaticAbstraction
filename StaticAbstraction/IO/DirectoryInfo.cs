@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace StaticAbstraction.IO
@@ -60,10 +59,6 @@ namespace StaticAbstraction.IO
         {
             return _info.EnumerateDirectories(searchPattern).ToStaticAbstraction();
         }
-        public IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
-        {
-            return _info.EnumerateDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
-        }
         public IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, SearchOption searchOption)
         {
             return _info.EnumerateDirectories(searchPattern, searchOption).ToStaticAbstraction();
@@ -77,20 +72,14 @@ namespace StaticAbstraction.IO
         {
             return _info.EnumerateFiles(searchPattern).ToStaticAbstraction();
         }
-        public IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions)
-        {
-            return _info.EnumerateFiles(searchPattern, enumerationOptions).ToStaticAbstraction();
-        }
+
 
 
         public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern)
         {
             return _info.EnumerateFileSystemInfos(searchPattern).ToStaticAbstraction();
         }
-        public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
-        {
-            return _info.EnumerateFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
-        }
+
         public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, SearchOption searchOption)
         {
             return _info.EnumerateFileSystemInfos(searchPattern, searchOption).ToStaticAbstraction();
@@ -104,10 +93,7 @@ namespace StaticAbstraction.IO
         {
             return _info.GetDirectories(searchPattern).ToStaticAbstraction();
         }
-        public IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions)
-        {
-            return _info.GetDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
-        }
+
         public IDirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
         {
             return _info.GetDirectories(searchPattern, searchOption).ToStaticAbstraction();
@@ -134,10 +120,6 @@ namespace StaticAbstraction.IO
         {
             return _info.GetFileSystemInfos(searchPattern).ToStaticAbstraction();
         }
-        public IFileSystemInfo[] GetFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
-        {
-            return _info.GetFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
-        }
         public IFileSystemInfo[] GetFileSystemInfos(string searchPattern, SearchOption searchOption)
         {
             return _info.GetFileSystemInfos(searchPattern, searchOption).ToStaticAbstraction();
@@ -148,5 +130,29 @@ namespace StaticAbstraction.IO
         {
             _info.MoveTo(destDirName);
         }
+
+#if NETCORE22
+        public IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
+        {
+            return _info.EnumerateDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
+        }
+        public IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions)
+        {
+            return _info.EnumerateFiles(searchPattern, enumerationOptions).ToStaticAbstraction();
+        }
+        public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
+        {
+            return _info.EnumerateFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
+        }
+        public IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions)
+        {
+            return _info.GetDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
+        }
+        public IFileSystemInfo[] GetFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
+        {
+            return _info.GetFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
+        }
+
+#endif
     }
 }

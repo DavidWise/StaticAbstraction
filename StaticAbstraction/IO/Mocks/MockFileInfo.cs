@@ -1,7 +1,4 @@
-﻿using StaticAbstraction.IO;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
+﻿using System.IO;
 
 namespace StaticAbstraction.IO.Mocks
 {
