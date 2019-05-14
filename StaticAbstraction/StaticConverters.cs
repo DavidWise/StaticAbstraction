@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using StaticAbstraction.IO;
+using StaticAbstraction.Reflection;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
-namespace StaticAbstraction.IO
+namespace StaticAbstraction
 {
     public static class StaticConverters
     {
@@ -35,6 +38,15 @@ namespace StaticAbstraction.IO
         {
             IDriveInfoDetails result = null;
             if (info != null) result = new StAbDriveInfoDetails(info);
+            return result;
+        }
+
+        public static IAssemblyInstance ToStaticAbstraction(this Assembly info)
+        {
+            IAssemblyInstance result = null;
+
+            if (info != null) result = new StAbAssemblyInstance(info);
+
             return result;
         }
 

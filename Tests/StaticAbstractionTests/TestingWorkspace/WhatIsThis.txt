@@ -1,0 +1,3 @@
+﻿
+Since many of the static methods have to do with disk activity, a place was needed for that to happen
+This represents that place

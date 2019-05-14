@@ -16,4 +16,9 @@
     <ProjectReference Include="..\..\StaticAbstraction\StaticAbstraction.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IO\" />
+    <Folder Include="Reflection\" />
+  </ItemGroup>
+
 </Project>

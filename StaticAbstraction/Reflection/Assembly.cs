@@ -1,39 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
-using System.Text;
 
 namespace StaticAbstraction.Reflection
 {
 
     public class StAbAssembly : IAssembly
     {
-        // TODO: finish fleshing this out
-        protected Assembly _assembly;
-
-        public StAbAssembly() { }
-
-        public StAbAssembly(Assembly assembly)
+        public string CreateQualifiedName(string assemblyName, string typeName)
         {
-            _assembly = assembly;
+            return Assembly.CreateQualifiedName(assemblyName, typeName);
         }
 
-        public string CodeBase => _assembly?.CodeBase;
-
-        public string Location
+        public IAssemblyInstance GetAssembly(Type type)
         {
-            get { return _assembly?.Location; }
+            return Assembly.GetAssembly(type).ToStaticAbstraction();
+        }
+        public IAssemblyInstance GetCallingAssembly()
+        {
+            return Assembly.GetCallingAssembly().ToStaticAbstraction();
+        }
+        public IAssemblyInstance GetEntryAssembly()
+        {
+            return Assembly.GetEntryAssembly().ToStaticAbstraction();
+        }
+        public IAssemblyInstance GetExecutingAssembly()
+        {
+            return Assembly.GetExecutingAssembly().ToStaticAbstraction();
         }
 
-        public string[] GetManifestResourceNames()
+        public IAssemblyInstance Load(AssemblyName assemblyRef)
         {
-            return _assembly?.GetManifestResourceNames();
+            return Assembly.Load(assemblyRef).ToStaticAbstraction();
+        }
+        public IAssemblyInstance Load(string assemblyString)
+        {
+            return Assembly.Load(assemblyString).ToStaticAbstraction();
+        }
+        public IAssemblyInstance Load(byte[] rawAssembly)
+        {
+            return Assembly.Load(rawAssembly).ToStaticAbstraction();
+        }
+        public IAssemblyInstance Load(byte[] rawAssembly, byte[] rawSymbolStore)
+        {
+            return Assembly.Load(rawAssembly, rawSymbolStore).ToStaticAbstraction();
         }
 
-        public Stream GetManifestResourceStream(string name)
+        public IAssemblyInstance LoadFile(string path)
         {
-            return _assembly?.GetManifestResourceStream(name);
+            return Assembly.LoadFile(path).ToStaticAbstraction();
+        }
+
+        public IAssemblyInstance LoadFrom(string assemblyFile)
+        {
+            return Assembly.LoadFrom(assemblyFile).ToStaticAbstraction();
+        }
+        public IAssemblyInstance LoadFrom(string assemblyFile, byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm)
+        {
+            return Assembly.LoadFrom(assemblyFile, hashValue, hashAlgorithm).ToStaticAbstraction();
+        }
+
+        [Obsolete]
+        public IAssemblyInstance LoadWithPartialName(string partialName)
+        {
+            return Assembly.LoadWithPartialName(partialName).ToStaticAbstraction();
+        }
+
+        public IAssemblyInstance ReflectionOnlyLoad(string assemblyString)
+        {
+            return Assembly.ReflectionOnlyLoad(assemblyString).ToStaticAbstraction();
+        }
+        public IAssemblyInstance ReflectionOnlyLoad(byte[] rawAssembly)
+        {
+            return Assembly.ReflectionOnlyLoad(rawAssembly).ToStaticAbstraction();
+        }
+
+        public IAssemblyInstance ReflectionOnlyLoadFrom(string assemblyFile)
+        {
+            return Assembly.ReflectionOnlyLoadFrom(assemblyFile).ToStaticAbstraction();
+        }
+
+        public IAssemblyInstance UnsafeLoadFrom(string assemblyFile)
+        {
+            return Assembly.UnsafeLoadFrom(assemblyFile).ToStaticAbstraction();
         }
     }
 }

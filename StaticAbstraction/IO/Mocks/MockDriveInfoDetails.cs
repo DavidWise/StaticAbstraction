@@ -4,14 +4,14 @@ namespace StaticAbstraction.IO.Mocks
 {
     public class MockDriveInfoDetails :IDriveInfoDetails
     {
-        public long AvailableFreeSpace { get; set; }
-        public string DriveFormat { get; set; }
-        public DriveType DriveType { get; set; }
-        public bool IsReady { get; set; }
-        public string Name { get; set; }
-        public IDirectoryInfo RootDirectory { get; set; }
-        public long TotalFreeSpace { get; set; }
-        public long TotalSize { get; set; }
-        public string VolumeLabel { get; set; }
+        public virtual long AvailableFreeSpace { get; set; }
+        public virtual string DriveFormat { get; set; }
+        public virtual DriveType DriveType { get; set; }
+        public virtual bool IsReady { get; set; }
+        public virtual string Name { get; set; }
+        public virtual IDirectoryInfo RootDirectory { get; set; }
+        public virtual long TotalFreeSpace { get; set; }
+        public virtual long TotalSize { get; set; }
+        public virtual string VolumeLabel { get; set; }
     }
 }
