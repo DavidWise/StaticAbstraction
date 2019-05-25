@@ -1,8 +1,9 @@
 ﻿using StaticAbstraction.IO;
+using StaticAbstraction.Reflection;
 
 namespace StaticAbstraction
 {
-    public class StaticAbstractionWrapper : IStaticAbstraction
+    public class StAbWrapper : IStaticAbstraction
     {
         protected IFile _file;
         protected IPath _path;
@@ -10,6 +11,7 @@ namespace StaticAbstraction
         protected IDriveInfo _driveInfo;
         protected IConsole _console;
         protected IDateTime _dateTime;
+        protected IAssembly _assembly;
 
         public IFile File {
             get {
@@ -70,11 +72,21 @@ namespace StaticAbstraction
             set { _dateTime = value; }
         }
 
-        public StaticAbstractionWrapper()
+        public IAssembly Assembly
+        {
+            get
+            {
+                if (_assembly == null) _assembly = new StAbAssembly();
+                return _assembly;
+            }
+            set { _assembly = value; }
+        }
+
+        public StAbWrapper()
         {
         }
 
-        public StaticAbstractionWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime) : this()
+        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime) : this()
         {
             this.File = file;
             this.Path = path;
