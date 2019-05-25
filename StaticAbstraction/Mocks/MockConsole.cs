@@ -6,335 +6,335 @@ namespace StaticAbstraction.Mocks
 {
     public class MockConsole : IConsole
     {
-        public ConsoleColor BackgroundColor {get; set; }
-        public int BufferHeight {get; set; }
-        public int BufferWidth {get; set; }
+        public virtual ConsoleColor BackgroundColor {get; set; }
+        public virtual int BufferHeight {get; set; }
+        public virtual int BufferWidth {get; set; }
 
-        public bool CapsLock { get; set; }
+        public virtual bool CapsLock { get; set; }
 
-        public int CursorLeft {get; set; }
-        public int CursorSize {get; set; }
-        public int CursorTop {get; set; }
-        public bool CursorVisible {get; set; }
+        public virtual int CursorLeft {get; set; }
+        public virtual int CursorSize {get; set; }
+        public virtual int CursorTop {get; set; }
+        public virtual bool CursorVisible {get; set; }
 
-        public TextWriter Error { get; set; }
+        public virtual TextWriter Error { get; set; }
 
-        public ConsoleColor ForegroundColor {get; set; }
+        public virtual ConsoleColor ForegroundColor {get; set; }
 
-        public TextReader In { get; set; }
+        public virtual TextReader In { get; set; }
 
-        public Encoding InputEncoding {get; set; }
+        public virtual Encoding InputEncoding {get; set; }
 
-        public bool KeyAvailable { get; set; }
+        public virtual bool KeyAvailable { get; set; }
 
-        public int LargestWindowHeight { get; set; }
+        public virtual int LargestWindowHeight { get; set; }
 
-        public int LargestWindowWidth { get; set; }
+        public virtual int LargestWindowWidth { get; set; }
 
-        public bool NumberLock { get; set; }
+        public virtual bool NumberLock { get; set; }
 
-        public TextWriter Out { get; set; }
+        public virtual TextWriter Out { get; set; }
 
-        public Encoding OutputEncoding {get; set; }
-        public string Title {get; set; }
-        public bool TreatControlCAsInput {get; set; }
-        public int WindowHeight {get; set; }
-        public int WindowLeft {get; set; }
-        public int WindowTop {get; set; }
-        public int WindowWidth {get; set; }
+        public virtual Encoding OutputEncoding {get; set; }
+        public virtual string Title {get; set; }
+        public virtual bool TreatControlCAsInput {get; set; }
+        public virtual int WindowHeight {get; set; }
+        public virtual int WindowLeft {get; set; }
+        public virtual int WindowTop {get; set; }
+        public virtual int WindowWidth {get; set; }
 
 
-        public void Beep()
+        public virtual void Beep()
         {
             // do nothing
         }
 
-        public void Beep(int frequency, int duration)
+        public virtual void Beep(int frequency, int duration)
         {
             // do nothing
         }
 
-        public void Clear()
+        public virtual void Clear()
         {
             // do nothing
         }
 
-        public void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop)
+        public virtual void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop)
         {
             // do nothing
         }
 
-        public void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop, char sourceChar, ConsoleColor sourceForeColor, ConsoleColor sourceBackColor)
+        public virtual void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop, char sourceChar, ConsoleColor sourceForeColor, ConsoleColor sourceBackColor)
         {
             // do nothing
         }
 
-        public Stream OpenStandardError()
+        public virtual Stream OpenStandardError()
         {
             return null;
         }
 
-        public Stream OpenStandardError(int bufferSize)
+        public virtual Stream OpenStandardError(int bufferSize)
         {
             return null;
         }
 
-        public Stream OpenStandardInput()
+        public virtual Stream OpenStandardInput()
         {
             return null;
         }
 
-        public Stream OpenStandardInput(int bufferSize)
+        public virtual Stream OpenStandardInput(int bufferSize)
         {
             return null;
         }
 
-        public Stream OpenStandardOutput()
+        public virtual Stream OpenStandardOutput()
         {
             return null;
         }
 
-        public Stream OpenStandardOutput(int bufferSize)
+        public virtual Stream OpenStandardOutput(int bufferSize)
         {
             return null;
         }
 
-        public int Read()
+        public virtual int Read()
         {
             return 0;
         }
 
-        public ConsoleKeyInfo ReadKey()
+        public virtual ConsoleKeyInfo ReadKey()
         {
             return default(ConsoleKeyInfo);
         }
 
-        public ConsoleKeyInfo ReadKey(bool intercept)
+        public virtual ConsoleKeyInfo ReadKey(bool intercept)
         {
             return default(ConsoleKeyInfo);
         }
 
-        public void ResetColor()
+        public virtual void ResetColor()
         {
             // do nothing
         }
 
-        public void SetBufferSize(int width, int height)
+        public virtual void SetBufferSize(int width, int height)
         {
             // do nothing
         }
 
-        public void SetCursorPosition(int left, int top)
+        public virtual void SetCursorPosition(int left, int top)
         {
             // do nothing
         }
 
-        public void SetError(TextWriter newError)
+        public virtual void SetError(TextWriter newError)
         {
             // do nothing
         }
 
-        public void SetIn(TextReader newIn)
+        public virtual void SetIn(TextReader newIn)
         {
             // do nothing
         }
 
-        public void SetOut(TextWriter newOut)
+        public virtual void SetOut(TextWriter newOut)
         {
             // do nothing
         }
 
-        public void SetWindowPosition(int left, int top)
+        public virtual void SetWindowPosition(int left, int top)
         {
             // do nothing
         }
 
-        public void SetWindowSize(int width, int height)
+        public virtual void SetWindowSize(int width, int height)
         {
             // do nothing
         }
 
-        public void Write(bool value)
+        public virtual void Write(bool value)
         {
             // do nothing
         }
 
-        public void Write(char value)
+        public virtual void Write(char value)
         {
             // do nothing
         }
 
-        public void Write(char[] buffer)
+        public virtual void Write(char[] buffer)
         {
             // do nothing
         }
 
-        public void Write(char[] buffer, int index, int count)
+        public virtual void Write(char[] buffer, int index, int count)
         {
             // do nothing
         }
 
-        public void Write(decimal value)
+        public virtual void Write(decimal value)
         {
             // do nothing
         }
 
-        public void Write(double value)
+        public virtual void Write(double value)
         {
             // do nothing
         }
 
-        public void Write(float value)
+        public virtual void Write(float value)
         {
             // do nothing
         }
 
-        public void Write(int value)
+        public virtual void Write(int value)
         {
             // do nothing
         }
 
-        public void Write(long value)
+        public virtual void Write(long value)
         {
             // do nothing
         }
 
-        public void Write(object value)
+        public virtual void Write(object value)
         {
             // do nothing
         }
 
-        public void Write(string value)
+        public virtual void Write(string value)
         {
             // do nothing
         }
 
-        public void Write(string format, object arg0)
+        public virtual void Write(string format, object arg0)
         {
             // do nothing
         }
 
-        public void Write(string format, object arg0, object arg1)
+        public virtual void Write(string format, object arg0, object arg1)
         {
             // do nothing
         }
 
-        public void Write(string format, object arg0, object arg1, object arg2)
+        public virtual void Write(string format, object arg0, object arg1, object arg2)
         {
             // do nothing
         }
 
-        public void Write(string format, params object[] arg)
+        public virtual void Write(string format, params object[] arg)
         {
             // do nothing
         }
 
-        public void Write(uint value)
+        public virtual void Write(uint value)
         {
             // do nothing
         }
 
-        public void Write(ulong value)
+        public virtual void Write(ulong value)
         {
             // do nothing
         }
 
-        public void WriteLine()
+        public virtual void WriteLine()
         {
             // do nothing
         }
 
-        public void WriteLine(bool value)
+        public virtual void WriteLine(bool value)
         {
             // do nothing
         }
 
-        public void WriteLine(char value)
+        public virtual void WriteLine(char value)
         {
             // do nothing
         }
 
-        public void WriteLine(char[] buffer)
+        public virtual void WriteLine(char[] buffer)
         {
             // do nothing
         }
 
-        public void WriteLine(char[] buffer, int index, int count)
+        public virtual void WriteLine(char[] buffer, int index, int count)
         {
             // do nothing
         }
 
-        public void WriteLine(decimal value)
+        public virtual void WriteLine(decimal value)
         {
             // do nothing
         }
 
-        public void WriteLine(double value)
+        public virtual void WriteLine(double value)
         {
             // do nothing
         }
 
-        public void WriteLine(float value)
+        public virtual void WriteLine(float value)
         {
             // do nothing
         }
 
-        public void WriteLine(int value)
+        public virtual void WriteLine(int value)
         {
             // do nothing
         }
 
-        public void WriteLine(long value)
+        public virtual void WriteLine(long value)
         {
             // do nothing
         }
 
-        public void WriteLine(object value)
+        public virtual void WriteLine(object value)
         {
             // do nothing
         }
 
-        public void WriteLine(string value)
+        public virtual void WriteLine(string value)
         {
             // do nothing
         }
 
-        public void WriteLine(string format, object arg0)
+        public virtual void WriteLine(string format, object arg0)
         {
             // do nothing
         }
 
-        public void WriteLine(string format, object arg0, object arg1)
+        public virtual void WriteLine(string format, object arg0, object arg1)
         {
             // do nothing
         }
 
-        public void WriteLine(string format, object arg0, object arg1, object arg2)
+        public virtual void WriteLine(string format, object arg0, object arg1, object arg2)
         {
             // do nothing
         }
 
-        public void WriteLine(string format, params object[] arg)
+        public virtual void WriteLine(string format, params object[] arg)
         {
             // do nothing
         }
 
-        public void WriteLine(uint value)
+        public virtual void WriteLine(uint value)
         {
             // do nothing
         }
 
-        public void WriteLine(ulong value)
+        public virtual void WriteLine(ulong value)
         {
             // do nothing
         }
 
 #if NETCORE22
-        public bool IsErrorRedirected { get; set; }
+        public virtual bool IsErrorRedirected { get; set; }
 
-        public bool IsInputRedirected { get; set; }
+        public virtual bool IsInputRedirected { get; set; }
 
-        public bool IsOutputRedirected { get; set; }
+        public virtual bool IsOutputRedirected { get; set; }
 #endif
 
     }
