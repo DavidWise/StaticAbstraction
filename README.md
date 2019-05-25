@@ -1,4 +1,4 @@
-# StaticAdbstraction
+# StaticAbstraction
 A library that wraps the static methods on common objects in the System.IO 
 
 This is intended to alleviate developers from having to figure out and code ways around testing objects that use those static methods
