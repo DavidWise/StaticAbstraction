@@ -4,7 +4,7 @@ namespace StaticAbstraction.IO
 {
     public class StAbDriveInfo : IDriveInfo
     {
-        public IDriveInfoDetails[] GetDrives()
+        public virtual IDriveInfoDetails[] GetDrives()
         {
             return DriveInfo.GetDrives().ToStaticAbstraction();
         }

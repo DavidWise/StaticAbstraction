@@ -6,80 +6,80 @@ namespace StaticAbstraction.Reflection
 
     public class StAbAssembly : IAssembly
     {
-        public string CreateQualifiedName(string assemblyName, string typeName)
+        public virtual string CreateQualifiedName(string assemblyName, string typeName)
         {
             return Assembly.CreateQualifiedName(assemblyName, typeName);
         }
 
-        public IAssemblyInstance GetAssembly(Type type)
+        public virtual IAssemblyInstance GetAssembly(Type type)
         {
             return Assembly.GetAssembly(type).ToStaticAbstraction();
         }
-        public IAssemblyInstance GetCallingAssembly()
+        public virtual IAssemblyInstance GetCallingAssembly()
         {
             return Assembly.GetCallingAssembly().ToStaticAbstraction();
         }
-        public IAssemblyInstance GetEntryAssembly()
+        public virtual IAssemblyInstance GetEntryAssembly()
         {
             return Assembly.GetEntryAssembly().ToStaticAbstraction();
         }
-        public IAssemblyInstance GetExecutingAssembly()
+        public virtual IAssemblyInstance GetExecutingAssembly()
         {
             return Assembly.GetExecutingAssembly().ToStaticAbstraction();
         }
 
-        public IAssemblyInstance Load(AssemblyName assemblyRef)
+        public virtual IAssemblyInstance Load(AssemblyName assemblyRef)
         {
             return Assembly.Load(assemblyRef).ToStaticAbstraction();
         }
-        public IAssemblyInstance Load(string assemblyString)
+        public virtual IAssemblyInstance Load(string assemblyString)
         {
             return Assembly.Load(assemblyString).ToStaticAbstraction();
         }
-        public IAssemblyInstance Load(byte[] rawAssembly)
+        public virtual IAssemblyInstance Load(byte[] rawAssembly)
         {
             return Assembly.Load(rawAssembly).ToStaticAbstraction();
         }
-        public IAssemblyInstance Load(byte[] rawAssembly, byte[] rawSymbolStore)
+        public virtual IAssemblyInstance Load(byte[] rawAssembly, byte[] rawSymbolStore)
         {
             return Assembly.Load(rawAssembly, rawSymbolStore).ToStaticAbstraction();
         }
 
-        public IAssemblyInstance LoadFile(string path)
+        public virtual IAssemblyInstance LoadFile(string path)
         {
             return Assembly.LoadFile(path).ToStaticAbstraction();
         }
 
-        public IAssemblyInstance LoadFrom(string assemblyFile)
+        public virtual IAssemblyInstance LoadFrom(string assemblyFile)
         {
             return Assembly.LoadFrom(assemblyFile).ToStaticAbstraction();
         }
-        public IAssemblyInstance LoadFrom(string assemblyFile, byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm)
+        public virtual IAssemblyInstance LoadFrom(string assemblyFile, byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm)
         {
             return Assembly.LoadFrom(assemblyFile, hashValue, hashAlgorithm).ToStaticAbstraction();
         }
 
         [Obsolete]
-        public IAssemblyInstance LoadWithPartialName(string partialName)
+        public virtual IAssemblyInstance LoadWithPartialName(string partialName)
         {
             return Assembly.LoadWithPartialName(partialName).ToStaticAbstraction();
         }
 
-        public IAssemblyInstance ReflectionOnlyLoad(string assemblyString)
+        public virtual IAssemblyInstance ReflectionOnlyLoad(string assemblyString)
         {
             return Assembly.ReflectionOnlyLoad(assemblyString).ToStaticAbstraction();
         }
-        public IAssemblyInstance ReflectionOnlyLoad(byte[] rawAssembly)
+        public virtual IAssemblyInstance ReflectionOnlyLoad(byte[] rawAssembly)
         {
             return Assembly.ReflectionOnlyLoad(rawAssembly).ToStaticAbstraction();
         }
 
-        public IAssemblyInstance ReflectionOnlyLoadFrom(string assemblyFile)
+        public virtual IAssemblyInstance ReflectionOnlyLoadFrom(string assemblyFile)
         {
             return Assembly.ReflectionOnlyLoadFrom(assemblyFile).ToStaticAbstraction();
         }
 
-        public IAssemblyInstance UnsafeLoadFrom(string assemblyFile)
+        public virtual IAssemblyInstance UnsafeLoadFrom(string assemblyFile)
         {
             return Assembly.UnsafeLoadFrom(assemblyFile).ToStaticAbstraction();
         }

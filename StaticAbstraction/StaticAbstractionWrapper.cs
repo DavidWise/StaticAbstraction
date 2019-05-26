@@ -13,7 +13,7 @@ namespace StaticAbstraction
         protected IDateTime _dateTime;
         protected IAssembly _assembly;
 
-        public IFile File {
+        public virtual IFile File {
             get {
                 if (_file == null) _file = new StAbFile();
                 return _file;
@@ -21,7 +21,7 @@ namespace StaticAbstraction
             set { _file = value; }
         }
 
-        public IPath Path
+        public virtual IPath Path
         {
             get
             {
@@ -31,7 +31,7 @@ namespace StaticAbstraction
             set { _path = value; }
         }
 
-        public IDirectory Directory
+        public virtual IDirectory Directory
         {
             get
             {
@@ -42,7 +42,7 @@ namespace StaticAbstraction
         }
 
 
-        public IDriveInfo DriveInfo
+        public virtual IDriveInfo DriveInfo
         {
             get
             {
@@ -52,7 +52,7 @@ namespace StaticAbstraction
             set { _driveInfo = value; }
         }
 
-        public IConsole Console
+        public virtual IConsole Console
         {
             get
             {
@@ -62,7 +62,7 @@ namespace StaticAbstraction
             set { _console = value; }
         }
 
-        public IDateTime DateTime
+        public virtual IDateTime DateTime
         {
             get
             {
@@ -72,7 +72,7 @@ namespace StaticAbstraction
             set { _dateTime = value; }
         }
 
-        public IAssembly Assembly
+        public virtual IAssembly Assembly
         {
             get
             {
@@ -86,22 +86,23 @@ namespace StaticAbstraction
         {
         }
 
-        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime) : this()
+        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly) : this()
         {
-            this.File = file;
-            this.Path = path;
-            this.Directory = directory;
-            this.Console = console;
-            this.DriveInfo = driveInfo;
-            this.DateTime = dateTime;
+            if (file != null) this.File = file;
+            if (path != null) this.Path = path;
+            if (directory != null) this.Directory = directory;
+            if (console != null) this.Console = console;
+            if (driveInfo != null) this.DriveInfo = driveInfo;
+            if (dateTime != null) this.DateTime = dateTime;
+            if (assembly != null) this.Assembly = assembly;
         }
 
-        public IFileInfo NewFileInfo(string path)
+        public virtual IFileInfo NewFileInfo(string path)
         {
             return new StAbFileInfo(path);
         }
 
-        public IDirectoryInfo NewDirectoryInfo(string path)
+        public virtual IDirectoryInfo NewDirectoryInfo(string path)
         {
             return new StAbDirectoryInfo(path);
         }

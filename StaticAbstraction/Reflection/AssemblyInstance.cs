@@ -10,214 +10,214 @@ namespace StaticAbstraction.Reflection
 
     public class StAbAssemblyInstance : IAssemblyInstance
     {
-        protected Assembly _assembly;
+        protected Assembly WrappedObject { get; private set; }
 
         public StAbAssemblyInstance() { }
 
         public StAbAssemblyInstance(Assembly assembly)
         {
-            _assembly = assembly;
+            WrappedObject = assembly;
         }
 
-        public string CodeBase => _assembly?.CodeBase;
+        public virtual string CodeBase => WrappedObject?.CodeBase;
 
-        public object CreateInstance(string typeName)
+        public virtual object CreateInstance(string typeName)
         {
-            return _assembly.CreateInstance(typeName);
+            return WrappedObject.CreateInstance(typeName);
         }
-        public object CreateInstance(string typeName, bool ignoreCase)
+        public virtual object CreateInstance(string typeName, bool ignoreCase)
         {
-            return _assembly.CreateInstance(typeName, ignoreCase);
+            return WrappedObject.CreateInstance(typeName, ignoreCase);
         }
-        public object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes)
+        public virtual object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes)
         {
-            return _assembly.CreateInstance(typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes);
+            return WrappedObject.CreateInstance(typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes);
         }
 
        
-        public MethodInfo EntryPoint => _assembly?.EntryPoint;
-        public string EscapedCodeBase => _assembly?.EscapedCodeBase;
-        public string FullName => _assembly?.FullName;
+        public virtual MethodInfo EntryPoint => WrappedObject?.EntryPoint;
+        public virtual string EscapedCodeBase => WrappedObject?.EscapedCodeBase;
+        public virtual string FullName => WrappedObject?.FullName;
 
-        public object[] GetCustomAttributes(bool inherit)
+        public virtual object[] GetCustomAttributes(bool inherit)
         {
-            return _assembly?.GetCustomAttributes(inherit);
+            return WrappedObject?.GetCustomAttributes(inherit);
         }
-        public object[] GetCustomAttributes(Type attributeType, bool inherit)
+        public virtual object[] GetCustomAttributes(Type attributeType, bool inherit)
         {
-            return _assembly?.GetCustomAttributes(attributeType, inherit);
-        }
-
-        public IList<CustomAttributeData> GetCustomAttributesData()
-        {
-            return _assembly?.GetCustomAttributesData();
+            return WrappedObject?.GetCustomAttributes(attributeType, inherit);
         }
 
-        public Type[] GetExportedTypes()
+        public virtual IList<CustomAttributeData> GetCustomAttributesData()
         {
-            return _assembly?.GetExportedTypes();
+            return WrappedObject?.GetCustomAttributesData();
         }
 
-        public FileStream GetFile(string name)
+        public virtual Type[] GetExportedTypes()
         {
-            return _assembly?.GetFile(name);
+            return WrappedObject?.GetExportedTypes();
         }
 
-        public FileStream[] GetFiles()
+        public virtual FileStream GetFile(string name)
         {
-            return _assembly?.GetFiles();
+            return WrappedObject?.GetFile(name);
         }
-        public FileStream[] GetFiles(bool getResourceModules)
+
+        public virtual FileStream[] GetFiles()
         {
-            return _assembly?.GetFiles(getResourceModules);
+            return WrappedObject?.GetFiles();
+        }
+        public virtual FileStream[] GetFiles(bool getResourceModules)
+        {
+            return WrappedObject?.GetFiles(getResourceModules);
         }
 
         public override int GetHashCode()
         {
-            return _assembly == null? 0 :_assembly.GetHashCode();
+            return WrappedObject == null? 0 :WrappedObject.GetHashCode();
         }
 
-        public Module[] GetLoadedModules()
+        public virtual Module[] GetLoadedModules()
         {
-            return _assembly?.GetLoadedModules();
+            return WrappedObject?.GetLoadedModules();
         }
-        public Module[] GetLoadedModules(bool getResourceModules)
+        public virtual Module[] GetLoadedModules(bool getResourceModules)
         {
-            return _assembly?.GetLoadedModules(getResourceModules);
-        }
-
-        public ManifestResourceInfo GetManifestResourceInfo(string resourceName)
-        {
-            return _assembly?.GetManifestResourceInfo(resourceName);
+            return WrappedObject?.GetLoadedModules(getResourceModules);
         }
 
-        public string[] GetManifestResourceNames()
+        public virtual ManifestResourceInfo GetManifestResourceInfo(string resourceName)
         {
-            return _assembly?.GetManifestResourceNames();
+            return WrappedObject?.GetManifestResourceInfo(resourceName);
         }
 
-        public Stream GetManifestResourceStream(string name)
+        public virtual string[] GetManifestResourceNames()
         {
-            return _assembly?.GetManifestResourceStream(name);
-        }
-        public Stream GetManifestResourceStream(Type type, string name)
-        {
-            return _assembly?.GetManifestResourceStream(type, name);
+            return WrappedObject?.GetManifestResourceNames();
         }
 
-        public Module GetModule(string name)
+        public virtual Stream GetManifestResourceStream(string name)
         {
-            return _assembly?.GetModule(name);
+            return WrappedObject?.GetManifestResourceStream(name);
+        }
+        public virtual Stream GetManifestResourceStream(Type type, string name)
+        {
+            return WrappedObject?.GetManifestResourceStream(type, name);
         }
 
-        public Module[] GetModules()
+        public virtual Module GetModule(string name)
         {
-            return _assembly?.GetModules();
-        }
-        public Module[] GetModules(bool getResourceModules)
-        {
-            return _assembly?.GetModules(getResourceModules);
+            return WrappedObject?.GetModule(name);
         }
 
-        public AssemblyName GetName()
+        public virtual Module[] GetModules()
         {
-            return _assembly?.GetName();
+            return WrappedObject?.GetModules();
         }
-        public AssemblyName GetName(bool copiedName)
+        public virtual Module[] GetModules(bool getResourceModules)
         {
-            return _assembly?.GetName(copiedName);
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            _assembly?.GetObjectData(info, context);
+            return WrappedObject?.GetModules(getResourceModules);
         }
 
-        public AssemblyName[] GetReferencedAssemblies()
+        public virtual AssemblyName GetName()
         {
-            return _assembly?.GetReferencedAssemblies();
+            return WrappedObject?.GetName();
+        }
+        public virtual AssemblyName GetName(bool copiedName)
+        {
+            return WrappedObject?.GetName(copiedName);
         }
 
-        public IAssemblyInstance GetSatelliteAssembly(CultureInfo culture)
+        public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            return _assembly?.GetSatelliteAssembly(culture).ToStaticAbstraction();
-        }
-        public IAssemblyInstance GetSatelliteAssembly(CultureInfo culture, Version version)
-        {
-            return _assembly?.GetSatelliteAssembly(culture, version).ToStaticAbstraction();
+            WrappedObject?.GetObjectData(info, context);
         }
 
-        public Type GetType(string name)
+        public virtual AssemblyName[] GetReferencedAssemblies()
         {
-            return _assembly?.GetType(name);
-        }
-        public Type GetType(string name, bool throwOnError)
-        {
-            return _assembly?.GetType(name, throwOnError);
-        }
-        public Type GetType(string name, bool throwOnError, bool ignoreCase)
-        {
-            return _assembly?.GetType(name, throwOnError, ignoreCase);
+            return WrappedObject?.GetReferencedAssemblies();
         }
 
-        public Type[] GetTypes()
+        public virtual IAssemblyInstance GetSatelliteAssembly(CultureInfo culture)
         {
-            return _assembly?.GetTypes();
+            return WrappedObject?.GetSatelliteAssembly(culture).ToStaticAbstraction();
+        }
+        public virtual IAssemblyInstance GetSatelliteAssembly(CultureInfo culture, Version version)
+        {
+            return WrappedObject?.GetSatelliteAssembly(culture, version).ToStaticAbstraction();
         }
 
-        public bool GlobalAssemblyCache => _assembly == null ? false : _assembly.GlobalAssemblyCache;
-        public long HostContext => _assembly == null ? 0 : _assembly.HostContext;
-        public string ImageRuntimeVersion => _assembly?.ImageRuntimeVersion;
-
-
-        public bool IsDefined(Type attributeType, bool inherit)
+        public virtual Type GetType(string name)
         {
-            return _assembly == null ? false : _assembly.IsDefined(attributeType, inherit);
+            return WrappedObject?.GetType(name);
+        }
+        public virtual Type GetType(string name, bool throwOnError)
+        {
+            return WrappedObject?.GetType(name, throwOnError);
+        }
+        public virtual Type GetType(string name, bool throwOnError, bool ignoreCase)
+        {
+            return WrappedObject?.GetType(name, throwOnError, ignoreCase);
         }
 
-        public bool IsDynamic => _assembly == null ? false : _assembly.IsDynamic;
-        public bool IsFullyTrusted => _assembly == null ? false : _assembly.IsFullyTrusted;
-
-        public Module LoadModule(string moduleName, byte[] rawModule)
+        public virtual Type[] GetTypes()
         {
-            return _assembly.LoadModule(moduleName, rawModule);
-        }
-        public Module LoadModule(string moduleName, byte[] rawModule, byte[] rawSymbolStore)
-        {
-            return _assembly.LoadModule(moduleName, rawModule, rawSymbolStore);
+            return WrappedObject?.GetTypes();
         }
 
-        public string Location => _assembly?.Location;
-        public Module ManifestModule => _assembly?.ManifestModule;
+        public virtual bool GlobalAssemblyCache => WrappedObject == null ? false : WrappedObject.GlobalAssemblyCache;
+        public virtual long HostContext => WrappedObject == null ? 0 : WrappedObject.HostContext;
+        public virtual string ImageRuntimeVersion => WrappedObject?.ImageRuntimeVersion;
+
+
+        public virtual bool IsDefined(Type attributeType, bool inherit)
+        {
+            return WrappedObject == null ? false : WrappedObject.IsDefined(attributeType, inherit);
+        }
+
+        public virtual bool IsDynamic => WrappedObject == null ? false : WrappedObject.IsDynamic;
+        public virtual bool IsFullyTrusted => WrappedObject == null ? false : WrappedObject.IsFullyTrusted;
+
+        public virtual Module LoadModule(string moduleName, byte[] rawModule)
+        {
+            return WrappedObject.LoadModule(moduleName, rawModule);
+        }
+        public virtual Module LoadModule(string moduleName, byte[] rawModule, byte[] rawSymbolStore)
+        {
+            return WrappedObject.LoadModule(moduleName, rawModule, rawSymbolStore);
+        }
+
+        public virtual string Location => WrappedObject?.Location;
+        public virtual Module ManifestModule => WrappedObject?.ManifestModule;
 
         // TODO: Need to figure out how to handle these in the wrappers
-        // public event ModuleResolveEventHandler ModuleResolve;
+        // public virtual event ModuleResolveEventHandler ModuleResolve;
 
 
-        public bool ReflectionOnly => _assembly == null ? false : _assembly.ReflectionOnly;
-        public System.Security.SecurityRuleSet SecurityRuleSet => _assembly==null ? System.Security.SecurityRuleSet.None : _assembly.SecurityRuleSet;
+        public virtual bool ReflectionOnly => WrappedObject == null ? false : WrappedObject.ReflectionOnly;
+        public virtual System.Security.SecurityRuleSet SecurityRuleSet => WrappedObject==null ? System.Security.SecurityRuleSet.None : WrappedObject.SecurityRuleSet;
 
         public override string ToString()
         {
-            return _assembly?.ToString();
+            return WrappedObject?.ToString();
         }
 
 #if !NET40
-        public IEnumerable<TypeInfo> DefinedTypes => _assembly?.DefinedTypes;
-        public IEnumerable<CustomAttributeData> CustomAttributes => _assembly?.CustomAttributes;
-        public IEnumerable<Type> ExportedTypes => _assembly?.ExportedTypes;
-        public IEnumerable<Module> Modules => _assembly?.Modules;
+        public virtual IEnumerable<TypeInfo> DefinedTypes => WrappedObject?.DefinedTypes;
+        public virtual IEnumerable<CustomAttributeData> CustomAttributes => WrappedObject?.CustomAttributes;
+        public virtual IEnumerable<Type> ExportedTypes => WrappedObject?.ExportedTypes;
+        public virtual IEnumerable<Module> Modules => WrappedObject?.Modules;
 #endif
 
 #if NETFULL
-        public System.Security.Policy.Evidence Evidence => _assembly?.Evidence;
-        public System.Security.PermissionSet PermissionSet => _assembly?.PermissionSet;
+        public virtual System.Security.Policy.Evidence Evidence => WrappedObject?.Evidence;
+        public virtual System.Security.PermissionSet PermissionSet => WrappedObject?.PermissionSet;
 #endif
 
 #if NETCORE22
-        public Type[] GetForwardedTypes()
+        public virtual Type[] GetForwardedTypes()
         {
-            return _assembly?.GetForwardedTypes();
+            return WrappedObject?.GetForwardedTypes();
         }
 #endif
     }

@@ -6,70 +6,70 @@ namespace StaticAbstraction.IO
 {
     public abstract class StAbFileSystemInfo : IFileSystemInfo
     {
-        protected FileSystemInfo BaseInfo { get; private set; }
+        protected FileSystemInfo WrappedObject { get; private set; }
 
         public StAbFileSystemInfo(FileSystemInfo info)
         {
-            BaseInfo = info;
+            WrappedObject = info;
         }
 
-        public DateTime LastWriteTime
+        public virtual DateTime LastWriteTime
         {
-            get => BaseInfo.LastWriteTime;
-            set => BaseInfo.LastWriteTime = value;
+            get => WrappedObject.LastWriteTime;
+            set => WrappedObject.LastWriteTime = value;
         }
 
-        public DateTime LastWriteTimeUtc
+        public virtual DateTime LastWriteTimeUtc
         {
-            get => BaseInfo.LastWriteTimeUtc;
-            set => BaseInfo.LastWriteTimeUtc = value;
+            get => WrappedObject.LastWriteTimeUtc;
+            set => WrappedObject.LastWriteTimeUtc = value;
         }
 
-        public DateTime CreationTime
+        public virtual DateTime CreationTime
         {
-            get => BaseInfo.CreationTime;
-            set => BaseInfo.CreationTime = value;
+            get => WrappedObject.CreationTime;
+            set => WrappedObject.CreationTime = value;
         }
 
-        public DateTime CreationTimeUtc
+        public virtual DateTime CreationTimeUtc
         {
-            get => BaseInfo.CreationTimeUtc;
-            set => BaseInfo.CreationTimeUtc = value;
+            get => WrappedObject.CreationTimeUtc;
+            set => WrappedObject.CreationTimeUtc = value;
         }
 
-        public DateTime LastAccessTime
+        public virtual DateTime LastAccessTime
         {
-            get => BaseInfo.LastAccessTime;
-            set => BaseInfo.LastAccessTime = value;
+            get => WrappedObject.LastAccessTime;
+            set => WrappedObject.LastAccessTime = value;
         }
 
-        public DateTime LastAccessTimeUtc
+        public virtual DateTime LastAccessTimeUtc
         {
-            get => BaseInfo.LastAccessTimeUtc;
-            set => BaseInfo.LastAccessTimeUtc = value;
+            get => WrappedObject.LastAccessTimeUtc;
+            set => WrappedObject.LastAccessTimeUtc = value;
         }
 
-        public FileAttributes Attributes
+        public virtual FileAttributes Attributes
         {
-            get => BaseInfo.Attributes;
-            set => BaseInfo.Attributes = value;
+            get => WrappedObject.Attributes;
+            set => WrappedObject.Attributes = value;
         }
 
-        public abstract bool Exists { get; }
-        public virtual string FullName { get; }
-        public abstract string Name { get; }
-        public string Extension => BaseInfo.Extension;
-
-        public abstract void Delete();
+        public virtual string FullName => WrappedObject.FullName;
+        public virtual string Extension => WrappedObject.Extension;
 
         public virtual void Refresh()
         {
-            BaseInfo.Refresh();
+            WrappedObject.Refresh();
         }
 
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            BaseInfo.GetObjectData(info, context);
+            WrappedObject.GetObjectData(info, context);
         }
+
+        public abstract bool Exists { get; }
+        public abstract string Name { get; }
+        public abstract void Delete();
     }
 }

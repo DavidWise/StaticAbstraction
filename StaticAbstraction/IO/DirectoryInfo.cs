@@ -5,173 +5,172 @@ namespace StaticAbstraction.IO
 {
     public class StAbDirectoryInfo : StAbFileSystemInfo, IDirectoryInfo
     {
-        private DirectoryInfo _info = null;
+        protected new DirectoryInfo WrappedObject { get; private set; }
         private IDirectoryInfo _parent = null;
         private IDirectoryInfo _root = null;
 
-        public IDirectoryInfo Parent
+        public virtual IDirectoryInfo Parent
         {
             get
             {
-                if (_parent == null && _info != null && _info.Parent != null)
+                if (_parent == null && WrappedObject != null && WrappedObject.Parent != null)
                 {
-                    _parent = _info.Parent.ToStaticAbstraction();
+                    _parent = WrappedObject.Parent.ToStaticAbstraction();
                 }
                 return _parent;
             }
         }
 
-        public IDirectoryInfo Root
+        public virtual IDirectoryInfo Root
         {
             get
             {
-                if (_root == null && _info != null && _info.Root != null)
+                if (_root == null && WrappedObject != null && WrappedObject.Root != null)
                 {
-                    _root = _info.Root.ToStaticAbstraction();
+                    _root = WrappedObject.Root.ToStaticAbstraction();
                 }
                 return _root;
             }
         }
 
 
-        public override bool Exists => _info.Exists;
+        public override bool Exists => WrappedObject.Exists;
 
-        public override string Name => _info.Name;
+        public override string Name => WrappedObject.Name;
 
         public StAbDirectoryInfo(string path) : base(new DirectoryInfo(path))
         {
-            Init();
+            InitDirectoryInfo();
         }
 
         public StAbDirectoryInfo(DirectoryInfo info) : base(info)
         {
-            Init();
+            InitDirectoryInfo();
         }
 
-        protected void Init()
+        private void InitDirectoryInfo()
         {
-            if (BaseInfo != null)
+            if (base.WrappedObject != null)
             {
-                _info = (DirectoryInfo)this.BaseInfo;
+                WrappedObject = (DirectoryInfo)base.WrappedObject;
             }
         }
 
 
-
-        public void Create()
+        public virtual void Create()
         {
-            _info.Create();
+            WrappedObject.Create();
         }
 
-        public IDirectoryInfo CreateSubdirectory(string path)
+        public virtual IDirectoryInfo CreateSubdirectory(string path)
         {
-            return _info.CreateSubdirectory(path).ToStaticAbstraction();
+            return WrappedObject.CreateSubdirectory(path).ToStaticAbstraction();
         }
         public override void Delete()
         {
-            _info.Delete();
+            WrappedObject.Delete();
         }
-        public IEnumerable<IDirectoryInfo> EnumerateDirectories()
+        public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories()
         {
-            return _info.EnumerateDirectories().ToStaticAbstraction();
-        }
-
-        public IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern)
-        {
-            return _info.EnumerateDirectories(searchPattern).ToStaticAbstraction();
-        }
-        public IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, SearchOption searchOption)
-        {
-            return _info.EnumerateDirectories(searchPattern, searchOption).ToStaticAbstraction();
+            return WrappedObject.EnumerateDirectories().ToStaticAbstraction();
         }
 
-        public IEnumerable<IFileInfo> EnumerateFiles()
+        public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern)
         {
-            return _info.EnumerateFiles().ToStaticAbstraction();
+            return WrappedObject.EnumerateDirectories(searchPattern).ToStaticAbstraction();
         }
-        public IEnumerable<IFileInfo> EnumerateFiles(string searchPattern)
+        public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, SearchOption searchOption)
         {
-            return _info.EnumerateFiles(searchPattern).ToStaticAbstraction();
-        }
-
-
-
-        public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern)
-        {
-            return _info.EnumerateFileSystemInfos(searchPattern).ToStaticAbstraction();
+            return WrappedObject.EnumerateDirectories(searchPattern, searchOption).ToStaticAbstraction();
         }
 
-        public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, SearchOption searchOption)
+        public virtual IEnumerable<IFileInfo> EnumerateFiles()
         {
-            return _info.EnumerateFileSystemInfos(searchPattern, searchOption).ToStaticAbstraction();
+            return WrappedObject.EnumerateFiles().ToStaticAbstraction();
         }
-
-        public IDirectoryInfo[] GetDirectories()
+        public virtual IEnumerable<IFileInfo> EnumerateFiles(string searchPattern)
         {
-            return _info.GetDirectories().ToStaticAbstraction();
-        }
-        public IDirectoryInfo[] GetDirectories(string searchPattern)
-        {
-            return _info.GetDirectories(searchPattern).ToStaticAbstraction();
-        }
-
-        public IDirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
-        {
-            return _info.GetDirectories(searchPattern, searchOption).ToStaticAbstraction();
-        }
-
-        public IFileInfo[] GetFiles()
-        {
-            return _info.GetFiles().ToStaticAbstraction();
-        }
-        public IFileInfo[] GetFiles(string mask)
-        {
-            return _info.GetFiles(mask).ToStaticAbstraction();
-        }
-        public IFileInfo[] GetFiles(string mask, SearchOption searchOption)
-        {
-            return _info.GetFiles(mask, searchOption).ToStaticAbstraction();
-        }
-
-        public IFileSystemInfo[] GetFileSystemInfos()
-        {
-            return _info.GetFileSystemInfos().ToStaticAbstraction();
-        }
-        public IFileSystemInfo[] GetFileSystemInfos(string searchPattern)
-        {
-            return _info.GetFileSystemInfos(searchPattern).ToStaticAbstraction();
-        }
-        public IFileSystemInfo[] GetFileSystemInfos(string searchPattern, SearchOption searchOption)
-        {
-            return _info.GetFileSystemInfos(searchPattern, searchOption).ToStaticAbstraction();
+            return WrappedObject.EnumerateFiles(searchPattern).ToStaticAbstraction();
         }
 
 
-        public void MoveTo(string destDirName)
+
+        public virtual IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern)
         {
-            _info.MoveTo(destDirName);
+            return WrappedObject.EnumerateFileSystemInfos(searchPattern).ToStaticAbstraction();
+        }
+
+        public virtual IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, SearchOption searchOption)
+        {
+            return WrappedObject.EnumerateFileSystemInfos(searchPattern, searchOption).ToStaticAbstraction();
+        }
+
+        public virtual IDirectoryInfo[] GetDirectories()
+        {
+            return WrappedObject.GetDirectories().ToStaticAbstraction();
+        }
+        public virtual IDirectoryInfo[] GetDirectories(string searchPattern)
+        {
+            return WrappedObject.GetDirectories(searchPattern).ToStaticAbstraction();
+        }
+
+        public virtual IDirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
+        {
+            return WrappedObject.GetDirectories(searchPattern, searchOption).ToStaticAbstraction();
+        }
+
+        public virtual IFileInfo[] GetFiles()
+        {
+            return WrappedObject.GetFiles().ToStaticAbstraction();
+        }
+        public virtual IFileInfo[] GetFiles(string mask)
+        {
+            return WrappedObject.GetFiles(mask).ToStaticAbstraction();
+        }
+        public virtual IFileInfo[] GetFiles(string mask, SearchOption searchOption)
+        {
+            return WrappedObject.GetFiles(mask, searchOption).ToStaticAbstraction();
+        }
+
+        public virtual IFileSystemInfo[] GetFileSystemInfos()
+        {
+            return WrappedObject.GetFileSystemInfos().ToStaticAbstraction();
+        }
+        public virtual IFileSystemInfo[] GetFileSystemInfos(string searchPattern)
+        {
+            return WrappedObject.GetFileSystemInfos(searchPattern).ToStaticAbstraction();
+        }
+        public virtual IFileSystemInfo[] GetFileSystemInfos(string searchPattern, SearchOption searchOption)
+        {
+            return WrappedObject.GetFileSystemInfos(searchPattern, searchOption).ToStaticAbstraction();
+        }
+
+
+        public virtual void MoveTo(string destDirName)
+        {
+            WrappedObject.MoveTo(destDirName);
         }
 
 #if NETCORE22
-        public IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
         {
-            return _info.EnumerateDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
+            return WrappedObject.EnumerateDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
         }
-        public IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions)
         {
-            return _info.EnumerateFiles(searchPattern, enumerationOptions).ToStaticAbstraction();
+            return WrappedObject.EnumerateFiles(searchPattern, enumerationOptions).ToStaticAbstraction();
         }
-        public IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IEnumerable<IFileSystemInfo> EnumerateFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
         {
-            return _info.EnumerateFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
+            return WrappedObject.EnumerateFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
         }
-        public IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions)
         {
-            return _info.GetDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
+            return WrappedObject.GetDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();
         }
-        public IFileSystemInfo[] GetFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IFileSystemInfo[] GetFileSystemInfos(string searchPattern, EnumerationOptions enumerationOptions)
         {
-            return _info.GetFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
+            return WrappedObject.GetFileSystemInfos(searchPattern, enumerationOptions).ToStaticAbstraction();
         }
 
 #endif

@@ -4,53 +4,53 @@ namespace StaticAbstraction.IO
 {
     public class StAbDriveInfoDetails : IDriveInfoDetails
     {
-        protected DriveInfo _info;
+        protected DriveInfo WrappedObject { get; private set; }
 
-        public long AvailableFreeSpace
+        public virtual long AvailableFreeSpace
         {
-            get { return _info.AvailableFreeSpace;  }
+            get { return WrappedObject.AvailableFreeSpace;  }
         }
-        public string DriveFormat
+        public virtual string DriveFormat
         {
-            get { return _info.DriveFormat; }
+            get { return WrappedObject.DriveFormat; }
         }
-        public DriveType DriveType
+        public virtual DriveType DriveType
         {
-            get { return _info.DriveType; }
+            get { return WrappedObject.DriveType; }
         }
-        public bool IsReady
+        public virtual bool IsReady
         {
-            get { return _info.IsReady; }
+            get { return WrappedObject.IsReady; }
         }
-        public string Name
+        public virtual string Name
         {
-            get { return _info.Name; }
-        }
-
-        public IDirectoryInfo RootDirectory
-        {
-            get { return _info.RootDirectory.ToStaticAbstraction(); }
+            get { return WrappedObject.Name; }
         }
 
-        public long TotalFreeSpace
+        public virtual IDirectoryInfo RootDirectory
         {
-            get { return _info.TotalFreeSpace; }
+            get { return WrappedObject.RootDirectory.ToStaticAbstraction(); }
         }
 
-        public long TotalSize
+        public virtual long TotalFreeSpace
         {
-            get { return _info.TotalSize; }
+            get { return WrappedObject.TotalFreeSpace; }
         }
 
-        public string VolumeLabel
+        public virtual long TotalSize
         {
-            get { return _info.VolumeLabel; }
-            set { _info.VolumeLabel = value; }
+            get { return WrappedObject.TotalSize; }
+        }
+
+        public virtual string VolumeLabel
+        {
+            get { return WrappedObject.VolumeLabel; }
+            set { WrappedObject.VolumeLabel = value; }
         }
 
         public StAbDriveInfoDetails(DriveInfo info)
         {
-            _info = info;
+            WrappedObject = info;
         }
     }
 }

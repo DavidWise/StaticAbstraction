@@ -1,4 +1,5 @@
 ﻿using StaticAbstraction.IO;
+using StaticAbstraction.Reflection;
 
 namespace StaticAbstraction
 {
@@ -11,6 +12,7 @@ namespace StaticAbstraction
         IDirectory Directory { get; set; }
         IConsole Console { get; set; }
         IDateTime DateTime { get; set; }
+        IAssembly Assembly { get; set; }
 
         IFileInfo NewFileInfo(string path);
         IDirectoryInfo NewDirectoryInfo(string path);

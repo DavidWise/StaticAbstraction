@@ -6,219 +6,217 @@ namespace StaticAbstraction.IO
 {
     public class StAbDirectory : IDirectory
     {
-
-
-        public IDirectoryInfo CreateDirectory(string path)
+        public virtual IDirectoryInfo CreateDirectory(string path)
         {
             return Directory.CreateDirectory(path).ToStaticAbstraction();
         }
-        public void Delete(string path)
+        public virtual void Delete(string path)
         {
             Directory.Delete(path);
         }
 
 
-        public IEnumerable<string> EnumerateDirectories(string path)
+        public virtual IEnumerable<string> EnumerateDirectories(string path)
         {
             return Directory.EnumerateDirectories(path);
         }
-        public IEnumerable<string> EnumerateDirectories(string path, string searchPattern)
+        public virtual IEnumerable<string> EnumerateDirectories(string path, string searchPattern)
         {
             return Directory.EnumerateDirectories(path, searchPattern);
         }
-        public IEnumerable<string> EnumerateDirectories(string path, string searchPattern, SearchOption searchOption)
+        public virtual IEnumerable<string> EnumerateDirectories(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.EnumerateDirectories(path, searchPattern, searchOption);
         }
 
 
-        public IEnumerable<string> EnumerateFiles(string path)
+        public virtual IEnumerable<string> EnumerateFiles(string path)
         {
             return Directory.EnumerateFiles(path);
         }
-        public IEnumerable<string> EnumerateFiles(string path, string searchPattern)
+        public virtual IEnumerable<string> EnumerateFiles(string path, string searchPattern)
         {
             return Directory.EnumerateFiles(path, searchPattern);
         }
-        public IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption)
+        public virtual IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.EnumerateFiles(path, searchPattern, searchOption);
         }
 
 
-        public IEnumerable<string> EnumerateFileSystemEntries(string path)
+        public virtual IEnumerable<string> EnumerateFileSystemEntries(string path)
         {
             return Directory.EnumerateFileSystemEntries(path);
         }
-        public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern)
+        public virtual IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern)
         {
             return Directory.EnumerateFileSystemEntries(path, searchPattern);
         }
 
-        public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern, SearchOption searchOption)
+        public virtual IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.EnumerateFileSystemEntries(path, searchPattern, searchOption);
         }
 
-        public bool Exists(string path)
+        public virtual bool Exists(string path)
         {
             return Directory.Exists(path);
         }
 
-        public DateTime GetCreationTime(string path)
+        public virtual DateTime GetCreationTime(string path)
         {
             return Directory.GetCreationTime(path);
         }
-        public DateTime GetCreationTimeUtc(string path)
+        public virtual DateTime GetCreationTimeUtc(string path)
         {
             return Directory.GetCreationTimeUtc(path);
         }
 
 
-        public string GetCurrentDirectory()
+        public virtual string GetCurrentDirectory()
         {
             return Directory.GetCurrentDirectory();
         }
 
         
-        public string[] GetDirectories(string path)
+        public virtual string[] GetDirectories(string path)
         {
             return Directory.GetDirectories(path);
         }
-        public string[] GetDirectories(string path, string searchPattern)
+        public virtual string[] GetDirectories(string path, string searchPattern)
         {
             return Directory.GetDirectories(path, searchPattern);
         }
 
-        public string[] GetDirectories(string path, string searchPattern, SearchOption searchOption)
+        public virtual string[] GetDirectories(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.GetDirectories(path, searchPattern, searchOption);
         }
 
-        public string GetDirectoryRoot(string path)
+        public virtual string GetDirectoryRoot(string path)
         {
             return Directory.GetDirectoryRoot(path);
         }
 
-        public string[] GetFiles(string path)
+        public virtual string[] GetFiles(string path)
         {
             return Directory.GetFiles(path);
         }
-        public string[] GetFiles(string path, string searchPattern)
+        public virtual string[] GetFiles(string path, string searchPattern)
         {
             return Directory.GetFiles(path, searchPattern);
         }
 
-        public string[] GetFiles(string path, string searchPattern, SearchOption searchOption)
+        public virtual string[] GetFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.GetFiles(path, searchPattern, searchOption);
         }
 
 
-        public string[] GetFileSystemEntries(string path)
+        public virtual string[] GetFileSystemEntries(string path)
         {
             return Directory.GetFileSystemEntries(path);
         }
-        public string[] GetFileSystemEntries(string path, string searchPattern)
+        public virtual string[] GetFileSystemEntries(string path, string searchPattern)
         {
             return Directory.GetFileSystemEntries(path, searchPattern);
         }
 
-        public string[] GetFileSystemEntries(string path, string searchPattern, SearchOption searchOption)
+        public virtual string[] GetFileSystemEntries(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.GetFileSystemEntries(path, searchPattern, searchOption);
         }
 
-        public DateTime GetLastAccessTime(string path)
+        public virtual DateTime GetLastAccessTime(string path)
         {
             return Directory.GetLastAccessTime(path);
         }
-        public DateTime GetLastAccessTimeUtc(string path)
+        public virtual DateTime GetLastAccessTimeUtc(string path)
         {
             return Directory.GetLastAccessTimeUtc(path);
         }
 
-        public DateTime GetLastWriteTime(string path)
+        public virtual DateTime GetLastWriteTime(string path)
         {
             return Directory.GetLastWriteTime(path);
         }
-        public DateTime GetLastWriteTimeUtc(string path)
+        public virtual DateTime GetLastWriteTimeUtc(string path)
         {
             return Directory.GetLastWriteTimeUtc(path);
         }
 
-        public string[] GetLogicalDrives()
+        public virtual string[] GetLogicalDrives()
         {
             return Directory.GetLogicalDrives();
         }
 
-        public IDirectoryInfo GetParent(string path)
+        public virtual IDirectoryInfo GetParent(string path)
         {
             return Directory.GetParent(path).ToStaticAbstraction();
         }
 
-        public void Move(string sourceDirName, string destDirName)
+        public virtual void Move(string sourceDirName, string destDirName)
         {
             Directory.Move(sourceDirName, destDirName);
         }
 
-        public void SetCreationTime(string path, DateTime creationTime)
+        public virtual void SetCreationTime(string path, DateTime creationTime)
         {
             Directory.SetCreationTime(path, creationTime);
         }
-        public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
+        public virtual void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
         {
             Directory.SetCreationTimeUtc(path, creationTimeUtc);
         }
 
-        public void SetLastAccessTime(string path, DateTime lastAccessTime)
+        public virtual void SetLastAccessTime(string path, DateTime lastAccessTime)
         {
             Directory.SetLastAccessTime(path, lastAccessTime);
         }
-        public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
+        public virtual void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
         {
             Directory.SetLastAccessTimeUtc(path, lastAccessTimeUtc);
         }
 
-        public void SetLastWriteTime(string path, DateTime lastWriteTime)
+        public virtual void SetLastWriteTime(string path, DateTime lastWriteTime)
         {
             Directory.SetLastWriteTime(path, lastWriteTime);
         }
-        public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
+        public virtual void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
         {
             Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
         }
 
 
 
-        public void SetCurrentDirectory(string path)
+        public virtual void SetCurrentDirectory(string path)
         {
             Directory.SetCurrentDirectory(path);
         }
 #if NETCORE22
-        public IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.EnumerateDirectories(path, searchPattern, enumerationOptions);
         }
 
-        public IEnumerable<string> EnumerateFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IEnumerable<string> EnumerateFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.EnumerateFiles(path, searchPattern, enumerationOptions);
         }
 
-        public IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.EnumerateFileSystemEntries(path, searchPattern, enumerationOptions);
         }
-        public string[] GetDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual string[] GetDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.GetDirectories(path, searchPattern, enumerationOptions);
         }
-        public string[] GetFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual string[] GetFiles(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.GetFiles(path, searchPattern, enumerationOptions);
         }
-        public string[] GetFileSystemEntries(string path, string searchPattern, EnumerationOptions enumerationOptions)
+        public virtual string[] GetFileSystemEntries(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.GetFileSystemEntries(path, searchPattern, enumerationOptions);
         }

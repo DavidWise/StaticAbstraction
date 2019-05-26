@@ -4,7 +4,7 @@ namespace StaticAbstraction.IO
 {
     public class StAbFileInfo : StAbFileSystemInfo, IFileInfo
     {
-        protected FileInfo _fileInfoRef;
+        protected new FileInfo WrappedObject { get; private set; }
 
         public StAbFileInfo(string path) : base(new FileInfo(path))
         {
@@ -17,98 +17,98 @@ namespace StaticAbstraction.IO
 
         protected void SetFileInfo()
         {
-            if (BaseInfo != null)
+            if (base.WrappedObject != null)
             {
-                _fileInfoRef = (FileInfo) BaseInfo;
-                if (_fileInfoRef.Directory != null) this.Directory = new StAbDirectoryInfo(_fileInfoRef.Directory);
+                WrappedObject = (FileInfo) base.WrappedObject;
+                if (WrappedObject.Directory != null) this.Directory = new StAbDirectoryInfo(WrappedObject.Directory);
             }
         }
 
-        public IDirectoryInfo Directory { get; set; }
+        public virtual IDirectoryInfo Directory { get; set; }
 
-        public string DirectoryName => _fileInfoRef.DirectoryName;
+        public virtual string DirectoryName => WrappedObject.DirectoryName;
 
-        public long Length => _fileInfoRef.Length;
+        public virtual long Length => WrappedObject.Length;
 
-        public bool IsReadOnly
+        public virtual bool IsReadOnly
         {
-            get => _fileInfoRef.IsReadOnly;
-            set => _fileInfoRef.IsReadOnly = value;
+            get => WrappedObject.IsReadOnly;
+            set => WrappedObject.IsReadOnly = value;
         }
 
-        public override bool Exists => _fileInfoRef.Exists;
+        public override bool Exists => WrappedObject.Exists;
 
-        public override string Name => _fileInfoRef.Name;
+        public override string Name => WrappedObject.Name;
 
-        public StreamWriter AppendText()
+        public virtual StreamWriter AppendText()
         {
-            return _fileInfoRef.AppendText();
-        }
-
-        public IFileInfo CopyTo(string destFileName)
-        {
-            return _fileInfoRef.CopyTo(destFileName).ToStaticAbstraction();
+            return WrappedObject.AppendText();
         }
 
-        public IFileInfo CopyTo(string destFileName, bool overwrite)
+        public virtual IFileInfo CopyTo(string destFileName)
         {
-            return _fileInfoRef.CopyTo(destFileName, overwrite).ToStaticAbstraction();
+            return WrappedObject.CopyTo(destFileName).ToStaticAbstraction();
         }
 
-        public FileStream Create()
+        public virtual IFileInfo CopyTo(string destFileName, bool overwrite)
         {
-            return _fileInfoRef.Create();
+            return WrappedObject.CopyTo(destFileName, overwrite).ToStaticAbstraction();
         }
 
-        public StreamWriter CreateText()
+        public virtual FileStream Create()
         {
-            return _fileInfoRef.CreateText();
+            return WrappedObject.Create();
         }
 
-        public void Decrypt()
+        public virtual StreamWriter CreateText()
         {
-            _fileInfoRef.Decrypt();
+            return WrappedObject.CreateText();
         }
 
-        public void Encrypt()
+        public virtual void Decrypt()
         {
-            _fileInfoRef.Encrypt();
+            WrappedObject.Decrypt();
         }
 
-        public void MoveTo(string destFileName)
+        public virtual void Encrypt()
         {
-            _fileInfoRef.MoveTo(destFileName);
-        }
-        public FileStream Open(FileMode mode)
-        {
-            return _fileInfoRef.Open(mode);
-        }
-        public FileStream OpenRead()
-        {
-            return _fileInfoRef.OpenRead();
-        }
-        public StreamReader OpenText()
-        {
-            return _fileInfoRef.OpenText();
-        }
-        public FileStream OpenWrite()
-        {
-            return _fileInfoRef.OpenWrite();
+            WrappedObject.Encrypt();
         }
 
-        public IFileInfo Replace(string destinationFileName, string destinationBackupFileName)
+        public virtual void MoveTo(string destFileName)
         {
-            return _fileInfoRef.Replace(destinationFileName, destinationBackupFileName).ToStaticAbstraction();
+            WrappedObject.MoveTo(destFileName);
+        }
+        public virtual FileStream Open(FileMode mode)
+        {
+            return WrappedObject.Open(mode);
+        }
+        public virtual FileStream OpenRead()
+        {
+            return WrappedObject.OpenRead();
+        }
+        public virtual StreamReader OpenText()
+        {
+            return WrappedObject.OpenText();
+        }
+        public virtual FileStream OpenWrite()
+        {
+            return WrappedObject.OpenWrite();
         }
 
-        public IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
+        public virtual IFileInfo Replace(string destinationFileName, string destinationBackupFileName)
         {
-            return _fileInfoRef.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors).ToStaticAbstraction();
+            return WrappedObject.Replace(destinationFileName, destinationBackupFileName).ToStaticAbstraction();
+        }
+
+        public virtual IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
+        {
+            return WrappedObject.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors).ToStaticAbstraction();
         }
 
         public override void Delete()
         {
-            _fileInfoRef.Delete();
+            WrappedObject.Delete();
         }
     }
 }
