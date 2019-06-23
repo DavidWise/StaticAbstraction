@@ -8,12 +8,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{A1009EF1-9986-4929-892B-632127EB7E4E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7FCF7154-9DF0-41DE-BEE3-393179063362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticAbstractionTests", "Tests\StaticAbstractionTests\StaticAbstractionTests.csproj", "{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticAbstractionTests", "Tests\StaticAbstractionTests\StaticAbstractionTests.csproj", "{6550DE74-B492-4DB1-94ED-0D154F4B8F7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IssueTemplates", "IssueTemplates", "{4021D781-4F55-4710-904B-12E41954165E}"
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE\bug_report.md = .github\ISSUE_TEMPLATE\bug_report.md
+		.github\ISSUE_TEMPLATE\feature_request.md = .github\ISSUE_TEMPLATE\feature_request.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
