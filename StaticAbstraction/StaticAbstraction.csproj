@@ -7,14 +7,14 @@
     <Company />
     <Copyright>@2019 David Wise</Copyright>
     <PackageId>StaticAbstraction</PackageId>
-    <PackageReleaseNotes>Some Release Notes</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Description>This library creates a way to abstract static calls from .Net objects so that the code itself can be more easily unit tested</Description>
+    <Description>This library creates a way to abstract static calls from common .Net objects so that the containing code can be more easily unit tested</Description>
     <RepositoryUrl>https://github.com/DavidWise/StaticAbstraction.git</RepositoryUrl>
     <Product>Static Abstraction</Product>
-    <AssemblyVersion>0.0.15.0</AssemblyVersion>
-    <FileVersion>0.0.15.0</FileVersion>
-    <Version>0.0.15</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <Version>0.1.0</Version>
     <PackageProjectUrl>https://github.com/DavidWise/StaticAbstraction</PackageProjectUrl>
     <PackageTags>UnitTests nunit mock static abstraction</PackageTags>
     <PackageLicenseUrl>https://github.com/DavidWise/StaticAbstraction/blob/develop/LICENSE</PackageLicenseUrl>
