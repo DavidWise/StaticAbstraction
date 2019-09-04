@@ -97,7 +97,7 @@ namespace StaticAbstraction.IO
         }
 
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         public virtual ReadOnlySpan<char> GetDirectoryName(ReadOnlySpan<char> path)
         {
             return Path.GetDirectoryName(path);
@@ -162,6 +162,52 @@ namespace StaticAbstraction.IO
             return Path.TryJoin(path1, path2, path3, destination, out charsWritten);
         }
 
+#endif
+
+#if NETCORE30
+        public virtual bool EndsInDirectorySeparator(ReadOnlySpan<Char> path)
+        {
+            return Path.EndsInDirectorySeparator(path);
+        }
+        public virtual bool EndsInDirectorySeparator(String path)
+        {
+            return Path.EndsInDirectorySeparator(path);
+        }
+
+        public string Join(string[] paths)
+        {
+            return Path.Join(paths);
+        }
+
+        public string Join(string path1, string path2)
+        {
+            return Path.Join(path1, path2);
+        }
+
+        public string Join(string path1, string path2, string path3)
+        {
+            return Path.Join(path1, path2, path3);
+        }
+
+        public string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3, ReadOnlySpan<char> path4)
+        {
+            return Path.Join(path1, path2, path3, path4);
+        }
+
+        public string Join(string path1, string path2, string path3, string path4)
+        {
+            return Path.Join(path1, path2, path3, path4);
+        }
+
+        public string TrimEndingDirectorySeparator(string path)
+        {
+            return Path.TrimEndingDirectorySeparator(path);
+        }
+
+        public ReadOnlySpan<char> TrimEndingDirectorySeparator(ReadOnlySpan<char> path)
+        {
+            return Path.TrimEndingDirectorySeparator(path);
+        }
 #endif
     }
 }

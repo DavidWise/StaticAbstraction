@@ -18,6 +18,9 @@ namespace StaticAbstraction.Reflection
         long HostContext { get; }
         string ImageRuntimeVersion { get; }
         bool IsDynamic { get; }
+#if NETCORE30
+        bool IsCollectible { get; }
+#endif
         bool IsFullyTrusted { get; }
         string Location { get; }
         Module ManifestModule { get; }
@@ -70,7 +73,7 @@ namespace StaticAbstraction.Reflection
         System.Security.PermissionSet PermissionSet { get; }
 #endif
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         Type[] GetForwardedTypes();
 #endif
     }

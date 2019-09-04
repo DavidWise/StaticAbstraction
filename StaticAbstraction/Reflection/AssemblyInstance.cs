@@ -207,6 +207,7 @@ namespace StaticAbstraction.Reflection
         public virtual IEnumerable<CustomAttributeData> CustomAttributes => WrappedObject?.CustomAttributes;
         public virtual IEnumerable<Type> ExportedTypes => WrappedObject?.ExportedTypes;
         public virtual IEnumerable<Module> Modules => WrappedObject?.Modules;
+
 #endif
 
 #if NETFULL
@@ -214,11 +215,14 @@ namespace StaticAbstraction.Reflection
         public virtual System.Security.PermissionSet PermissionSet => WrappedObject?.PermissionSet;
 #endif
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         public virtual Type[] GetForwardedTypes()
         {
             return WrappedObject?.GetForwardedTypes();
         }
+#endif
+#if NETCORE30
+        public virtual bool IsCollectible => WrappedObject == null ? false : WrappedObject.IsCollectible;
 #endif
     }
 }

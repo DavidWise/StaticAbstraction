@@ -9,10 +9,15 @@ namespace StaticAbstraction.IO
         public virtual IDirectoryInfo CreateDirectory(string path)
         {
             return Directory.CreateDirectory(path).ToStaticAbstraction();
+
         }
         public virtual void Delete(string path)
         {
             Directory.Delete(path);
+        }
+        public virtual void Delete(string path, bool recursive)
+        {
+            Directory.Delete(path, recursive);
         }
 
 
@@ -187,13 +192,12 @@ namespace StaticAbstraction.IO
             Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
         }
 
-
-
         public virtual void SetCurrentDirectory(string path)
         {
             Directory.SetCurrentDirectory(path);
         }
-#if NETCORE22
+
+#if NETCORE22 || NETCORE30
         public virtual IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.EnumerateDirectories(path, searchPattern, enumerationOptions);
@@ -222,5 +226,9 @@ namespace StaticAbstraction.IO
         }
 #endif
 
+//#if NETCORE30
+
+
+//#endif
     }
 }

@@ -79,6 +79,13 @@ namespace StaticAbstraction.IO
         {
             WrappedObject.MoveTo(destFileName);
         }
+
+#if NETCORE30
+        public virtual void MoveTo(string destFileName, bool overwrite)
+        {
+            WrappedObject.MoveTo(destFileName, overwrite);
+        }
+#endif
         public virtual FileStream Open(FileMode mode)
         {
             return WrappedObject.Open(mode);

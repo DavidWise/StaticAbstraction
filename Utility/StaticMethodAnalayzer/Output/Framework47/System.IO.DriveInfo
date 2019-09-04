@@ -1,0 +1,14 @@
+public static DriveInfo[] GetDrives()
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Type GetType()
+public virtual String ToString()
+Int64 AvailableFreeSpace { get;  }
+String DriveFormat { get;  }
+DriveType DriveType { get;  }
+Boolean IsReady { get;  }
+String Name { get;  }
+DirectoryInfo RootDirectory { get;  }
+Int64 TotalFreeSpace { get;  }
+Int64 TotalSize { get;  }
+String VolumeLabel { get; set;  }

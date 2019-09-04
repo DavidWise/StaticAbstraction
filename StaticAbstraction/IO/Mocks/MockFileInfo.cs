@@ -47,6 +47,10 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
+        public void MoveTo(string destFileName, bool overwrite)
+        {
+        }
+
         public virtual FileStream Open(FileMode mode)
         {
             return null;

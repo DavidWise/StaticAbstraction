@@ -89,7 +89,7 @@ namespace StaticAbstraction
         void WriteLine(uint value);
         void WriteLine(ulong value);
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         bool IsErrorRedirected { get; }
         bool IsInputRedirected { get; }
         bool IsOutputRedirected { get; }

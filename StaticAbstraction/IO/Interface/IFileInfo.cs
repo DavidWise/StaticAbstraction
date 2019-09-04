@@ -17,11 +17,15 @@ namespace StaticAbstraction.IO
         void Decrypt();
         void Encrypt();
         void MoveTo(string destFileName);
+#if NETCORE30
+        void MoveTo(string destFileName, bool overwrite);
+#endif
         FileStream Open(FileMode mode);
         FileStream OpenRead();
         StreamReader OpenText();
         FileStream OpenWrite();
         IFileInfo Replace(string destinationFileName, string destinationBackupFileName);
         IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors);
+
     }
 }
