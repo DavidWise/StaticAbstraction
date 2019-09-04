@@ -47,14 +47,15 @@ namespace StaticMethodAnalayzer
 #if NET47
             this.TargetFramework = SupportedFramework.Framework47;
 #endif
-#if NET48
-            this.TargetFramework = SupportedFramework.Framework48;
-#endif
+
 #if NETCORE
             this.TargetFramework = SupportedFramework.Core;
 #endif
 #if NETSTANDARD2_0
             this.TargetFramework = SupportedFramework.NetStandard2;
+#endif
+#if NET48
+            this.TargetFramework = SupportedFramework.Framework48;
 #endif
 #if NETCORE22
             this.TargetFramework = SupportedFramework.Core22;
