@@ -114,6 +114,13 @@ namespace StaticAbstraction.IO
             File.Move(sourceFileName, destFileName);
         }
 
+#if NETCORE30
+        public virtual void Move(String sourceFileName, String destFileName, Boolean overwrite)
+        {
+            File.Move(sourceFileName, destFileName, overwrite);
+        }
+#endif
+
         public virtual FileStream Open(string path, FileMode mode)
         {
             return File.Open(path, mode);
@@ -247,7 +254,7 @@ namespace StaticAbstraction.IO
 
 
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         public virtual Task AppendAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken))
         {
             return File.AppendAllLinesAsync(path, contents, cancellationToken);

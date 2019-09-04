@@ -1,0 +1,44 @@
+public StreamWriter AppendText()
+public FileInfo CopyTo(String destFileName)
+public FileInfo CopyTo(String destFileName, Boolean overwrite)
+public FileStream Create()
+public virtual System.Runtime.Remoting.ObjRef CreateObjRef(Type requestedType)
+public StreamWriter CreateText()
+public Void Decrypt()
+public virtual Void Delete()
+public Void Encrypt()
+public virtual Boolean Equals(Object obj)
+public System.Security.AccessControl.FileSecurity GetAccessControl()
+public System.Security.AccessControl.FileSecurity GetAccessControl(System.Security.AccessControl.AccessControlSections includeSections)
+public virtual Int32 GetHashCode()
+public virtual Object GetLifetimeService()
+public virtual Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+public Type GetType()
+public virtual Object InitializeLifetimeService()
+public Void MoveTo(String destFileName)
+public FileStream Open(FileMode mode)
+public FileStream Open(FileMode mode, FileAccess access)
+public FileStream Open(FileMode mode, FileAccess access, FileShare share)
+public FileStream OpenRead()
+public StreamReader OpenText()
+public FileStream OpenWrite()
+public Void Refresh()
+public FileInfo Replace(String destinationFileName, String destinationBackupFileName)
+public FileInfo Replace(String destinationFileName, String destinationBackupFileName, Boolean ignoreMetadataErrors)
+public Void SetAccessControl(System.Security.AccessControl.FileSecurity fileSecurity)
+public virtual String ToString()
+FileAttributes Attributes { get; set;  }
+DateTime CreationTime { get; set;  }
+DateTime CreationTimeUtc { get; set;  }
+DirectoryInfo Directory { get;  }
+String DirectoryName { get;  }
+Boolean Exists { get;  }
+String Extension { get;  }
+String FullName { get;  }
+Boolean IsReadOnly { get; set;  }
+DateTime LastAccessTime { get; set;  }
+DateTime LastAccessTimeUtc { get; set;  }
+DateTime LastWriteTime { get; set;  }
+DateTime LastWriteTimeUtc { get; set;  }
+Int64 Length { get;  }
+String Name { get;  }

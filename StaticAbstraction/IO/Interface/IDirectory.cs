@@ -67,7 +67,7 @@ namespace StaticAbstraction.IO
 
         void SetCurrentDirectory(string path);
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions);
         IEnumerable<string> EnumerateFiles(string path, string searchPattern, EnumerationOptions enumerationOptions);
         IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern, EnumerationOptions enumerationOptions);

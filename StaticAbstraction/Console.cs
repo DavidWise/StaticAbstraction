@@ -392,7 +392,7 @@ namespace StaticAbstraction
             Console.WriteLine(value);
         }
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         public virtual bool IsErrorRedirected
         {
             get { return Console.IsErrorRedirected; }

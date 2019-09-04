@@ -92,7 +92,7 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
         {
             return null;

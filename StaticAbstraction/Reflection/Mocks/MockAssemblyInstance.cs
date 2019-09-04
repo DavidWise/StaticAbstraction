@@ -195,6 +195,7 @@ namespace StaticAbstraction.Reflection.Mocks
         public virtual IEnumerable<CustomAttributeData> CustomAttributes { get; set; }
         public virtual IEnumerable<Type> ExportedTypes { get; set; }
         public virtual IEnumerable<Module> Modules { get; set; }
+
 #endif
 
 #if NETFULL
@@ -202,11 +203,14 @@ namespace StaticAbstraction.Reflection.Mocks
         public virtual System.Security.PermissionSet PermissionSet { get; set; }
 #endif
 
-#if NETCORE22
+#if NETCORE22 || NETCORE30
         public virtual Type[] GetForwardedTypes()
         {
             return null;
         }
+#endif
+#if NETCORE30
+        public virtual bool IsCollectible { get; set; }
 #endif
     }
 }
