@@ -22,7 +22,9 @@ namespace StaticMethodAnalayzer
 
         static void Main(string[] args)
         {
-            var info = new BuildInfo();
+            var path = @"D:\Dev\Github\StaticAbstraction\Utility\StaticMethodAnalayzer\Output";
+
+            var info = new BuildInfo(path);
 
             foreach (var checkType in _typesToAnalyze)
             {

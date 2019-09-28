@@ -17,18 +17,18 @@ namespace StaticMethodAnalayzer
         Core30,
         Core,
         NetStandard,
-        NetStandard2
+        NetStandard2,
+        NetStandard21
     }
     public class BuildInfo
     {
         public SupportedFramework TargetFramework { get; protected set; }
         public string OutputPath{ get; protected set; }
 
-        public BuildInfo()
+        public BuildInfo(string outputPath)
         {
             SetTargetFramework();
-            var path = @"D:\Dev\Github\StaticAbstraction\Utility\StaticMethodAnalayzer\Output";
-            var tempPath = Path.Combine(path, this.TargetFramework.ToString());
+            var tempPath = Path.Combine(outputPath, this.TargetFramework.ToString());
             if (!Directory.Exists(tempPath)) Directory.CreateDirectory(tempPath);
             this.OutputPath = tempPath;
         }
