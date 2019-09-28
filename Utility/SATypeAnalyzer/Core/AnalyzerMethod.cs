@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 
-namespace StaticMethodAnalayzer.Core
+namespace SATypeAnalyzer.Core
 {
     class AnalyzerMethod
     {
