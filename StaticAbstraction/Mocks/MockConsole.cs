@@ -224,6 +224,13 @@ namespace StaticAbstraction.Mocks
             // do nothing
         }
 
+#if NETSTANDARD2_0
+        public virtual void Write(String format, Object arg0, Object arg1, Object arg2, Object arg3)
+        {
+            // do nothing
+        }
+#endif
+
         public virtual void Write(string format, params object[] arg)
         {
             // do nothing
@@ -313,6 +320,13 @@ namespace StaticAbstraction.Mocks
         {
             // do nothing
         }
+
+#if NETSTANDARD2_0
+        public virtual void WriteLine(String format, Object arg0, Object arg1, Object arg2, Object arg3)
+        {
+            // do nothing
+        }
+#endif
 
         public virtual void WriteLine(string format, params object[] arg)
         {

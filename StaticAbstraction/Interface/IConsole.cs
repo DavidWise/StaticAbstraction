@@ -67,6 +67,9 @@ namespace StaticAbstraction
         void Write(string format, object arg0);
         void Write(string format, object arg0, object arg1);
         void Write(string format, object arg0, object arg1, object arg2);
+#if NETSTANDARD2_0
+        void Write(string format, object arg0, object arg1, object arg2, object arg3);
+#endif
         void Write(string format, params object[] arg);
         void Write(uint value);
         void Write(ulong value);
@@ -88,6 +91,10 @@ namespace StaticAbstraction
         void WriteLine(string format, params object[] arg);
         void WriteLine(uint value);
         void WriteLine(ulong value);
+
+#if NETSTANDARD2_0
+        void WriteLine(String format, Object arg0, Object arg1, Object arg2, Object arg3);
+#endif
 
 #if NETCORE22 || NETCORE30
         bool IsErrorRedirected { get; }
