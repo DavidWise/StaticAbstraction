@@ -17,8 +17,7 @@ namespace SATypeAnalyzer
         Core30,
         Core,
         NetStandard,
-        NetStandard2,
-        NetStandard21
+        NetStandard2
     }
     public class BuildInfo
     {
@@ -62,9 +61,6 @@ namespace SATypeAnalyzer
             this.TargetFramework = SupportedFramework.Core22;
 #endif
 
-#if NETSTANDARD2_1
-            this.TargetFramework = SupportedFramework.NetStandard21;
-#endif
 #if NETCORE30
             this.TargetFramework = SupportedFramework.Core30;
 #endif
