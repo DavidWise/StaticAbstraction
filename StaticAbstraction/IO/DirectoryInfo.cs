@@ -132,6 +132,13 @@ namespace StaticAbstraction.IO
             return WrappedObject.GetFiles(mask, searchOption).ToStaticAbstraction();
         }
 
+#if NETCORE30
+        public virtual IFileInfo[] GetFiles(string searchPattern, EnumerationOptions enumerationOptions)
+        {
+            return WrappedObject.GetFiles(searchPattern, enumerationOptions).ToStaticAbstraction();
+        }
+#endif
+
         public virtual IFileSystemInfo[] GetFileSystemInfos()
         {
             return WrappedObject.GetFileSystemInfos().ToStaticAbstraction();

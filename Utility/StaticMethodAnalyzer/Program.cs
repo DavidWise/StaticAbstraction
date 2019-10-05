@@ -1,34 +1,16 @@
-﻿using StaticMethodAnalayzer.Core;
-using System;
-using System.Collections.Generic;
+﻿using SATypeAnalyzer;
 
 namespace StaticMethodAnalayzer
 {
     class Program
     {
-        private static Type[] _typesToAnalyze =
-        {
-            typeof(System.IO.Directory),
-            typeof(System.IO.DirectoryInfo),
-            typeof(System.IO.File),
-            typeof(System.IO.FileInfo),
-            typeof(System.Console),
-            typeof(System.DateTime),
-            typeof(System.IO.DriveInfo),
-            typeof(System.IO.Path),
-            typeof(System.IO.FileSystemInfo),
-            typeof(System.Reflection.Assembly)
-        };
-
         static void Main(string[] args)
         {
-            var info = new BuildInfo();
+            var path = @"D:\Dev\Github\StaticAbstraction\Utility\StaticMethodAnalyzer\Output";
 
-            foreach (var checkType in _typesToAnalyze)
-            {
-                var zer = new Analyzer(checkType);
-                zer.WriteToFile(info.OutputPath);
-            }
+            var analyzer = new TypeAnalyzer(path);
+
+            analyzer.Go();
         }
     }
 }

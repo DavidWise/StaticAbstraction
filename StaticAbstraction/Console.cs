@@ -72,8 +72,6 @@ namespace StaticAbstraction
             set { Console.InputEncoding = value; }
         }
 
-
-
         public virtual bool KeyAvailable
         {
             get { return Console.KeyAvailable; }
@@ -301,6 +299,13 @@ namespace StaticAbstraction
             Console.Write(format, arg0, arg1, arg2);
         }
 
+#if NETSTANDARD2_0
+        public virtual void Write(String format, Object arg0, Object arg1, Object arg2, Object arg3)
+        {
+            Console.Write(format, arg0, arg1, arg2, arg3);
+        }
+#endif
+
         public virtual void Write(string format, params object[] arg)
         {
             Console.Write(format, arg);
@@ -383,6 +388,14 @@ namespace StaticAbstraction
         {
             Console.WriteLine(format, arg0, arg1, arg2);
         }
+
+#if NETSTANDARD2_0
+        public virtual void WriteLine(String format, Object arg0, Object arg1, Object arg2, Object arg3)
+        {
+            Console.WriteLine(format, arg0, arg1, arg2, arg3);
+        }
+#endif
+
         public virtual void WriteLine(long value)
         {
             Console.WriteLine(value);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace StaticMethodAnalayzer.Core
+namespace SATypeAnalyzer.Core
 {
     class AnalyzerProperty
     {

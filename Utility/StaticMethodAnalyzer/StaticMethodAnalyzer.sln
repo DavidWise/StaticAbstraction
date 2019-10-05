@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticMethodAnalyzer", "StaticMethodAnalyzer.csproj", "{4EB5C6B1-BB95-4481-ADDB-94048BD8AEBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticMethodAnalyzer", "StaticMethodAnalyzer.csproj", "{4EB5C6B1-BB95-4481-ADDB-94048BD8AEBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SATypeAnalyzer", "..\SATypeAnalyzer\SATypeAnalyzer.csproj", "{4336B6F1-91E6-4335-85D3-C28553E7AD4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4EB5C6B1-BB95-4481-ADDB-94048BD8AEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EB5C6B1-BB95-4481-ADDB-94048BD8AEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EB5C6B1-BB95-4481-ADDB-94048BD8AEBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4336B6F1-91E6-4335-85D3-C28553E7AD4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4336B6F1-91E6-4335-85D3-C28553E7AD4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4336B6F1-91E6-4335-85D3-C28553E7AD4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4336B6F1-91E6-4335-85D3-C28553E7AD4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

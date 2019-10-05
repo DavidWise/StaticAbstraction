@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.IO;
 
-namespace StaticMethodAnalayzer.Core
+namespace SATypeAnalyzer.Core
 {
     class Analyzer
     { 

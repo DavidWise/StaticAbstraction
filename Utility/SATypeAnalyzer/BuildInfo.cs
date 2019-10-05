@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace StaticMethodAnalayzer
+namespace SATypeAnalyzer
 {
     public enum SupportedFramework
     {
@@ -24,11 +24,11 @@ namespace StaticMethodAnalayzer
         public SupportedFramework TargetFramework { get; protected set; }
         public string OutputPath{ get; protected set; }
 
-        public BuildInfo()
+        public BuildInfo(string outputPath)
         {
             SetTargetFramework();
-            var path = @"D:\Dev\Github\StaticAbstraction\Utility\StaticMethodAnalayzer\Output";
-            var tempPath = Path.Combine(path, this.TargetFramework.ToString());
+            if (TargetFramework == SupportedFramework.Unknown) throw new ApplicationException("Unknown target framework");
+            var tempPath = Path.Combine(outputPath, this.TargetFramework.ToString());
             if (!Directory.Exists(tempPath)) Directory.CreateDirectory(tempPath);
             this.OutputPath = tempPath;
         }

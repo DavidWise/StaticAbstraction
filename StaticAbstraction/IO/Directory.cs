@@ -226,9 +226,5 @@ namespace StaticAbstraction.IO
         }
 #endif
 
-//#if NETCORE30
-
-
-//#endif
     }
 }
