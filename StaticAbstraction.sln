@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticAbstraction", "StaticAbstraction\StaticAbstraction.csproj", "{A09537C2-9CEE-4E7B-AB14-76F3EC9EDD6F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{A1009EF1-9986-4929-892B-632127EB7E4E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__Root", "__Root", "{A1009EF1-9986-4929-892B-632127EB7E4E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		LICENSE = LICENSE
