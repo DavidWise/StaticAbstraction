@@ -1,0 +1,81 @@
+public static Int32 Compare(DateTime t1, DateTime t2)
+public static Int32 DaysInMonth(Int32 year, Int32 month)
+public static Boolean Equals(DateTime t1, DateTime t2)
+public static DateTime FromBinary(Int64 dateData)
+public static DateTime FromFileTime(Int64 fileTime)
+public static DateTime FromFileTimeUtc(Int64 fileTime)
+public static DateTime FromOADate(Double d)
+public static Boolean IsLeapYear(Int32 year)
+public static DateTime op_Addition(DateTime d, TimeSpan t)
+public static Boolean op_Equality(DateTime d1, DateTime d2)
+public static Boolean op_GreaterThan(DateTime t1, DateTime t2)
+public static Boolean op_GreaterThanOrEqual(DateTime t1, DateTime t2)
+public static Boolean op_Inequality(DateTime d1, DateTime d2)
+public static Boolean op_LessThan(DateTime t1, DateTime t2)
+public static Boolean op_LessThanOrEqual(DateTime t1, DateTime t2)
+public static DateTime op_Subtraction(DateTime d, TimeSpan t)
+public static TimeSpan op_Subtraction(DateTime d1, DateTime d2)
+public static DateTime Parse(String s)
+public static DateTime Parse(String s, IFormatProvider provider)
+public static DateTime Parse(String s, IFormatProvider provider, System.Globalization.DateTimeStyles styles)
+public static DateTime ParseExact(String s, String format, IFormatProvider provider)
+public static DateTime ParseExact(String s, String format, IFormatProvider provider, System.Globalization.DateTimeStyles style)
+public static DateTime ParseExact(String s, String[] formats, IFormatProvider provider, System.Globalization.DateTimeStyles style)
+public static DateTime SpecifyKind(DateTime value, DateTimeKind kind)
+public static Boolean TryParse(String s, DateTime& result)
+public static Boolean TryParse(String s, IFormatProvider provider, System.Globalization.DateTimeStyles styles, DateTime& result)
+public static Boolean TryParseExact(String s, String format, IFormatProvider provider, System.Globalization.DateTimeStyles style, DateTime& result)
+public static Boolean TryParseExact(String s, String[] formats, IFormatProvider provider, System.Globalization.DateTimeStyles style, DateTime& result)
+public DateTime Add(TimeSpan value)
+public DateTime AddDays(Double value)
+public DateTime AddHours(Double value)
+public DateTime AddMilliseconds(Double value)
+public DateTime AddMinutes(Double value)
+public DateTime AddMonths(Int32 months)
+public DateTime AddSeconds(Double value)
+public DateTime AddTicks(Int64 value)
+public DateTime AddYears(Int32 value)
+public virtual Int32 CompareTo(Object value)
+public virtual Int32 CompareTo(DateTime value)
+public virtual Boolean Equals(Object value)
+public virtual Boolean Equals(DateTime value)
+public String[] GetDateTimeFormats()
+public String[] GetDateTimeFormats(IFormatProvider provider)
+public String[] GetDateTimeFormats(Char format)
+public String[] GetDateTimeFormats(Char format, IFormatProvider provider)
+public virtual Int32 GetHashCode()
+public Type GetType()
+public virtual TypeCode GetTypeCode()
+public Boolean IsDaylightSavingTime()
+public TimeSpan Subtract(DateTime value)
+public DateTime Subtract(TimeSpan value)
+public Int64 ToBinary()
+public Int64 ToFileTime()
+public Int64 ToFileTimeUtc()
+public DateTime ToLocalTime()
+public String ToLongDateString()
+public String ToLongTimeString()
+public Double ToOADate()
+public String ToShortDateString()
+public String ToShortTimeString()
+public virtual String ToString()
+public String ToString(String format)
+public virtual String ToString(IFormatProvider provider)
+public virtual String ToString(String format, IFormatProvider provider)
+public DateTime ToUniversalTime()
+DateTime Date { get;  }
+Int32 Day { get;  }
+DayOfWeek DayOfWeek { get;  }
+Int32 DayOfYear { get;  }
+Int32 Hour { get;  }
+DateTimeKind Kind { get;  }
+Int32 Millisecond { get;  }
+Int32 Minute { get;  }
+Int32 Month { get;  }
+DateTime Now { get;  }
+Int32 Second { get;  }
+Int64 Ticks { get;  }
+TimeSpan TimeOfDay { get;  }
+DateTime Today { get;  }
+DateTime UtcNow { get;  }
+Int32 Year { get;  }

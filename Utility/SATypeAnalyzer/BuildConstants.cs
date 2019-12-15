@@ -1,4 +1,6 @@
-﻿namespace SATypeAnalyzer
+﻿using System;
+
+namespace SATypeAnalyzer
 {
     public enum SupportedFramework
     {
