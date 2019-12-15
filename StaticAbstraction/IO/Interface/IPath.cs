@@ -32,7 +32,10 @@ namespace StaticAbstraction.IO
 
         bool IsPathRooted(string path);
 
-#if NETCORE22 || NETCORE30
+
+
+
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
         string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2);
         string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3);
 
@@ -50,14 +53,15 @@ namespace StaticAbstraction.IO
 
         bool TryJoin(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, Span<char> destination, out int charsWritten);
         bool TryJoin(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3, Span<char> destination, out int charsWritten);
+
+        string Join(String path1, String path2);
+        string Join(string path1, string path2, string path3);
 #endif
 
 #if NETCORE30 
         bool EndsInDirectorySeparator(ReadOnlySpan<Char> path);
         bool EndsInDirectorySeparator(string path);
         string Join(String[] paths);
-        string Join(String path1, String path2);
-        string Join(string path1, string path2, string path3);
         string Join(ReadOnlySpan<Char> path1, ReadOnlySpan<Char> path2, ReadOnlySpan<Char> path3, ReadOnlySpan<Char> path4);
         string Join(string path1, string path2, string path3, string path4);
         string TrimEndingDirectorySeparator(string path);

@@ -215,7 +215,7 @@ namespace StaticAbstraction.Reflection
         public virtual System.Security.PermissionSet PermissionSet => WrappedObject?.PermissionSet;
 #endif
 
-#if NETCORE22 || NETCORE30
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30
         public virtual Type[] GetForwardedTypes()
         {
             return WrappedObject?.GetForwardedTypes();

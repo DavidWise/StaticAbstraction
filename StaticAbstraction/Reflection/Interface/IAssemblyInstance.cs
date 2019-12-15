@@ -29,6 +29,7 @@ namespace StaticAbstraction.Reflection
 
         object CreateInstance(string typeName);
         object CreateInstance(string typeName, bool ignoreCase);
+
         object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes);
         object[] GetCustomAttributes(bool inherit);
         object[] GetCustomAttributes(Type attributeType, bool inherit);
@@ -73,7 +74,7 @@ namespace StaticAbstraction.Reflection
         System.Security.PermissionSet PermissionSet { get; }
 #endif
 
-#if NETCORE22 || NETCORE30
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30
         Type[] GetForwardedTypes();
 #endif
     }

@@ -30,7 +30,7 @@ namespace StaticAbstraction
         bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style, out DateTime result);
         bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style, out DateTime result);
 
-#if NETCORE22 || NETCORE30
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
         DateTime Parse(ReadOnlySpan<char> s, IFormatProvider provider = null, DateTimeStyles styles = DateTimeStyles.None);
         DateTime ParseExact(ReadOnlySpan<char> s, ReadOnlySpan<char> format, IFormatProvider provider, DateTimeStyles style = DateTimeStyles.None);
         DateTime ParseExact(ReadOnlySpan<char> s, string[] formats, IFormatProvider provider, DateTimeStyles style = DateTimeStyles.None);

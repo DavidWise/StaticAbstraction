@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp2.2;netcoreapp2.1;netcoreapp2.0;netstandard2.1;netstandard2.0;net48;net47;net46;net45;net40</TargetFrameworks>
+    <!--<TargetFrameworks>netcoreapp3.0;netcoreapp2.2;netcoreapp2.1;netcoreapp2.0;netstandard2.1;netstandard2.0;net48;net47;net46;net45;net40</TargetFrameworks>-->
     <!--<TargetFramework>netcoreapp3.0</TargetFramework>-->
     <!--<TargetFramework>netcoreapp2.1</TargetFramework>-->
-    <!--<TargetFramework>netstandard2.1</TargetFramework>-->
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>

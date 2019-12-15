@@ -197,7 +197,7 @@ namespace StaticAbstraction.IO
             Directory.SetCurrentDirectory(path);
         }
 
-#if NETCORE22 || NETCORE30
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
         public virtual IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.EnumerateDirectories(path, searchPattern, enumerationOptions);

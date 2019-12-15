@@ -36,6 +36,7 @@ namespace StaticAbstraction.Reflection.Mocks
 
         public virtual SecurityRuleSet SecurityRuleSet { get; set; }
 
+#if NETSTANDARD2_0 || NETFULL
         public virtual object CreateInstance(string typeName)
         {
             return null;
@@ -45,6 +46,19 @@ namespace StaticAbstraction.Reflection.Mocks
         {
             return null;
         }
+#endif
+
+#if NETSTANDARD2_1
+        public object CreateInstance(string typeName)
+        {
+            return null;
+        }
+
+        public object CreateInstance(string typeName, bool ignoreCase)
+        {
+            return null;
+        }
+#endif
 
         public virtual object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes)
         {
@@ -203,12 +217,13 @@ namespace StaticAbstraction.Reflection.Mocks
         public virtual System.Security.PermissionSet PermissionSet { get; set; }
 #endif
 
-#if NETCORE22 || NETCORE30
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30
         public virtual Type[] GetForwardedTypes()
         {
             return null;
         }
 #endif
+
 #if NETCORE30
         public virtual bool IsCollectible { get; set; }
 #endif

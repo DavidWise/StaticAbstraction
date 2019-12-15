@@ -4,9 +4,10 @@
     <OutputType>Exe</OutputType>
     <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
     <!--<TargetFrameworks>netcoreapp3.0;netcoreapp2.2;netcoreapp2.1;netstandard2.1;netstandard2.0;net48;net47;net46;net45;net40</TargetFrameworks>-->
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <!--<TargetFramework>netcoreapp3.0</TargetFramework>-->
     <!--<TargetFramework>netcoreapp2.1</TargetFramework>-->
-    <!--<TargetFramework>netstandard2.1</TargetFramework>-->
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <EntryPointExe>true</EntryPointExe>
 
   </PropertyGroup>
 
@@ -24,5 +25,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SATypeAnalyzer\SATypeAnalyzer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

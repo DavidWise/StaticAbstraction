@@ -97,7 +97,7 @@ namespace StaticAbstraction
         }
 
 
-#if NETCORE22 || NETCORE30
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 
         public virtual DateTime Parse(ReadOnlySpan<char> s, IFormatProvider provider = null, DateTimeStyles styles = DateTimeStyles.None)
         {
             return DateTime.Parse(s, provider, styles);
