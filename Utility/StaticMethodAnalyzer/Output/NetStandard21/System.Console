@@ -1,0 +1,91 @@
+public static Void add_CancelKeyPress(ConsoleCancelEventHandler value)
+public static Void Beep()
+public static Void Beep(Int32 frequency, Int32 duration)
+public static Void Clear()
+public static Void MoveBufferArea(Int32 sourceLeft, Int32 sourceTop, Int32 sourceWidth, Int32 sourceHeight, Int32 targetLeft, Int32 targetTop)
+public static Void MoveBufferArea(Int32 sourceLeft, Int32 sourceTop, Int32 sourceWidth, Int32 sourceHeight, Int32 targetLeft, Int32 targetTop, Char sourceChar, ConsoleColor sourceForeColor, ConsoleColor sourceBackColor)
+public static Stream OpenStandardError()
+public static Stream OpenStandardError(Int32 bufferSize)
+public static Stream OpenStandardInput()
+public static Stream OpenStandardInput(Int32 bufferSize)
+public static Stream OpenStandardOutput()
+public static Stream OpenStandardOutput(Int32 bufferSize)
+public static Int32 Read()
+public static ConsoleKeyInfo ReadKey()
+public static ConsoleKeyInfo ReadKey(Boolean intercept)
+public static String ReadLine()
+public static Void remove_CancelKeyPress(ConsoleCancelEventHandler value)
+public static Void ResetColor()
+public static Void SetBufferSize(Int32 width, Int32 height)
+public static Void SetCursorPosition(Int32 left, Int32 top)
+public static Void SetError(TextWriter newError)
+public static Void SetIn(TextReader newIn)
+public static Void SetOut(TextWriter newOut)
+public static Void SetWindowPosition(Int32 left, Int32 top)
+public static Void SetWindowSize(Int32 width, Int32 height)
+public static Void Write(Boolean value)
+public static Void Write(Char value)
+public static Void Write(Char[] buffer)
+public static Void Write(Double value)
+public static Void Write(Decimal value)
+public static Void Write(Single value)
+public static Void Write(Int32 value)
+public static Void Write(UInt32 value)
+public static Void Write(Int64 value)
+public static Void Write(UInt64 value)
+public static Void Write(Object value)
+public static Void Write(String value)
+public static Void Write(String format, Object arg0)
+public static Void Write(String format, Object[] arg)
+public static Void Write(String format, Object arg0, Object arg1)
+public static Void Write(Char[] buffer, Int32 index, Int32 count)
+public static Void Write(String format, Object arg0, Object arg1, Object arg2)
+public static Void WriteLine()
+public static Void WriteLine(String value)
+public static Void WriteLine(Boolean value)
+public static Void WriteLine(Char value)
+public static Void WriteLine(Char[] buffer)
+public static Void WriteLine(Decimal value)
+public static Void WriteLine(Double value)
+public static Void WriteLine(Single value)
+public static Void WriteLine(Int32 value)
+public static Void WriteLine(UInt32 value)
+public static Void WriteLine(Int64 value)
+public static Void WriteLine(UInt64 value)
+public static Void WriteLine(Object value)
+public static Void WriteLine(String format, Object arg0)
+public static Void WriteLine(String format, Object[] arg)
+public static Void WriteLine(String format, Object arg0, Object arg1)
+public static Void WriteLine(Char[] buffer, Int32 index, Int32 count)
+public static Void WriteLine(String format, Object arg0, Object arg1, Object arg2)
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Type GetType()
+public virtual String ToString()
+ConsoleColor BackgroundColor { get; set;  }
+Int32 BufferHeight { get; set;  }
+Int32 BufferWidth { get; set;  }
+Boolean CapsLock { get;  }
+Int32 CursorLeft { get; set;  }
+Int32 CursorSize { get; set;  }
+Int32 CursorTop { get; set;  }
+Boolean CursorVisible { get; set;  }
+TextWriter Error { get;  }
+ConsoleColor ForegroundColor { get; set;  }
+TextReader In { get;  }
+System.Text.Encoding InputEncoding { get; set;  }
+Boolean IsErrorRedirected { get;  }
+Boolean IsInputRedirected { get;  }
+Boolean IsOutputRedirected { get;  }
+Boolean KeyAvailable { get;  }
+Int32 LargestWindowHeight { get;  }
+Int32 LargestWindowWidth { get;  }
+Boolean NumberLock { get;  }
+TextWriter Out { get;  }
+System.Text.Encoding OutputEncoding { get; set;  }
+String Title { get; set;  }
+Boolean TreatControlCAsInput { get; set;  }
+Int32 WindowHeight { get; set;  }
+Int32 WindowLeft { get; set;  }
+Int32 WindowTop { get; set;  }
+Int32 WindowWidth { get; set;  }
