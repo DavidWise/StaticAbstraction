@@ -14,6 +14,7 @@ namespace SATypeAnalyzer
         Core21,
         Core22,
         Core30,
+        Core31,
         Core,
         NetStandard,
         NetStandard2,
@@ -61,7 +62,11 @@ namespace SATypeAnalyzer
 #if NETCORE30
         public const string FrameworkName = "CORE30";
         public const SupportedFramework Framework = SupportedFramework.Core30;
+#endif
 
+#if NETCORE31
+        public const string FrameworkName = "CORE31";
+        public const SupportedFramework Framework = SupportedFramework.Core31;
 #endif
 
 #if NETSTANDARD2_0
