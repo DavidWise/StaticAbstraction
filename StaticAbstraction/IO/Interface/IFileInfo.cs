@@ -17,7 +17,7 @@ namespace StaticAbstraction.IO
         void Decrypt();
         void Encrypt();
         void MoveTo(string destFileName);
-#if NETCORE30
+#if NETCORE30 || NETCORE31
         void MoveTo(string destFileName, bool overwrite);
 #endif
         FileStream Open(FileMode mode);

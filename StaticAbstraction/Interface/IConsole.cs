@@ -96,7 +96,7 @@ namespace StaticAbstraction
         void WriteLine(String format, Object arg0, Object arg1, Object arg2, Object arg3);
 #endif
 
-#if NETCORE22 || NETCORE30
+#if NETCORE22 || NETCORE30 || NETCORE31
         bool IsErrorRedirected { get; }
         bool IsInputRedirected { get; }
         bool IsOutputRedirected { get; }

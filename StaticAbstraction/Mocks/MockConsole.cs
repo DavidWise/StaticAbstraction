@@ -343,7 +343,7 @@ namespace StaticAbstraction.Mocks
             // do nothing
         }
 
-#if NETCORE22 || NETCORE30
+#if NETCORE22 || NETCORE30 || NETCORE31
         public virtual bool IsErrorRedirected { get; set; }
 
         public virtual bool IsInputRedirected { get; set; }
