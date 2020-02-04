@@ -4,23 +4,26 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>David Wise</Authors>
     <Company />
-    <Copyright>@2019 David Wise</Copyright>
+    <Title>Static Abstraction - Make built-in static methods more testable</Title>
+    <Copyright>@2020 David Wise</Copyright>
     <PackageId>StaticAbstraction</PackageId>
-    <PackageReleaseNotes>Updated to support .Net Core 3.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated Build number to reflect highest supported .Net Core version
+Updated to support .Net Core 3.1</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>This library creates a way to abstract static calls from common .Net objects so that the containing code can be more easily unit tested</Description>
     <RepositoryUrl>https://github.com/DavidWise/StaticAbstraction.git</RepositoryUrl>
     <Product>Static Abstraction</Product>
-    <AssemblyVersion>0.9.0.17</AssemblyVersion>
-    <FileVersion>0.9.0.17</FileVersion>
-    <Version>0.9.0.17</Version>
+    <AssemblyVersion>1.3.1.0</AssemblyVersion>
+    <FileVersion>1.3.1.0</FileVersion>
+    <Version>1.3.1.0</Version>
     <PackageProjectUrl>https://github.com/DavidWise/StaticAbstraction</PackageProjectUrl>
     <PackageTags>UnitTests nunit mock static abstraction</PackageTags>
     <PackageLicenseUrl>
     </PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageIconUrl>https://photos.smugmug.com/photos/i-dpvBV8k/0/65dc66a6/O/i-dpvBV8k.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>StaticAbstraction_package_icon.png</PackageIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
@@ -63,6 +66,10 @@
       <Pack>True</Pack>
       <PackagePath>
       </PackagePath>
+    </None>
+    <None Include="StaticAbstraction_package_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 </Project>
