@@ -12,6 +12,7 @@ namespace StaticAbstraction
         protected IConsole _console;
         protected IDateTime _dateTime;
         protected IAssembly _assembly;
+        protected IEnvironment _environment;
 
         public virtual IFile File {
             get {
@@ -82,11 +83,21 @@ namespace StaticAbstraction
             set { _assembly = value; }
         }
 
+        public virtual IEnvironment Environment
+        {
+            get
+            {
+                if (_environment == null) _environment = new StAbEnvironment();
+                return _environment;
+            }
+            set { _environment = value; }
+        }
+
         public StAbWrapper()
         {
         }
 
-        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly) : this()
+        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly, IEnvironment environment) : this()
         {
             if (file != null) this.File = file;
             if (path != null) this.Path = path;
@@ -95,6 +106,7 @@ namespace StaticAbstraction
             if (driveInfo != null) this.DriveInfo = driveInfo;
             if (dateTime != null) this.DateTime = dateTime;
             if (assembly != null) this.Assembly = assembly;
+            if (environment != null) this.Environment = environment;
         }
 
         public virtual IFileInfo NewFileInfo(string path)
