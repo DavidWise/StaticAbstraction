@@ -6,6 +6,7 @@ so that components that would normally rely on these otherwise unmockable method
 The objects that are wrapped by this library include:
 - System.Console
 - System.DateTime    
+- System.Environment
 - System.IO.Directory
 - System.IO.DirectoryInfo
 - System.IO.DriveInfo
@@ -75,6 +76,7 @@ Each of the common interfaces used in this module have a single implementor in t
 |IConsole|StAbConsole|System.Console|
 |IDateTime|StAbDateTime|System.DateTime|
 |IAssembly|StAbAssembly|System.Reflection.Assembly|
+|IEnvironment|StAbEnvironment|System.Environment|
 
 ## Special interfaces and classes
 These classes wrap otherwise hard or annying to mock object returned from the static methods wrappered above and are not generally created directly, though certainly can be if needed.
@@ -105,6 +107,7 @@ to implementing the interface, they also offer:
 |Interface|Mock|Namespace|
 |-|-|-|
 |IConsole|MockConsole|StaticAbstraction.Mocks|
+|IEnvironment|MockEnvironment|StaticAbstraction.Mocks|
 |IDirectoryInfo|MockDirectoryInfo|StaticAbstraction.IO.Mocks|
 |IFileInfo|MockFileInfo|StaticAbstraction.IO.Mocks|
 |IFileSystemInfo|MockDFileSystemInfo|StaticAbstraction.IO.Mocks|
@@ -129,8 +132,10 @@ At present, the library builds to support the following .Net versions and matche
 This means that even though .Net Core 3.0 supports the [`Path.Join(string[])`](https://docs.microsoft.com/en-us/dotnet/api/system.io.path.join?view=netcore-3.0#System_IO_Path_Join_System_String___) method, that method will not be visible on the wrappers if you are targeting
 .Net Core 2.2 or earlier.
 
+- .Net Core 3.1
 - .Net Core 3.0
 - .Net Core 2.2
+- .Net Standard 2.1
 - .Net Standard 2.0
 - .Net Framework 4.8
 - .Net Framework 4.7
