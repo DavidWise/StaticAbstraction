@@ -13,6 +13,7 @@ namespace SATypeAnalyzer
             typeof(System.IO.FileInfo),
             typeof(System.Console),
             typeof(System.DateTime),
+            typeof(System.Environment),
             typeof(System.IO.DriveInfo),
             typeof(System.IO.Path),
             typeof(System.IO.FileSystemInfo),
