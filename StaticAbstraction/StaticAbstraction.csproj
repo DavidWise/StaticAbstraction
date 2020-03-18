@@ -7,15 +7,14 @@
     <Title>Static Abstraction - Make built-in static methods more testable</Title>
     <Copyright>@2020 David Wise</Copyright>
     <PackageId>StaticAbstraction</PackageId>
-    <PackageReleaseNotes>Updated Build number to reflect highest supported .Net Core version
-Updated to support .Net Core 3.1</PackageReleaseNotes>
+    <PackageReleaseNotes>Added support for mocking Environment methods</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>This library creates a way to abstract static calls from common .Net objects so that the containing code can be more easily unit tested</Description>
     <RepositoryUrl>https://github.com/DavidWise/StaticAbstraction.git</RepositoryUrl>
     <Product>Static Abstraction</Product>
-    <AssemblyVersion>1.3.1.0</AssemblyVersion>
-    <FileVersion>1.3.1.0</FileVersion>
-    <Version>1.3.1.0</Version>
+    <AssemblyVersion>1.3.1.1</AssemblyVersion>
+    <FileVersion>1.3.1.1</FileVersion>
+    <Version>1.3.1.1</Version>
     <PackageProjectUrl>https://github.com/DavidWise/StaticAbstraction</PackageProjectUrl>
     <PackageTags>UnitTests nunit mock static abstraction</PackageTags>
     <PackageLicenseUrl>
