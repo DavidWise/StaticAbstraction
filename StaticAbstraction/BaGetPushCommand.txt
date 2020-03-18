@@ -1,4 +1,4 @@
-dotnet nuget push -s http://localhost:5000/v3/index.json -k BAGET-SERVER-API-KEY StaticAbstraction\bin\Release\StaticAbstraction.0.9.0.nupkg
+dotnet nuget push -s http://localhost:5000/v3/index.json -k BAGET-SERVER-API-KEY StaticAbstraction\bin\Release\StaticAbstraction.1.3.1.2.nupkg
 
 
 dotnet nuget delete  -s http://localhost:5000/v3/index.json -k BAGET-SERVER-API-KEY StaticAbstraction 0.0.5
