@@ -10,9 +10,11 @@ namespace StaticAbstraction
         IFile File { get; set; }
         IPath Path { get; set; }
         IDirectory Directory { get; set; }
+        IDriveInfo DriveInfo { get; set; }
         IConsole Console { get; set; }
         IDateTime DateTime { get; set; }
         IAssembly Assembly { get; set; }
+        IEnvironment Environment { get; set; }
 
         IFileInfo NewFileInfo(string path);
         IDirectoryInfo NewDirectoryInfo(string path);
