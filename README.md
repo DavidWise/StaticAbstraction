@@ -1,7 +1,9 @@
 # StaticAbstraction
+    Because writing unit tests for code that uses static methods on built-in .Net objects is a pain
+
 #### What
 A light-weight library that wraps the static methods on common objects in the .Net Framework and .Net Core 
-so that components that would normally rely on these otherwise unmockable methods can be safely unit tested. 
+so that components that would normally rely on these otherwise unmockable methods can be safely and easily unit tested. 
 
 The objects that are wrapped by this library include:
 - System.Console
@@ -17,22 +19,16 @@ The objects that are wrapped by this library include:
 - System.Reflection.Assembly
 
 The methods and properties on all of the wrapper objects are, in nearly all cases, direct wrappers of the static 
-functionality.  The only place where more complex work is done is where the wrapped method returns an array of 
-otherwise wrapped objects.  In those cases, there is extra work to wrap the individual array items.
+functionality. If the mocked call returns an otherwise mocked type (i.e. Directory.GetFiles()) then additional work is done to wrap the results as well.
 
 ##### Special note for .Net Core
 If you are using .Net Core, you might want to look at 
 the [IFileProvider](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/file-providers?view=aspnetcore-3.0) interface 
-to see if it provides the functionality you need without requiring a third-pary library like this.
+to see if it provides the functionality you need without requiring a third-party library like this.
 
 
 #### Why
-This is intended to alleviate developers from having to figure out and code ways around testing objects that use those static methods.  Since most of 
-those solutions involve creating custom code just like this, I figured maybe it should already exist in a reusable form.
-
-This is meant solely to wrapper commonly used objects that provide untestable static methods so that they can be tested.
-All objects are direct matches to their static-bound brethren, use the same paramters, have the same overloads and so forth.  Each method/property is meant to be as lightweight as possible with the least amount of extra code.  
-
+This is intended to alleviate developers from having to figure out and code ways around testing objects that use those static methods.  Since most of those solutions involve creating custom code just like this, I figured maybe it should already exist in a reusable form.
 
 #### How
 In order to use this, you will have to change places in your existing code so that it uses 
@@ -117,13 +113,11 @@ to implementing the interface, they also offer:
 
 The interfaces themselves can easily be stubbed out via `NSubstitute` or similar but these offer the convenience of simple object construction.
 
-In the interest of completeness, there is also a top-level accessor object that can be injected that provides properties that will 
+In the interest of completeness, there is also a top-level accessor object that can be injected that provides properties that allow access to all of the other abstractions provided by this library. Typically, it is better to inject the interface that most closely matches the needs of the class but I have found that injecting just the interface below tends to be more flexible
 
 |Interface|Class|
 |-|-|
 |IStaticAbstraction|StAbWrapper|
-
-
 
 
 # Supported .Net versions
@@ -143,7 +137,7 @@ This means that even though .Net Core 3.0 supports the [`Path.Join(string[])`](h
 - .Net Framework 4.5
 
 # Notes
-- I have attempted to make the wrapper classes as lightweight as possible since some of this code will be in the actually final application but certain methods are going to be heavier.  Most notably are those that need to convert large quantities of the wrapped object (i.e. FileInfo) into same sized arrays of wrapper objects (IFileInfo)
+- Some commercial (and typically very expensive) unit test packages include support for mocking static methods so if you use one of these it might be worth looking into if yours supports it and if so, how it is implemented. Some of the implementations can be pretty ugly though.
 
 # Still TODO
 - isolate and fully support building to .Net Standard 2.1
@@ -153,6 +147,3 @@ This means that even though .Net Core 3.0 supports the [`Path.Join(string[])`](h
 # Suggestions
 This is still in the early stages so if you use the library and find 
 something else that would be handy, please [log an issue](https://github.com/DavidWise/StaticAbstraction/issues/new/choose) with the details
-
-
-
