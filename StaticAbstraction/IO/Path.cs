@@ -176,7 +176,7 @@ namespace StaticAbstraction.IO
 
 #endif
 
-#if NETCORE30  || NETCORE31
+#if NETCORE30  || NETCORE31 || NETCORE50
         public virtual bool EndsInDirectorySeparator(ReadOnlySpan<Char> path)
         {
             return Path.EndsInDirectorySeparator(path);

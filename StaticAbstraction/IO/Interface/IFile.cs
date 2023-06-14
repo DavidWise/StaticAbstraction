@@ -59,7 +59,7 @@ namespace StaticAbstraction.IO
         void WriteAllText(string path, string contents);
         void WriteAllText(string path, string contents, Encoding encoding);
 
-#if NETCORE22 || NETCORE30 || NETCORE31
+#if NETCORE22 || NETCORE30 || NETCORE31|| NETCORE50
         Task AppendAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken));
         Task AppendAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken));
         Task AppendAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken));
@@ -73,7 +73,7 @@ namespace StaticAbstraction.IO
         void WriteAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken));
         void WriteAllTextAsync(string path, string contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken));
 #endif
-#if NETCORE30 || NETCORE31
+#if NETCORE30 || NETCORE31 || NETCORE50
         void Move(String sourceFileName, String destFileName, Boolean overwrite);
 #endif
     }

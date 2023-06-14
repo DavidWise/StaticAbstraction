@@ -59,6 +59,14 @@ namespace StaticAbstraction.Mocks
             // do nothing
         }
 
+#if NETCORE50
+        public virtual ValueTuple<Int32, Int32> GetCursorPosition()
+        {
+            // do nothing
+            return default(ValueTuple<Int32, Int32>);
+        }
+#endif
+
         public virtual void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop)
         {
             // do nothing
@@ -343,7 +351,7 @@ namespace StaticAbstraction.Mocks
             // do nothing
         }
 
-#if NETCORE22 || NETCORE30 || NETCORE31
+#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50
         public virtual bool IsErrorRedirected { get; set; }
 
         public virtual bool IsInputRedirected { get; set; }

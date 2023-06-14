@@ -217,14 +217,14 @@ namespace StaticAbstraction.Reflection.Mocks
         public virtual System.Security.PermissionSet PermissionSet { get; set; }
 #endif
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50
         public virtual Type[] GetForwardedTypes()
         {
             return null;
         }
 #endif
 
-#if NETCORE30 || NETCORE31
+#if NETCORE30 || NETCORE31 || NETCORE50
         public virtual bool IsCollectible { get; set; }
 #endif
 

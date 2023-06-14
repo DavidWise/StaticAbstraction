@@ -215,13 +215,13 @@ namespace StaticAbstraction.Reflection
         public virtual System.Security.PermissionSet PermissionSet => WrappedObject?.PermissionSet;
 #endif
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50
         public virtual Type[] GetForwardedTypes()
         {
             return WrappedObject?.GetForwardedTypes();
         }
 #endif
-#if NETCORE30 || NETCORE31
+#if NETCORE30 || NETCORE31 || NETCORE50
         public virtual bool IsCollectible => WrappedObject == null ? false : WrappedObject.IsCollectible;
 #endif
     }
