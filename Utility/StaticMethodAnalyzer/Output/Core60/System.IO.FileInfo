@@ -1,0 +1,45 @@
+public StreamWriter AppendText()
+public FileInfo CopyTo(String destFileName)
+public FileInfo CopyTo(String destFileName, Boolean overwrite)
+public FileStream Create()
+public Void CreateAsSymbolicLink(String pathToTarget)
+public StreamWriter CreateText()
+public Void Decrypt()
+public virtual Void Delete()
+public Void Encrypt()
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Object GetLifetimeService()
+public virtual Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+public Type GetType()
+public virtual Object InitializeLifetimeService()
+public Void MoveTo(String destFileName)
+public Void MoveTo(String destFileName, Boolean overwrite)
+public FileStream Open(FileMode mode)
+public FileStream Open(FileStreamOptions options)
+public FileStream Open(FileMode mode, FileAccess access)
+public FileStream Open(FileMode mode, FileAccess access, FileShare share)
+public FileStream OpenRead()
+public StreamReader OpenText()
+public FileStream OpenWrite()
+public Void Refresh()
+public FileInfo Replace(String destinationFileName, String destinationBackupFileName)
+public FileInfo Replace(String destinationFileName, String destinationBackupFileName, Boolean ignoreMetadataErrors)
+public FileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget)
+public virtual String ToString()
+FileAttributes Attributes { get; set;  }
+DateTime CreationTime { get; set;  }
+DateTime CreationTimeUtc { get; set;  }
+DirectoryInfo Directory { get;  }
+String DirectoryName { get;  }
+Boolean Exists { get;  }
+String Extension { get;  }
+String FullName { get;  }
+Boolean IsReadOnly { get; set;  }
+DateTime LastAccessTime { get; set;  }
+DateTime LastAccessTimeUtc { get; set;  }
+DateTime LastWriteTime { get; set;  }
+DateTime LastWriteTimeUtc { get; set;  }
+Int64 Length { get;  }
+String LinkTarget { get;  }
+String Name { get;  }

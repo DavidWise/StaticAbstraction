@@ -1,0 +1,41 @@
+public static Void Exit(Int32 exitCode)
+public static String ExpandEnvironmentVariables(String name)
+public static Void FailFast(String message)
+public static Void FailFast(String message, Exception exception)
+public static Void FailFast(String message, Exception exception, String errorMessage)
+public static String[] GetCommandLineArgs()
+public static String GetEnvironmentVariable(String variable)
+public static String GetEnvironmentVariable(String variable, EnvironmentVariableTarget target)
+public static IDictionary GetEnvironmentVariables()
+public static IDictionary GetEnvironmentVariables(EnvironmentVariableTarget target)
+public static String GetFolderPath(SpecialFolder folder)
+public static String GetFolderPath(SpecialFolder folder, SpecialFolderOption option)
+public static String[] GetLogicalDrives()
+public static Void SetEnvironmentVariable(String variable, String value)
+public static Void SetEnvironmentVariable(String variable, String value, EnvironmentVariableTarget target)
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Type GetType()
+public virtual String ToString()
+String CommandLine { get;  }
+String CurrentDirectory { get; set;  }
+Int32 CurrentManagedThreadId { get;  }
+Int32 ExitCode { get; set;  }
+Boolean HasShutdownStarted { get;  }
+Boolean Is64BitOperatingSystem { get;  }
+Boolean Is64BitProcess { get;  }
+String MachineName { get;  }
+String NewLine { get;  }
+OperatingSystem OSVersion { get;  }
+Int32 ProcessId { get;  }
+Int32 ProcessorCount { get;  }
+String StackTrace { get;  }
+String SystemDirectory { get;  }
+Int32 SystemPageSize { get;  }
+Int32 TickCount { get;  }
+Int64 TickCount64 { get;  }
+String UserDomainName { get;  }
+Boolean UserInteractive { get;  }
+String UserName { get;  }
+Version Version { get;  }
+Int64 WorkingSet { get;  }

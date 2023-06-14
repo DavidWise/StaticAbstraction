@@ -18,7 +18,10 @@ namespace SATypeAnalyzer
         Core,
         NetStandard,
         NetStandard2,
-        NetStandard21
+        NetStandard21,
+        Core50,
+        Core60,
+        Core70
     }
 
     public static class BuildConstants
@@ -78,6 +81,20 @@ namespace SATypeAnalyzer
         public const SupportedFramework Framework = SupportedFramework.NetStandard21;
 #endif
 
+#if NETCORE50
+        public const string FrameworkName = "CORE50";
+        public const SupportedFramework Framework = SupportedFramework.Core50;
+#endif
+
+#if NETCORE60
+        public const string FrameworkName = "CORE60";
+        public const SupportedFramework Framework = SupportedFramework.Core60;
+#endif
+
+#if NETCORE70
+        public const string FrameworkName = "CORE70";
+        public const SupportedFramework Framework = SupportedFramework.Core70;
+#endif
 
     }
 }
