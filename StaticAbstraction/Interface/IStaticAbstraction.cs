@@ -1,4 +1,5 @@
-﻿using StaticAbstraction.IO;
+﻿using StaticAbstraction.Diagnostics;
+using StaticAbstraction.IO;
 using StaticAbstraction.Reflection;
 
 namespace StaticAbstraction
@@ -15,9 +16,9 @@ namespace StaticAbstraction
         IDateTime DateTime { get; set; }
         IAssembly Assembly { get; set; }
         IEnvironment Environment { get; set; }
+        IProcess Process { get; set; }
 
         IFileInfo NewFileInfo(string path);
         IDirectoryInfo NewDirectoryInfo(string path);
-
     }
 }

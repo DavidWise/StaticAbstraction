@@ -1,4 +1,5 @@
-﻿using StaticAbstraction.IO;
+﻿using StaticAbstraction.Diagnostics;
+using StaticAbstraction.IO;
 using StaticAbstraction.Reflection;
 
 namespace StaticAbstraction
@@ -13,6 +14,7 @@ namespace StaticAbstraction
         protected IDateTime _dateTime;
         protected IAssembly _assembly;
         protected IEnvironment _environment;
+        protected IProcess _process;
 
         public virtual IFile File {
             get {
@@ -93,11 +95,21 @@ namespace StaticAbstraction
             set { _environment = value; }
         }
 
+        public virtual IProcess Process
+        {
+            get
+            {
+                if (_process == null) _process = new StAbProcess();
+                return _process;
+            }
+            set { _process = value; }
+        }
+
         public StAbWrapper()
         {
         }
 
-        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly, IEnvironment environment) : this()
+        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly, IEnvironment environment, IProcess process) : this()
         {
             if (file != null) this.File = file;
             if (path != null) this.Path = path;
@@ -107,6 +119,7 @@ namespace StaticAbstraction
             if (dateTime != null) this.DateTime = dateTime;
             if (assembly != null) this.Assembly = assembly;
             if (environment != null) this.Environment = environment;
+            if (process != null) this.Process = process;
         }
 
         public virtual IFileInfo NewFileInfo(string path)
