@@ -1,0 +1,20 @@
+public virtual Void Delete()
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Object GetLifetimeService()
+public virtual Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+public Type GetType()
+public virtual Object InitializeLifetimeService()
+public Void Refresh()
+public virtual String ToString()
+FileAttributes Attributes { get; set;  }
+DateTime CreationTime { get; set;  }
+DateTime CreationTimeUtc { get; set;  }
+Boolean Exists { get;  }
+String Extension { get;  }
+String FullName { get;  }
+DateTime LastAccessTime { get; set;  }
+DateTime LastAccessTimeUtc { get; set;  }
+DateTime LastWriteTime { get; set;  }
+DateTime LastWriteTimeUtc { get; set;  }
+String Name { get;  }
