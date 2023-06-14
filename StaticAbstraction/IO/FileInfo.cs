@@ -80,7 +80,7 @@ namespace StaticAbstraction.IO
             WrappedObject.MoveTo(destFileName);
         }
 
-#if NETCORE30 || NETCORE31|| NETCORE50
+#if NETCORE30 || NETCORE31|| NETCORE50 || NETCORE60
         public virtual void MoveTo(string destFileName, bool overwrite)
         {
             WrappedObject.MoveTo(destFileName, overwrite);

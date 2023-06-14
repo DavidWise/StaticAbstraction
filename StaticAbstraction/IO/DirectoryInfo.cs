@@ -132,7 +132,7 @@ namespace StaticAbstraction.IO
             return WrappedObject.GetFiles(mask, searchOption).ToStaticAbstraction();
         }
 
-#if NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         public virtual IFileInfo[] GetFiles(string searchPattern, EnumerationOptions enumerationOptions)
         {
             return WrappedObject.GetFiles(searchPattern, enumerationOptions).ToStaticAbstraction();

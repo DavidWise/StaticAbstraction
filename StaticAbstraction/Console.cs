@@ -156,7 +156,7 @@ namespace StaticAbstraction
             Console.Clear();
         }
 
-#if NETCORE50
+#if NETCORE50 || NETCORE60
         public virtual ValueTuple<Int32, Int32> GetCursorPosition()
         {
             return Console.GetCursorPosition();
@@ -412,7 +412,7 @@ namespace StaticAbstraction
             Console.WriteLine(value);
         }
 
-#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         public virtual bool IsErrorRedirected
         {
             get { return Console.IsErrorRedirected; }

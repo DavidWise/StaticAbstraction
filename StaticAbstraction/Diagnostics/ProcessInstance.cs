@@ -174,7 +174,7 @@ namespace StaticAbstraction.Diagnostics
         public virtual void CancelOutputRead() => _base.CancelOutputRead();
         public virtual void Close() => _base.Close();
         public virtual void Kill() => _base.Kill();
-#if NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         public virtual void Kill(bool entireProcessTree) => _base.Kill(entireProcessTree);
 #endif
         public virtual bool CloseMainWindow() => _base.CloseMainWindow();

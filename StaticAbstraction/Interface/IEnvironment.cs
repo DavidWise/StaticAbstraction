@@ -21,7 +21,7 @@ namespace StaticAbstraction
         String NewLine { get; }
         OperatingSystem OSVersion { get; }
 
-#if (NETCORE50)
+#if NETCORE50 || NETCORE60
         Int32 ProcessId { get; }
 #endif
 
@@ -31,7 +31,7 @@ namespace StaticAbstraction
         Int32 SystemPageSize { get; }
         Int32 TickCount { get; }
 
-#if (NETCORE30 || NETCORE31 || NETCORE50)
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         Int64 TickCount64 { get; }
 #endif
         String UserDomainName { get; }

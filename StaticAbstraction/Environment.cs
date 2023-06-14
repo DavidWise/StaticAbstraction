@@ -27,7 +27,7 @@ namespace StaticAbstraction
 
         public virtual OperatingSystem OSVersion => Environment.OSVersion;
 
-#if (NETCORE50)
+#if NETCORE50 || NETCORE60
         public virtual Int32 ProcessId  => Environment.ProcessId;
 #endif
 
@@ -41,7 +41,7 @@ namespace StaticAbstraction
 
         public virtual int TickCount => Environment.TickCount;
 
-#if (NETCORE30 || NETCORE31 || NETCORE50)
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         public virtual long TickCount64 => Environment.TickCount64;
 #endif
 

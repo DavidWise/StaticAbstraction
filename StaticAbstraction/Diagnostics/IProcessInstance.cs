@@ -773,7 +773,7 @@ namespace StaticAbstraction.Diagnostics
         //     object.
         bool CloseMainWindow();
 
-#if NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         //
         // Summary:
         //     Immediately stops the associated process, and optionally its child/descendent

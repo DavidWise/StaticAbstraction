@@ -16,7 +16,7 @@ namespace StaticAbstraction.Diagnostics
         string UserName { get; set; }
         Encoding StandardOutputEncoding { get; set; }
 
-#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         Encoding StandardInputEncoding { get; set; }
         Collection<string> ArgumentList { get; }
 #endif 
@@ -88,7 +88,7 @@ namespace StaticAbstraction.Diagnostics
             set => _base.StandardOutputEncoding = value;
         }
 
-#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         public virtual Encoding StandardInputEncoding
         {
             get => _base.StandardInputEncoding;
@@ -207,7 +207,7 @@ namespace StaticAbstraction.Diagnostics
                 UseShellExecute = info.UseShellExecute,
                 UserName = info.UserName,
                 StandardOutputEncoding = info.StandardOutputEncoding,
-#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50
+#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
                 StandardInputEncoding = info.StandardInputEncoding,
 #endif
                 StandardErrorEncoding = info.StandardErrorEncoding,
