@@ -20,13 +20,18 @@ namespace StaticAbstraction
         String MachineName { get; }
         String NewLine { get; }
         OperatingSystem OSVersion { get; }
+
+#if (NETCORE50)
+        Int32 ProcessId { get; }
+#endif
+
         Int32 ProcessorCount { get; }
         String StackTrace { get; }
         String SystemDirectory { get; }
         Int32 SystemPageSize { get; }
         Int32 TickCount { get; }
 
-#if (NETCORE30 || NETCORE31)
+#if (NETCORE30 || NETCORE31 || NETCORE50)
         Int64 TickCount64 { get; }
 #endif
         String UserDomainName { get; }

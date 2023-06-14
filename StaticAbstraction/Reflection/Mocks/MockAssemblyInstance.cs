@@ -48,7 +48,7 @@ namespace StaticAbstraction.Reflection.Mocks
         }
 #endif
 
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NETCORE50
         public object CreateInstance(string typeName)
         {
             return null;

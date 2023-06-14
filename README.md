@@ -140,7 +140,7 @@ This means that even though .Net Core 3.0 supports the [`Path.Join(string[])`](h
 - Some commercial (and typically very expensive) unit test packages include support for mocking static methods so if you use one of these it might be worth looking into if yours supports it and if so, how it is implemented. Some of the implementations can be pretty ugly though.
 
 # Still TODO
-- isolate and fully support building to .Net Standard 2.1
+- Handle windows and non-windows mocks (CA1416 warning)
 - override basic object methods such as ToString and Equals() (more investigation needed)
 - Implement ISerializable 
 

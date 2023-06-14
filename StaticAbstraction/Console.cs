@@ -156,6 +156,13 @@ namespace StaticAbstraction
             Console.Clear();
         }
 
+#if NETCORE50
+        public virtual ValueTuple<Int32, Int32> GetCursorPosition()
+        {
+            return Console.GetCursorPosition();
+        }
+#endif
+
         public virtual void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop)
         {
             Console.MoveBufferArea(sourceLeft, sourceTop, sourceWidth, sourceHeight, targetLeft, targetTop);
@@ -405,7 +412,7 @@ namespace StaticAbstraction
             Console.WriteLine(value);
         }
 
-#if NETCORE22 || NETCORE30 || NETCORE31
+#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50
         public virtual bool IsErrorRedirected
         {
             get { return Console.IsErrorRedirected; }

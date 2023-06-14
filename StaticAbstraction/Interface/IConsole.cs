@@ -34,6 +34,10 @@ namespace StaticAbstraction
         void Beep();
         void Beep(int frequency, int duration);
         void Clear();
+
+#if NETCORE50
+        ValueTuple<Int32, Int32> GetCursorPosition();
+#endif
         void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop);
         void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop, char sourceChar, ConsoleColor sourceForeColor, ConsoleColor sourceBackColor);
         Stream OpenStandardError();
@@ -96,7 +100,7 @@ namespace StaticAbstraction
         void WriteLine(String format, Object arg0, Object arg1, Object arg2, Object arg3);
 #endif
 
-#if NETCORE22 || NETCORE30 || NETCORE31
+#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50
         bool IsErrorRedirected { get; }
         bool IsInputRedirected { get; }
         bool IsOutputRedirected { get; }
