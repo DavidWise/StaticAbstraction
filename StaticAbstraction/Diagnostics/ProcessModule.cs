@@ -35,7 +35,7 @@ namespace StaticAbstraction.Diagnostics
         //
         // Returns:
         //     A System.Diagnostics.FileVersionInfo that contains the module's version information.
-        FileVersionInfo FileVersionInfo { get; }
+        IFileVersionInfoInstance FileVersionInfo { get; }
         //
         // Summary:
         //     Gets the amount of memory that is required to load the module.
@@ -60,7 +60,7 @@ namespace StaticAbstraction.Diagnostics
 
         public string FileName { get; protected set; }
 
-        public FileVersionInfo FileVersionInfo { get; protected set; }
+        public IFileVersionInfoInstance FileVersionInfo { get; protected set; }
 
         public int ModuleMemorySize { get; protected set; }
 
@@ -71,7 +71,7 @@ namespace StaticAbstraction.Diagnostics
             this.BaseAddress = module.BaseAddress;
             this.EntryPointAddress = module.EntryPointAddress;
             this.FileName = module.FileName;
-            this.FileVersionInfo = module.FileVersionInfo;
+            this.FileVersionInfo = new StAbFileVersionInfoInstance(module.FileVersionInfo);
             this.ModuleMemorySize = module.ModuleMemorySize;
             this.ModuleName = module.ModuleName;
         }

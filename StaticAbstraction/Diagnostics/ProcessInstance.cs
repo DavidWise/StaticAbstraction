@@ -180,7 +180,7 @@ namespace StaticAbstraction.Diagnostics
         public virtual bool CloseMainWindow() => _base.CloseMainWindow();
         public virtual void Refresh() => _base.Refresh();
         public virtual bool Start() => _base.Start();
-        public string ToString() => _base.ToString();
+        public new string ToString() => _base.ToString();
         public virtual void WaitForExit() => _base.WaitForExit();
         public virtual bool WaitForExit(int milliseconds) => _base.WaitForExit(milliseconds);
         public virtual bool WaitForInputIdle() => _base.WaitForInputIdle();
@@ -243,6 +243,11 @@ namespace StaticAbstraction.Diagnostics
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
                 _base = null;
                 disposedValue = true;
+
+                if (Disposed != null)
+                {
+                    Disposed(this, null);
+                }
             }
         }
 
