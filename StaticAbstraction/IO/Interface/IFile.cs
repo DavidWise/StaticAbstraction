@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 
 namespace StaticAbstraction.IO
 {
@@ -19,6 +20,10 @@ namespace StaticAbstraction.IO
         FileStream Create(string path);
         FileStream Create(string path, int bufferSize);
         FileStream Create(string path, int bufferSize, FileOptions options);
+
+#if NETCORE60
+        IFileSystemInfo CreateSymbolicLink(String path, String pathToTarget);
+#endif
         StreamWriter CreateText(string path);
         void Decrypt(string path);
         void Encrypt(string path);
@@ -32,8 +37,18 @@ namespace StaticAbstraction.IO
         DateTime GetLastWriteTimeUtc(string path);
         void Move(string sourceFileName, string destFileName);
         FileStream Open(string path, FileMode mode);
+
+#if NETCORE60
+        FileStream Open(String path, FileStreamOptions options);
+#endif
+
         FileStream Open(string path, FileMode mode, FileAccess access);
         FileStream Open(string path, FileMode mode, FileAccess access, FileShare share);
+
+#if NETCORE60
+        SafeFileHandle OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize);
+#endif
+
         FileStream OpenRead(string path);
         StreamReader OpenText(string path);
         FileStream OpenWrite(string path);
@@ -44,6 +59,10 @@ namespace StaticAbstraction.IO
         IEnumerable<string> ReadLines(string path, Encoding encoding);
         void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName);
         void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors);
+
+#if NETCORE60
+        IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget);
+#endif
         void SetAttributes(string path, FileAttributes attributes);
         void SetCreationTime(string path, DateTime creationTime);
         void SetCreationTimeUtc(string path, DateTime creationTimeUtc);
@@ -73,6 +92,7 @@ namespace StaticAbstraction.IO
         void WriteAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken));
         void WriteAllTextAsync(string path, string contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken));
 #endif
+
 #if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
         void Move(String sourceFileName, String destFileName, Boolean overwrite);
 #endif

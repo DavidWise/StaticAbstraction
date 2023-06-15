@@ -7,6 +7,12 @@ namespace StaticAbstraction.IO
     public interface IDirectory
     {
         IDirectoryInfo CreateDirectory(string path);
+
+#if NETCORE60
+        FileSystemInfo CreateSymbolicLink(String path, String pathToTarget);
+#endif
+        
+
         void Delete(string path);
 
         IEnumerable<string> EnumerateDirectories(string path);
@@ -57,6 +63,10 @@ namespace StaticAbstraction.IO
         IDirectoryInfo GetParent(string path);
 
         void Move(string sourceDirName, string destDirName);
+
+#if NETCORE60
+        IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget);
+#endif
 
         void SetCreationTime(string path, DateTime creationTime);
         void SetCreationTimeUtc(string path, DateTime creationTimeUtc);

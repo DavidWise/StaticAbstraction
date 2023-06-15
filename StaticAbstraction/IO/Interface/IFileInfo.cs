@@ -21,6 +21,10 @@ namespace StaticAbstraction.IO
         void MoveTo(string destFileName, bool overwrite);
 #endif
         FileStream Open(FileMode mode);
+
+#if NETCORE60
+        FileStream Open(FileStreamOptions options);
+#endif
         FileStream OpenRead();
         StreamReader OpenText();
         FileStream OpenWrite();

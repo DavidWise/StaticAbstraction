@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace StaticAbstraction.IO
@@ -31,7 +32,10 @@ namespace StaticAbstraction.IO
         IFileSystemInfo[] GetFileSystemInfos(string searchPattern);
         IFileSystemInfo[] GetFileSystemInfos(string searchPattern, SearchOption searchOption);
 
+
+
         void MoveTo(string destDirName);
+
 
 #if NETSTANDARD2_1 || NETCORE21 || NETCORE22
         IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions);

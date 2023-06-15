@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 namespace StaticAbstraction.IO
 {
-    public abstract class StAbFileSystemInfo : IFileSystemInfo
+    public class StAbFileSystemInfo : IFileSystemInfo
     {
         protected FileSystemInfo WrappedObject { get; private set; }
 
@@ -58,6 +58,17 @@ namespace StaticAbstraction.IO
         public virtual string FullName => WrappedObject.FullName;
         public virtual string Extension => WrappedObject.Extension;
 
+#if NETCORE60
+        public virtual string LinkTarget => WrappedObject.LinkTarget;
+#endif
+
+#if NETCORE60
+        public virtual void CreateAsSymbolicLink(String pathToTarget)
+        {
+            WrappedObject.CreateAsSymbolicLink(pathToTarget);
+        }
+#endif
+
         public virtual void Refresh()
         {
             WrappedObject.Refresh();
@@ -68,8 +79,21 @@ namespace StaticAbstraction.IO
             WrappedObject.GetObjectData(info, context);
         }
 
-        public abstract bool Exists { get; }
-        public abstract string Name { get; }
-        public abstract void Delete();
+        public virtual bool Exists => WrappedObject.Exists;
+        public virtual string Name => WrappedObject.Name;
+        public virtual void Delete()
+        {
+            WrappedObject.Delete();
+        }
+
+#if NETCORE60
+        public virtual IFileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget)
+        {
+            var link = WrappedObject.ResolveLinkTarget(returnFinalTarget);
+            if (link == null) { return null; }
+
+            return new StAbFileSystemInfo(link);
+        }
+#endif
     }
 }

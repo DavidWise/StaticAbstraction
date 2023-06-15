@@ -56,6 +56,12 @@ namespace StaticAbstraction.IO.Mocks
             return null;
         }
 
+#if NETCORE60
+        public virtual FileStream Open(FileStreamOptions options)
+        {
+            return null;
+        }
+#endif
         public virtual FileStream OpenRead()
         {
             return null;

@@ -26,6 +26,10 @@ namespace StaticAbstraction
 #endif
 
         Int32 ProcessorCount { get; }
+
+#if NETCORE60
+        string ProcessPath { get; }
+#endif
         String StackTrace { get; }
         String SystemDirectory { get; }
         Int32 SystemPageSize { get; }

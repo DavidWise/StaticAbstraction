@@ -33,6 +33,10 @@ namespace StaticAbstraction.Mocks
 
         public virtual int ProcessorCount { get; set; }
 
+#if NETCORE60
+        public virtual string ProcessPath { get; set; }
+#endif
+
         public virtual string StackTrace { get; set; }
 
         public virtual string SystemDirectory { get; set; }

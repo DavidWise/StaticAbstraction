@@ -90,6 +90,13 @@ namespace StaticAbstraction.IO
         {
             return WrappedObject.Open(mode);
         }
+
+#if NETCORE60
+        public virtual FileStream Open(FileStreamOptions options)
+        {
+            return WrappedObject.Open(options);
+        }
+#endif
         public virtual FileStream OpenRead()
         {
             return WrappedObject.OpenRead();

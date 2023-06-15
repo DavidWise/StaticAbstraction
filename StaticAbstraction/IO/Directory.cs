@@ -11,6 +11,13 @@ namespace StaticAbstraction.IO
             return Directory.CreateDirectory(path).ToStaticAbstraction();
 
         }
+
+#if NETCORE60
+        public virtual FileSystemInfo CreateSymbolicLink(String path, String pathToTarget)
+        {
+            return Directory.CreateSymbolicLink(path, pathToTarget);
+        }
+#endif
         public virtual void Delete(string path)
         {
             Directory.Delete(path);
@@ -164,6 +171,16 @@ namespace StaticAbstraction.IO
         {
             Directory.Move(sourceDirName, destDirName);
         }
+
+#if NETCORE60
+        public virtual IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget)
+        {
+            var link = Directory.ResolveLinkTarget(linkPath, returnFinalTarget);
+            if (link == null) { return null; }
+
+            return new StAbFileSystemInfo(link);
+        }
+#endif
 
         public virtual void SetCreationTime(string path, DateTime creationTime)
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace StaticAbstraction.IO
@@ -66,6 +67,7 @@ namespace StaticAbstraction.IO
         {
             return WrappedObject.CreateSubdirectory(path).ToStaticAbstraction();
         }
+
         public override void Delete()
         {
             WrappedObject.Delete();
@@ -157,6 +159,7 @@ namespace StaticAbstraction.IO
         {
             WrappedObject.MoveTo(destDirName);
         }
+
 
 #if NETSTANDARD2_1 || NETCORE21 || NETCORE22
         public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)

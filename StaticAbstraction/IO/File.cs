@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -57,6 +58,15 @@ namespace StaticAbstraction.IO
         {
             return File.Create(path, bufferSize, options);
         }
+
+#if NETCORE60
+        public virtual IFileSystemInfo CreateSymbolicLink(String path, String pathToTarget)
+        {
+            var link = File.CreateSymbolicLink(path, pathToTarget); 
+            if (link != null) return new StAbFileSystemInfo(link);
+            return null;
+        }
+#endif
 
         public virtual StreamWriter CreateText(string path)
         {
@@ -125,6 +135,15 @@ namespace StaticAbstraction.IO
         {
             return File.Open(path, mode);
         }
+
+
+#if NETCORE60
+        public virtual FileStream Open(String path, FileStreamOptions options)
+        {
+            return File.Open(path, options);
+        }
+#endif
+
         public virtual FileStream Open(string path, FileMode mode, FileAccess access)
         {
             return File.Open(path, mode, access);
@@ -133,6 +152,14 @@ namespace StaticAbstraction.IO
         {
             return File.Open(path, mode, access, share);
         }
+
+#if NETCORE60
+        public virtual SafeFileHandle OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+        {
+            return File.OpenHandle(path, mode, access, share, options, preallocationSize);
+        }
+#endif
+
 
         public virtual FileStream OpenRead(string path)
         {
@@ -184,6 +211,16 @@ namespace StaticAbstraction.IO
         {
             File.Replace(sourceFileName, destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
         }
+
+#if NETCORE60
+        public IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget)
+        {
+            var link = File.ResolveLinkTarget(linkPath, returnFinalTarget);
+            if (link == null) return null;
+
+            return new StAbFileSystemInfo(link);
+        }
+#endif
 
         public virtual void SetAttributes(string path, FileAttributes attributes)
         {

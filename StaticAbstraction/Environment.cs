@@ -33,6 +33,9 @@ namespace StaticAbstraction
 
         public virtual int ProcessorCount => Environment.ProcessorCount;
 
+#if NETCORE60
+        public virtual string ProcessPath => Environment.ProcessPath;
+#endif
         public virtual string StackTrace => Environment.StackTrace;
 
         public virtual string SystemDirectory => Environment.SystemDirectory;
