@@ -58,11 +58,11 @@ namespace StaticAbstraction.IO
         public virtual string FullName => WrappedObject.FullName;
         public virtual string Extension => WrappedObject.Extension;
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual string LinkTarget => WrappedObject.LinkTarget;
 #endif
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual void CreateAsSymbolicLink(String pathToTarget)
         {
             WrappedObject.CreateAsSymbolicLink(pathToTarget);
@@ -86,7 +86,7 @@ namespace StaticAbstraction.IO
             WrappedObject.Delete();
         }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual IFileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget)
         {
             var link = WrappedObject.ResolveLinkTarget(returnFinalTarget);

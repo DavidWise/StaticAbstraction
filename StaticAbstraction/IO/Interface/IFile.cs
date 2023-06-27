@@ -21,7 +21,7 @@ namespace StaticAbstraction.IO
         FileStream Create(string path, int bufferSize);
         FileStream Create(string path, int bufferSize, FileOptions options);
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         IFileSystemInfo CreateSymbolicLink(String path, String pathToTarget);
 #endif
         StreamWriter CreateText(string path);
@@ -38,14 +38,14 @@ namespace StaticAbstraction.IO
         void Move(string sourceFileName, string destFileName);
         FileStream Open(string path, FileMode mode);
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         FileStream Open(String path, FileStreamOptions options);
 #endif
 
         FileStream Open(string path, FileMode mode, FileAccess access);
         FileStream Open(string path, FileMode mode, FileAccess access, FileShare share);
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         SafeFileHandle OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize);
 #endif
 
@@ -60,7 +60,7 @@ namespace StaticAbstraction.IO
         void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName);
         void Replace(string sourceFileName, string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors);
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget);
 #endif
         void SetAttributes(string path, FileAttributes attributes);
@@ -78,7 +78,7 @@ namespace StaticAbstraction.IO
         void WriteAllText(string path, string contents);
         void WriteAllText(string path, string contents, Encoding encoding);
 
-#if NETCORE22 || NETCORE30 || NETCORE31|| NETCORE50 || NETCORE60
+#if NETCORE22 || NETCORE30 || NETCORE31|| NETCORE50 || NETCORE60 || NETCORE70
         Task AppendAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken));
         Task AppendAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken));
         Task AppendAllTextAsync(string path, string contents, CancellationToken cancellationToken = default(CancellationToken));
@@ -93,7 +93,7 @@ namespace StaticAbstraction.IO
         void WriteAllTextAsync(string path, string contents, Encoding encoding, CancellationToken cancellationToken = default(CancellationToken));
 #endif
 
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         void Move(String sourceFileName, String destFileName, Boolean overwrite);
 #endif
     }

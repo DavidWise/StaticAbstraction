@@ -10,26 +10,26 @@ namespace StaticAbstraction.Reflection
 {
     public interface IAssemblyInstance
     {
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
         [Obsolete("Assembly.CodeBase' is obsolete: 'Assembly.CodeBase and Assembly.EscapedCodeBase are only included for .NET Framework compatibility. Use Assembly.Location instead.")]
 #endif
         string CodeBase { get; }
         MethodInfo EntryPoint { get; }
 
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
         [Obsolete("Assembly.EscapedCodeBase' is obsolete: 'Assembly.CodeBase and Assembly.EscapedCodeBase are only included for .NET Framework compatibility. Use Assembly.Location instead.")]
 #endif
         string EscapedCodeBase { get; }
         string FullName { get; }
 
-#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         [Obsolete("Assembly.GlobalAssemblyCache' is obsolete: 'The Global Assembly Cache is not supported.")]
 #endif
         bool GlobalAssemblyCache { get; }
         long HostContext { get; }
         string ImageRuntimeVersion { get; }
         bool IsDynamic { get; }
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         bool IsCollectible { get; }
 #endif
         bool IsFullyTrusted { get; }
@@ -85,7 +85,7 @@ namespace StaticAbstraction.Reflection
         System.Security.PermissionSet PermissionSet { get; }
 #endif
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         Type[] GetForwardedTypes();
 #endif
     }

@@ -22,7 +22,7 @@ namespace StaticAbstraction.IO.Mocks
 
         public virtual string FullName { get; set; }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual string LinkTarget { get; set; }
 #endif
 
@@ -34,7 +34,7 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual void CreateAsSymbolicLink(String pathToTarget)
         {
         }
@@ -44,7 +44,7 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual IFileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget)
         {
             return null;

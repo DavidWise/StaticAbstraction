@@ -19,11 +19,11 @@ namespace StaticAbstraction.Reflection
             WrappedObject = assembly;
         }
 
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
 #pragma warning disable SYSLIB0012
 #endif
         public virtual string CodeBase => WrappedObject?.CodeBase;
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
 #pragma warning restore SYSLIB0012
 #endif
 
@@ -43,11 +43,11 @@ namespace StaticAbstraction.Reflection
        
         public virtual MethodInfo EntryPoint => WrappedObject?.EntryPoint;
 
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
 #pragma warning disable SYSLIB0012
 #endif
         public virtual string EscapedCodeBase => WrappedObject?.EscapedCodeBase;
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
 #pragma warning disable SYSLIB0012
 #endif
         public virtual string FullName => WrappedObject?.FullName;
@@ -178,11 +178,11 @@ namespace StaticAbstraction.Reflection
             return WrappedObject?.GetTypes();
         }
 
-#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
 #pragma warning disable SYSLIB0005
 #endif
         public virtual bool GlobalAssemblyCache => WrappedObject == null ? false : WrappedObject.GlobalAssemblyCache;
-#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
 #pragma warning restore SYSLIB0005
 #endif
         public virtual long HostContext => WrappedObject == null ? 0 : WrappedObject.HostContext;
@@ -234,13 +234,13 @@ namespace StaticAbstraction.Reflection
         public virtual System.Security.PermissionSet PermissionSet => WrappedObject?.PermissionSet;
 #endif
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         public virtual Type[] GetForwardedTypes()
         {
             return WrappedObject?.GetForwardedTypes();
         }
 #endif
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         public virtual bool IsCollectible => WrappedObject == null ? false : WrappedObject.IsCollectible;
 #endif
     }

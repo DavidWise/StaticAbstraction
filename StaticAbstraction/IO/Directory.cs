@@ -12,7 +12,7 @@ namespace StaticAbstraction.IO
 
         }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual FileSystemInfo CreateSymbolicLink(String path, String pathToTarget)
         {
             return Directory.CreateSymbolicLink(path, pathToTarget);
@@ -172,7 +172,7 @@ namespace StaticAbstraction.IO
             Directory.Move(sourceDirName, destDirName);
         }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget)
         {
             var link = Directory.ResolveLinkTarget(linkPath, returnFinalTarget);

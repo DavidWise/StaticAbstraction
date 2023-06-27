@@ -18,18 +18,18 @@ namespace StaticAbstraction.IO
         string Extension { get; }
         string FullName { get; }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         string LinkTarget { get; }
 #endif
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         void CreateAsSymbolicLink(String pathToTarget);
 #endif
 
         void Delete();
         void Refresh();
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         IFileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget);
 #endif
         void GetObjectData(SerializationInfo info, StreamingContext context);

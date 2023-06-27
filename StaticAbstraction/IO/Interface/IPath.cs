@@ -58,7 +58,7 @@ namespace StaticAbstraction.IO
         string Join(string path1, string path2, string path3);
 #endif
 
-#if NETCORE30  || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE30  || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         bool EndsInDirectorySeparator(ReadOnlySpan<Char> path);
         bool EndsInDirectorySeparator(string path);
         string Join(String[] paths);

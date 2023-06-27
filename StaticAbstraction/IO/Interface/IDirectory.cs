@@ -8,7 +8,7 @@ namespace StaticAbstraction.IO
     {
         IDirectoryInfo CreateDirectory(string path);
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         FileSystemInfo CreateSymbolicLink(String path, String pathToTarget);
 #endif
         
@@ -64,7 +64,7 @@ namespace StaticAbstraction.IO
 
         void Move(string sourceDirName, string destDirName);
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget);
 #endif
 

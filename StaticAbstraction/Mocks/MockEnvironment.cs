@@ -27,13 +27,13 @@ namespace StaticAbstraction.Mocks
 
         public virtual OperatingSystem OSVersion { get; set; }
 
-#if NETCORE50 || NETCORE60
+#if NETCORE50 || NETCORE60 || NETCORE70
         public virtual Int32 ProcessId { get; set; }
 #endif
 
         public virtual int ProcessorCount { get; set; }
 
-#if NETCORE60
+#if NETCORE60 || NETCORE70
         public virtual string ProcessPath { get; set; }
 #endif
 
@@ -45,7 +45,7 @@ namespace StaticAbstraction.Mocks
 
         public virtual int TickCount { get; set; }
 
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60
+#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         public virtual long TickCount64 { get; set; }
 #endif
 
