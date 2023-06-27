@@ -8,6 +8,11 @@ namespace StaticAbstraction.IO
     {
         IDirectoryInfo CreateDirectory(string path);
 
+#if NETCORE70
+        DirectoryInfo CreateDirectory(String path, UnixFileMode unixCreateMode);
+        DirectoryInfo CreateTempSubdirectory(String prefix);
+#endif
+
 #if NETCORE60 || NETCORE70
         FileSystemInfo CreateSymbolicLink(String path, String pathToTarget);
 #endif
@@ -77,7 +82,7 @@ namespace StaticAbstraction.IO
 
         void SetCurrentDirectory(string path);
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
         IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions);
         IEnumerable<string> EnumerateFiles(string path, string searchPattern, EnumerationOptions enumerationOptions);
         IEnumerable<string> EnumerateFileSystemEntries(string path, string searchPattern, EnumerationOptions enumerationOptions);

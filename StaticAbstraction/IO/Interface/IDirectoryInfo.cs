@@ -37,7 +37,7 @@ namespace StaticAbstraction.IO
         void MoveTo(string destDirName);
 
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
         IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions);
         IEnumerable<IFileInfo> EnumerateFiles(string searchPattern, EnumerationOptions enumerationOptions);
         IDirectoryInfo[] GetDirectories(string searchPattern, EnumerationOptions enumerationOptions);

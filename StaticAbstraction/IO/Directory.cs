@@ -12,12 +12,22 @@ namespace StaticAbstraction.IO
 
         }
 
+#if NETCORE70
+        public virtual DirectoryInfo CreateDirectory(String path, UnixFileMode unixCreateMode){
+            return Directory.CreateDirectory(path, unixCreateMode);
+        }
+        public virtual DirectoryInfo CreateTempSubdirectory(String prefix) {
+            return Directory.CreateTempSubdirectory(prefix);
+        }
+#endif
+
 #if NETCORE60 || NETCORE70
         public virtual FileSystemInfo CreateSymbolicLink(String path, String pathToTarget)
         {
             return Directory.CreateSymbolicLink(path, pathToTarget);
         }
 #endif
+
         public virtual void Delete(string path)
         {
             Directory.Delete(path);
@@ -214,7 +224,7 @@ namespace StaticAbstraction.IO
             Directory.SetCurrentDirectory(path);
         }
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
         public virtual IEnumerable<string> EnumerateDirectories(string path, string searchPattern, EnumerationOptions enumerationOptions)
         {
             return Directory.EnumerateDirectories(path, searchPattern, enumerationOptions);

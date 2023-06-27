@@ -29,13 +29,9 @@ namespace StaticAbstraction.IO
 
         bool HasExtension(string path);
 
-
         bool IsPathRooted(string path);
 
-
-
-
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
         string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2);
         string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3);
 
@@ -66,6 +62,10 @@ namespace StaticAbstraction.IO
         string Join(string path1, string path2, string path3, string path4);
         string TrimEndingDirectorySeparator(string path);
         ReadOnlySpan<Char> TrimEndingDirectorySeparator(ReadOnlySpan<Char> path);
+#endif
+
+#if NETCORE70
+        bool Exists(String path);
 #endif
     }
 }

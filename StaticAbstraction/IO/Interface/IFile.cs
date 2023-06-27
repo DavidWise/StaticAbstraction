@@ -96,5 +96,29 @@ namespace StaticAbstraction.IO
 #if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
         void Move(String sourceFileName, String destFileName, Boolean overwrite);
 #endif
+
+#if NETCORE70
+        FileAttributes GetAttributes(SafeFileHandle fileHandle);
+        DateTime GetCreationTime(SafeFileHandle fileHandle);
+        DateTime GetCreationTimeUtc(SafeFileHandle fileHandle);
+        DateTime GetLastAccessTime(SafeFileHandle fileHandle);
+        DateTime GetLastAccessTimeUtc(SafeFileHandle fileHandle);
+        DateTime GetLastWriteTime(SafeFileHandle fileHandle);
+        DateTime GetLastWriteTimeUtc(SafeFileHandle fileHandle);
+        UnixFileMode GetUnixFileMode(String path);
+        UnixFileMode GetUnixFileMode(SafeFileHandle fileHandle);
+
+        IAsyncEnumerable<String> ReadLinesAsync(String path, CancellationToken cancellationToken);
+        IAsyncEnumerable<String> ReadLinesAsync(String path, Encoding encoding, CancellationToken cancellationToken);
+        void SetAttributes(SafeFileHandle fileHandle, FileAttributes fileAttributes);
+        void SetCreationTime(SafeFileHandle fileHandle, DateTime creationTime);
+        void SetCreationTimeUtc(SafeFileHandle fileHandle, DateTime creationTimeUtc);
+        void SetLastAccessTime(SafeFileHandle fileHandle, DateTime lastAccessTime);
+        void SetLastAccessTimeUtc(SafeFileHandle fileHandle, DateTime lastAccessTimeUtc);
+        void SetLastWriteTime(SafeFileHandle fileHandle, DateTime lastWriteTime);
+        void SetLastWriteTimeUtc(SafeFileHandle fileHandle, DateTime lastWriteTimeUtc);
+        void SetUnixFileMode(String path, UnixFileMode mode);
+        void SetUnixFileMode(SafeFileHandle fileHandle, UnixFileMode mode);
+#endif
     }
 }

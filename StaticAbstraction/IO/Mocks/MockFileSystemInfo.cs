@@ -50,5 +50,9 @@ namespace StaticAbstraction.IO.Mocks
             return null;
         }
 #endif
+
+#if NETCORE70
+        public virtual UnixFileMode UnixFileMode { get; set; }
+#endif
     }
 }

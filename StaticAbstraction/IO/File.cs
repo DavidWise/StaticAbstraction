@@ -341,5 +341,69 @@ namespace StaticAbstraction.IO
             File.WriteAllTextAsync(path, contents, encoding, cancellationToken);
         }
 #endif
+
+#if NETCORE70
+        public virtual FileAttributes GetAttributes(SafeFileHandle fileHandle) {
+            return File.GetAttributes(fileHandle);
+        }
+        public virtual DateTime GetCreationTime(SafeFileHandle fileHandle) {
+            return File.GetCreationTime(fileHandle);
+        }
+        public virtual DateTime GetCreationTimeUtc(SafeFileHandle fileHandle) {
+            return File.GetCreationTimeUtc(fileHandle);
+        }
+        public virtual DateTime GetLastAccessTime(SafeFileHandle fileHandle) {
+            return File.GetLastAccessTime(fileHandle);
+        }
+        public virtual DateTime GetLastAccessTimeUtc(SafeFileHandle fileHandle) {
+            return File.GetLastAccessTimeUtc(fileHandle);
+        }
+        public virtual DateTime GetLastWriteTime(SafeFileHandle fileHandle) {
+            return File.GetLastWriteTime(fileHandle);
+        }
+        public virtual DateTime GetLastWriteTimeUtc(SafeFileHandle fileHandle) {
+            return File.GetLastWriteTimeUtc(fileHandle);
+        }
+        public virtual UnixFileMode GetUnixFileMode(String path) {
+            return File.GetUnixFileMode(path);
+        }
+        public virtual UnixFileMode GetUnixFileMode(SafeFileHandle fileHandle) {
+            return File.GetUnixFileMode(fileHandle);
+        }
+
+        public virtual IAsyncEnumerable<String> ReadLinesAsync(String path, CancellationToken cancellationToken) {
+            return File.ReadLinesAsync(path, cancellationToken);
+        }
+        public virtual IAsyncEnumerable<String> ReadLinesAsync(String path, Encoding encoding, CancellationToken cancellationToken) {
+            return File.ReadLinesAsync(path, encoding, cancellationToken);
+        }
+        public virtual void SetAttributes(SafeFileHandle fileHandle, FileAttributes fileAttributes) {
+            File.SetAttributes(fileHandle, fileAttributes);
+        }
+        public virtual void SetCreationTime(SafeFileHandle fileHandle, DateTime creationTime) {
+            File.SetCreationTime(fileHandle, creationTime);
+        }
+        public virtual void SetCreationTimeUtc(SafeFileHandle fileHandle, DateTime creationTimeUtc) {
+            File.SetCreationTimeUtc(fileHandle, creationTimeUtc);
+        }
+        public virtual void SetLastAccessTime(SafeFileHandle fileHandle, DateTime lastAccessTime) {
+            File.SetLastAccessTime(fileHandle, lastAccessTime);
+        }
+        public virtual void SetLastAccessTimeUtc(SafeFileHandle fileHandle, DateTime lastAccessTimeUtc) {
+            File.SetLastAccessTimeUtc(fileHandle, lastAccessTimeUtc);
+        }
+        public virtual void SetLastWriteTime(SafeFileHandle fileHandle, DateTime lastWriteTime) {
+            File.SetLastWriteTime(fileHandle, lastWriteTime);
+        }
+        public virtual void SetLastWriteTimeUtc(SafeFileHandle fileHandle, DateTime lastWriteTimeUtc) {
+            File.SetLastWriteTimeUtc(fileHandle, lastWriteTimeUtc);
+        }
+        public virtual void SetUnixFileMode(String path, UnixFileMode mode) {
+            File.SetUnixFileMode(path, mode);
+        }
+        public virtual void SetUnixFileMode(SafeFileHandle fileHandle, UnixFileMode mode) {
+            File.SetUnixFileMode(fileHandle, mode);
+        }
+#endif
     }
 }

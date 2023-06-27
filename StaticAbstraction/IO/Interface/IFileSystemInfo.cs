@@ -22,6 +22,10 @@ namespace StaticAbstraction.IO
         string LinkTarget { get; }
 #endif
 
+#if NETCORE70
+        UnixFileMode UnixFileMode { get; set; }
+#endif
+
 #if NETCORE60 || NETCORE70
         void CreateAsSymbolicLink(String pathToTarget);
 #endif

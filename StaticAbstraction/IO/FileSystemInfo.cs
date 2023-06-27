@@ -95,5 +95,11 @@ namespace StaticAbstraction.IO
             return new StAbFileSystemInfo(link);
         }
 #endif
+#if NETCORE70
+        public virtual UnixFileMode UnixFileMode { 
+            get => WrappedObject.UnixFileMode;
+            set => WrappedObject.UnixFileMode = value;
+        }
+#endif
     }
 }

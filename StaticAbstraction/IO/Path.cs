@@ -99,7 +99,7 @@ namespace StaticAbstraction.IO
 
 
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22
+#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
         public virtual ReadOnlySpan<char> GetDirectoryName(ReadOnlySpan<char> path)
         {
             return Path.GetDirectoryName(path);
@@ -211,6 +211,12 @@ namespace StaticAbstraction.IO
         public ReadOnlySpan<char> TrimEndingDirectorySeparator(ReadOnlySpan<char> path)
         {
             return Path.TrimEndingDirectorySeparator(path);
+        }
+#endif
+
+#if NETCORE70
+        public virtual bool Exists(String path) {
+            return Path.Exists(path);
         }
 #endif
     }
