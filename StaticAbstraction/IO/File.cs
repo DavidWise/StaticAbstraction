@@ -59,7 +59,7 @@ namespace StaticAbstraction.IO
             return File.Create(path, bufferSize, options);
         }
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         public virtual IFileSystemInfo CreateSymbolicLink(String path, String pathToTarget)
         {
             var link = File.CreateSymbolicLink(path, pathToTarget); 
@@ -124,7 +124,7 @@ namespace StaticAbstraction.IO
             File.Move(sourceFileName, destFileName);
         }
 
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP3_0_OR_GREATER
         public virtual void Move(String sourceFileName, String destFileName, Boolean overwrite)
         {
             File.Move(sourceFileName, destFileName, overwrite);
@@ -137,7 +137,7 @@ namespace StaticAbstraction.IO
         }
 
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         public virtual FileStream Open(String path, FileStreamOptions options)
         {
             return File.Open(path, options);
@@ -153,7 +153,7 @@ namespace StaticAbstraction.IO
             return File.Open(path, mode, access, share);
         }
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         public virtual SafeFileHandle OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
         {
             return File.OpenHandle(path, mode, access, share, options, preallocationSize);
@@ -212,7 +212,7 @@ namespace StaticAbstraction.IO
             File.Replace(sourceFileName, destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
         }
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         public IFileSystemInfo ResolveLinkTarget(String linkPath, Boolean returnFinalTarget)
         {
             var link = File.ResolveLinkTarget(linkPath, returnFinalTarget);
@@ -291,7 +291,7 @@ namespace StaticAbstraction.IO
 
 
 
-#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP2_2_OR_GREATER
         public virtual Task AppendAllLinesAsync(string path, IEnumerable<string> contents, CancellationToken cancellationToken = default(CancellationToken))
         {
             return File.AppendAllLinesAsync(path, contents, cancellationToken);
@@ -342,7 +342,7 @@ namespace StaticAbstraction.IO
         }
 #endif
 
-#if NETCORE70
+#if NET7_0_OR_GREATER
         public virtual FileAttributes GetAttributes(SafeFileHandle fileHandle) {
             return File.GetAttributes(fileHandle);
         }

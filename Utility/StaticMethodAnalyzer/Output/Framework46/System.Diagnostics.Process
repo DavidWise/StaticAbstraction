@@ -1,0 +1,95 @@
+public static Void EnterDebugMode()
+public static System.Diagnostics.Process GetCurrentProcess()
+public static System.Diagnostics.Process GetProcessById(Int32 processId)
+public static System.Diagnostics.Process GetProcessById(Int32 processId, String machineName)
+public static System.Diagnostics.Process[] GetProcesses()
+public static System.Diagnostics.Process[] GetProcesses(String machineName)
+public static System.Diagnostics.Process[] GetProcessesByName(String processName)
+public static System.Diagnostics.Process[] GetProcessesByName(String processName, String machineName)
+public static Void LeaveDebugMode()
+public static System.Diagnostics.Process Start(String fileName)
+public static System.Diagnostics.Process Start(System.Diagnostics.ProcessStartInfo startInfo)
+public static System.Diagnostics.Process Start(String fileName, String arguments)
+public static System.Diagnostics.Process Start(String fileName, String userName, System.Security.SecureString password, String domain)
+public static System.Diagnostics.Process Start(String fileName, String arguments, String userName, System.Security.SecureString password, String domain)
+public virtual Void add_Disposed(EventHandler value)
+public Void add_ErrorDataReceived(System.Diagnostics.DataReceivedEventHandler value)
+public Void add_Exited(EventHandler value)
+public Void add_OutputDataReceived(System.Diagnostics.DataReceivedEventHandler value)
+public Void BeginErrorReadLine()
+public Void BeginOutputReadLine()
+public Void CancelErrorRead()
+public Void CancelOutputRead()
+public Void Close()
+public Boolean CloseMainWindow()
+public virtual System.Runtime.Remoting.ObjRef CreateObjRef(Type requestedType)
+public virtual Void Dispose()
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public virtual Object GetLifetimeService()
+public Type GetType()
+public virtual Object InitializeLifetimeService()
+public Void Kill()
+public Void Refresh()
+public virtual Void remove_Disposed(EventHandler value)
+public Void remove_ErrorDataReceived(System.Diagnostics.DataReceivedEventHandler value)
+public Void remove_Exited(EventHandler value)
+public Void remove_OutputDataReceived(System.Diagnostics.DataReceivedEventHandler value)
+public Boolean Start()
+public virtual String ToString()
+public Void WaitForExit()
+public Boolean WaitForExit(Int32 milliseconds)
+public Boolean WaitForInputIdle()
+public Boolean WaitForInputIdle(Int32 milliseconds)
+Int32 BasePriority { get;  }
+System.ComponentModel.IContainer Container { get;  }
+Boolean EnableRaisingEvents { get; set;  }
+Int32 ExitCode { get;  }
+DateTime ExitTime { get;  }
+IntPtr Handle { get;  }
+Int32 HandleCount { get;  }
+Boolean HasExited { get;  }
+Int32 Id { get;  }
+String MachineName { get;  }
+System.Diagnostics.ProcessModule MainModule { get;  }
+IntPtr MainWindowHandle { get;  }
+String MainWindowTitle { get;  }
+IntPtr MaxWorkingSet { get; set;  }
+IntPtr MinWorkingSet { get; set;  }
+System.Diagnostics.ProcessModuleCollection Modules { get;  }
+Int32 NonpagedSystemMemorySize { get;  }
+Int64 NonpagedSystemMemorySize64 { get;  }
+Int32 PagedMemorySize { get;  }
+Int64 PagedMemorySize64 { get;  }
+Int32 PagedSystemMemorySize { get;  }
+Int64 PagedSystemMemorySize64 { get;  }
+Int32 PeakPagedMemorySize { get;  }
+Int64 PeakPagedMemorySize64 { get;  }
+Int32 PeakVirtualMemorySize { get;  }
+Int64 PeakVirtualMemorySize64 { get;  }
+Int32 PeakWorkingSet { get;  }
+Int64 PeakWorkingSet64 { get;  }
+Boolean PriorityBoostEnabled { get; set;  }
+System.Diagnostics.ProcessPriorityClass PriorityClass { get; set;  }
+Int32 PrivateMemorySize { get;  }
+Int64 PrivateMemorySize64 { get;  }
+TimeSpan PrivilegedProcessorTime { get;  }
+String ProcessName { get;  }
+IntPtr ProcessorAffinity { get; set;  }
+Boolean Responding { get;  }
+Microsoft.Win32.SafeHandles.SafeProcessHandle SafeHandle { get;  }
+Int32 SessionId { get;  }
+System.ComponentModel.ISite Site { get; set;  }
+StreamReader StandardError { get;  }
+StreamWriter StandardInput { get;  }
+StreamReader StandardOutput { get;  }
+System.Diagnostics.ProcessStartInfo StartInfo { get; set;  }
+DateTime StartTime { get;  }
+System.ComponentModel.ISynchronizeInvoke SynchronizingObject { get; set;  }
+System.Diagnostics.ProcessThreadCollection Threads { get;  }
+TimeSpan TotalProcessorTime { get;  }
+TimeSpan UserProcessorTime { get;  }
+Int32 VirtualMemorySize { get;  }
+Int64 VirtualMemorySize64 { get;  }
+Int32 WorkingSet { get;  }
+Int64 WorkingSet64 { get;  }

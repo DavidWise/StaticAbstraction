@@ -17,12 +17,13 @@ namespace StaticAbstraction.IO
         void Decrypt();
         void Encrypt();
         void MoveTo(string destFileName);
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+
+#if NETCOREAPP3_0_OR_GREATER
         void MoveTo(string destFileName, bool overwrite);
 #endif
         FileStream Open(FileMode mode);
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         FileStream Open(FileStreamOptions options);
 #endif
         FileStream OpenRead();

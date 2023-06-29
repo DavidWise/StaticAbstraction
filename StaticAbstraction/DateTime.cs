@@ -55,7 +55,7 @@ namespace StaticAbstraction
             return DateTime.Parse(s, provider);
         }
 
-#if NETCORE70
+#if NET7_0_OR_GREATER
         public virtual DateTime Parse(ReadOnlySpan<Char> s, IFormatProvider provider) {
             return DateTime.Parse(s, provider);
         }
@@ -110,7 +110,7 @@ namespace StaticAbstraction
         }
 
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         public virtual DateTime Parse(ReadOnlySpan<char> s, IFormatProvider provider = null, DateTimeStyles styles = DateTimeStyles.None)
         {
             return DateTime.Parse(s, provider, styles);

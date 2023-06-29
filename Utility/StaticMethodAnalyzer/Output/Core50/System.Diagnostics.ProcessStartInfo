@@ -1,0 +1,28 @@
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Type GetType()
+public virtual String ToString()
+System.Collections.ObjectModel.Collection<String> ArgumentList { get;  }
+String Arguments { get; set;  }
+Boolean CreateNoWindow { get; set;  }
+String Domain { get; set;  }
+IDictionary<String,String> Environment { get;  }
+System.Collections.Specialized.StringDictionary EnvironmentVariables { get;  }
+Boolean ErrorDialog { get; set;  }
+IntPtr ErrorDialogParentHandle { get; set;  }
+String FileName { get; set;  }
+Boolean LoadUserProfile { get; set;  }
+System.Security.SecureString Password { get; set;  }
+String PasswordInClearText { get; set;  }
+Boolean RedirectStandardError { get; set;  }
+Boolean RedirectStandardInput { get; set;  }
+Boolean RedirectStandardOutput { get; set;  }
+System.Text.Encoding StandardErrorEncoding { get; set;  }
+System.Text.Encoding StandardInputEncoding { get; set;  }
+System.Text.Encoding StandardOutputEncoding { get; set;  }
+String UserName { get; set;  }
+Boolean UseShellExecute { get; set;  }
+String Verb { get; set;  }
+String[] Verbs { get;  }
+System.Diagnostics.ProcessWindowStyle WindowStyle { get; set;  }
+String WorkingDirectory { get; set;  }

@@ -10,26 +10,26 @@ namespace StaticAbstraction.Reflection
 {
     public interface IAssemblyInstance
     {
-#if NETCORE50 || NETCORE60 || NETCORE70
+#if NET5_0_OR_GREATER
         [Obsolete("Assembly.CodeBase' is obsolete: 'Assembly.CodeBase and Assembly.EscapedCodeBase are only included for .NET Framework compatibility. Use Assembly.Location instead.")]
 #endif
         string CodeBase { get; }
         MethodInfo EntryPoint { get; }
 
-#if NETCORE50 || NETCORE60 || NETCORE70
+#if NET5_0_OR_GREATER
         [Obsolete("Assembly.EscapedCodeBase' is obsolete: 'Assembly.CodeBase and Assembly.EscapedCodeBase are only included for .NET Framework compatibility. Use Assembly.Location instead.")]
 #endif
         string EscapedCodeBase { get; }
         string FullName { get; }
 
-#if NETCORE21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP2_1_OR_GREATER
         [Obsolete("Assembly.GlobalAssemblyCache' is obsolete: 'The Global Assembly Cache is not supported.")]
 #endif
         bool GlobalAssemblyCache { get; }
         long HostContext { get; }
         string ImageRuntimeVersion { get; }
         bool IsDynamic { get; }
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP3_0_OR_GREATER
         bool IsCollectible { get; }
 #endif
         bool IsFullyTrusted { get; }
@@ -38,8 +38,10 @@ namespace StaticAbstraction.Reflection
         bool ReflectionOnly { get; }
         SecurityRuleSet SecurityRuleSet { get; }
 
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
         object CreateInstance(string typeName);
         object CreateInstance(string typeName, bool ignoreCase);
+#endif
 
         object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes);
         object[] GetCustomAttributes(bool inherit);
@@ -80,12 +82,12 @@ namespace StaticAbstraction.Reflection
         IEnumerable<Module> Modules { get; }
 #endif
 
-#if NETFULL
+#if NETFRAMEWORK
         System.Security.Policy.Evidence Evidence { get; }
         System.Security.PermissionSet PermissionSet { get; }
 #endif
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         Type[] GetForwardedTypes();
 #endif
     }

@@ -31,7 +31,7 @@ namespace StaticAbstraction.IO
 
         bool IsPathRooted(string path);
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2);
         string Join(ReadOnlySpan<char> path1, ReadOnlySpan<char> path2, ReadOnlySpan<char> path3);
 
@@ -54,7 +54,7 @@ namespace StaticAbstraction.IO
         string Join(string path1, string path2, string path3);
 #endif
 
-#if NETCORE30  || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP3_0_OR_GREATER
         bool EndsInDirectorySeparator(ReadOnlySpan<Char> path);
         bool EndsInDirectorySeparator(string path);
         string Join(String[] paths);
@@ -64,7 +64,7 @@ namespace StaticAbstraction.IO
         ReadOnlySpan<Char> TrimEndingDirectorySeparator(ReadOnlySpan<Char> path);
 #endif
 
-#if NETCORE70
+#if NET7_0_OR_GREATER
         bool Exists(String path);
 #endif
     }

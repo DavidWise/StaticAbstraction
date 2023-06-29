@@ -47,16 +47,18 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
+#if NETCOREAPP3_0_OR_GREATER
         public void MoveTo(string destFileName, bool overwrite)
         {
         }
+#endif
 
         public virtual FileStream Open(FileMode mode)
         {
             return null;
         }
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         public virtual FileStream Open(FileStreamOptions options)
         {
             return null;

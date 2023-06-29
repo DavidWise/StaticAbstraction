@@ -1,0 +1,32 @@
+public static System.Diagnostics.FileVersionInfo GetVersionInfo(String fileName)
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Type GetType()
+public virtual String ToString()
+String Comments { get;  }
+String CompanyName { get;  }
+Int32 FileBuildPart { get;  }
+String FileDescription { get;  }
+Int32 FileMajorPart { get;  }
+Int32 FileMinorPart { get;  }
+String FileName { get;  }
+Int32 FilePrivatePart { get;  }
+String FileVersion { get;  }
+String InternalName { get;  }
+Boolean IsDebug { get;  }
+Boolean IsPatched { get;  }
+Boolean IsPreRelease { get;  }
+Boolean IsPrivateBuild { get;  }
+Boolean IsSpecialBuild { get;  }
+String Language { get;  }
+String LegalCopyright { get;  }
+String LegalTrademarks { get;  }
+String OriginalFilename { get;  }
+String PrivateBuild { get;  }
+Int32 ProductBuildPart { get;  }
+Int32 ProductMajorPart { get;  }
+Int32 ProductMinorPart { get;  }
+String ProductName { get;  }
+Int32 ProductPrivatePart { get;  }
+String ProductVersion { get;  }
+String SpecialBuild { get;  }

@@ -93,7 +93,7 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
         {
             return null;

@@ -1,0 +1,17 @@
+public virtual Void add_Disposed(EventHandler value)
+public virtual Void Dispose()
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public Object GetLifetimeService()
+public Type GetType()
+public virtual Object InitializeLifetimeService()
+public virtual Void remove_Disposed(EventHandler value)
+public virtual String ToString()
+IntPtr BaseAddress { get; set;  }
+System.ComponentModel.IContainer Container { get;  }
+IntPtr EntryPointAddress { get; set;  }
+String FileName { get; set;  }
+System.Diagnostics.FileVersionInfo FileVersionInfo { get;  }
+Int32 ModuleMemorySize { get; set;  }
+String ModuleName { get; set;  }
+System.ComponentModel.ISite Site { get; set;  }

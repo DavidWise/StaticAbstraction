@@ -36,19 +36,8 @@ namespace StaticAbstraction.Reflection.Mocks
 
         public virtual SecurityRuleSet SecurityRuleSet { get; set; }
 
-#if NETSTANDARD2_0 || NETFULL
-        public virtual object CreateInstance(string typeName)
-        {
-            return null;
-        }
 
-        public virtual object CreateInstance(string typeName, bool ignoreCase)
-        {
-            return null;
-        }
-#endif
-
-#if NETSTANDARD2_1 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
         public object CreateInstance(string typeName)
         {
             return null;
@@ -212,19 +201,19 @@ namespace StaticAbstraction.Reflection.Mocks
 
 #endif
 
-#if NETFULL
+#if NETFRAMEWORK
         public virtual System.Security.Policy.Evidence Evidence { get; set; }
         public virtual System.Security.PermissionSet PermissionSet { get; set; }
 #endif
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         public virtual Type[] GetForwardedTypes()
         {
             return null;
         }
 #endif
 
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP3_0_OR_GREATER
         public virtual bool IsCollectible { get; set; }
 #endif
 

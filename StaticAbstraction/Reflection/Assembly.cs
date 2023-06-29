@@ -65,7 +65,7 @@ namespace StaticAbstraction.Reflection
             return Assembly.LoadWithPartialName(partialName).ToStaticAbstraction();
         }
 
-#if NETCORE50 || NETCORE60 || NETCORE70
+#if NET5_0_OR_GREATER
 #pragma warning disable SYSLIB0018
 #endif
         public virtual IAssemblyInstance ReflectionOnlyLoad(string assemblyString)
@@ -81,7 +81,7 @@ namespace StaticAbstraction.Reflection
         {
             return Assembly.ReflectionOnlyLoadFrom(assemblyFile).ToStaticAbstraction();
         }
-#if NETCORE50 || NETCORE60 || NETCORE70
+#if NET5_0_OR_GREATER
 #pragma warning restore SYSLIB0018
 #endif
         public virtual IAssemblyInstance UnsafeLoadFrom(string assemblyFile)

@@ -58,17 +58,6 @@ namespace StaticAbstraction.IO
         public virtual string FullName => WrappedObject.FullName;
         public virtual string Extension => WrappedObject.Extension;
 
-#if NETCORE60 || NETCORE70
-        public virtual string LinkTarget => WrappedObject.LinkTarget;
-#endif
-
-#if NETCORE60 || NETCORE70
-        public virtual void CreateAsSymbolicLink(String pathToTarget)
-        {
-            WrappedObject.CreateAsSymbolicLink(pathToTarget);
-        }
-#endif
-
         public virtual void Refresh()
         {
             WrappedObject.Refresh();
@@ -86,7 +75,14 @@ namespace StaticAbstraction.IO
             WrappedObject.Delete();
         }
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
+        public virtual string LinkTarget => WrappedObject.LinkTarget;
+
+        public virtual void CreateAsSymbolicLink(String pathToTarget)
+        {
+            WrappedObject.CreateAsSymbolicLink(pathToTarget);
+        }
+
         public virtual IFileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget)
         {
             var link = WrappedObject.ResolveLinkTarget(returnFinalTarget);
@@ -95,7 +91,8 @@ namespace StaticAbstraction.IO
             return new StAbFileSystemInfo(link);
         }
 #endif
-#if NETCORE70
+
+#if NET7_0_OR_GREATER && !WINDOWS
         public virtual UnixFileMode UnixFileMode { 
             get => WrappedObject.UnixFileMode;
             set => WrappedObject.UnixFileMode = value;

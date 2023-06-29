@@ -1,0 +1,10 @@
+public Boolean Contains(System.Diagnostics.ProcessModule module)
+public Void CopyTo(System.Diagnostics.ProcessModule[] array, Int32 index)
+public virtual Boolean Equals(Object obj)
+public virtual IEnumerator GetEnumerator()
+public virtual Int32 GetHashCode()
+public Type GetType()
+public Int32 IndexOf(System.Diagnostics.ProcessModule module)
+public virtual String ToString()
+Int32 Count { get;  }
+System.Diagnostics.ProcessModule Item { get;  }

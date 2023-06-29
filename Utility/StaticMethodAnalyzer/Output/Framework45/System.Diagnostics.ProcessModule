@@ -1,0 +1,18 @@
+public virtual Void add_Disposed(EventHandler value)
+public virtual System.Runtime.Remoting.ObjRef CreateObjRef(Type requestedType)
+public virtual Void Dispose()
+public virtual Boolean Equals(Object obj)
+public virtual Int32 GetHashCode()
+public virtual Object GetLifetimeService()
+public Type GetType()
+public virtual Object InitializeLifetimeService()
+public virtual Void remove_Disposed(EventHandler value)
+public virtual String ToString()
+IntPtr BaseAddress { get;  }
+System.ComponentModel.IContainer Container { get;  }
+IntPtr EntryPointAddress { get;  }
+String FileName { get;  }
+System.Diagnostics.FileVersionInfo FileVersionInfo { get;  }
+Int32 ModuleMemorySize { get;  }
+String ModuleName { get;  }
+System.ComponentModel.ISite Site { get; set;  }

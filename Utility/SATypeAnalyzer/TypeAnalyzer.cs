@@ -17,7 +17,12 @@ namespace SATypeAnalyzer
             typeof(System.IO.DriveInfo),
             typeof(System.IO.Path),
             typeof(System.IO.FileSystemInfo),
-            typeof(System.Reflection.Assembly)
+            typeof(System.Reflection.Assembly),
+            typeof(System.Diagnostics.FileVersionInfo),
+            typeof(System.Diagnostics.Process),
+            typeof(System.Diagnostics.ProcessModule),
+            typeof(System.Diagnostics.ProcessModuleCollection),
+            typeof(System.Diagnostics.ProcessStartInfo),
         };
 
         BuildInfo _info;

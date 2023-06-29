@@ -16,7 +16,7 @@ namespace StaticAbstraction.Diagnostics
         string UserName { get; set; }
         Encoding StandardOutputEncoding { get; set; }
 
-#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP2_1_OR_GREATER
         Encoding StandardInputEncoding { get; set; }
         Collection<string> ArgumentList { get; }
 #endif 
@@ -25,7 +25,8 @@ namespace StaticAbstraction.Diagnostics
         bool RedirectStandardOutput { get; set; }
         bool RedirectStandardInput { get; set; }
         bool RedirectStandardError { get; set; }
-#if NET47 || NET48 || NETCORE
+
+#if NET47_OR_GREATER || NETCOREAPP
         string PasswordInClearText { get; set; }
 #endif
         SecureString Password { get; set; }
@@ -88,7 +89,7 @@ namespace StaticAbstraction.Diagnostics
             set => _base.StandardOutputEncoding = value;
         }
 
-#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP2_1_OR_GREATER
         public virtual Encoding StandardInputEncoding
         {
             get => _base.StandardInputEncoding;
@@ -121,7 +122,7 @@ namespace StaticAbstraction.Diagnostics
             set => _base.RedirectStandardError = value;
         }
 
-#if NET47 || NET48 || NETCORE
+#if NET47_OR_GREATER || NETCOREAPP
         public virtual string PasswordInClearText
         {
             get => _base.PasswordInClearText;
@@ -207,14 +208,16 @@ namespace StaticAbstraction.Diagnostics
                 UseShellExecute = info.UseShellExecute,
                 UserName = info.UserName,
                 StandardOutputEncoding = info.StandardOutputEncoding,
-#if NETCORE21 || NETCORE22 || NETSTANDARD21 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+
+#if NETCOREAPP2_1_OR_GREATER
                 StandardInputEncoding = info.StandardInputEncoding,
 #endif
                 StandardErrorEncoding = info.StandardErrorEncoding,
                 RedirectStandardOutput = info.RedirectStandardOutput,
                 RedirectStandardInput = info.RedirectStandardInput,
                 RedirectStandardError = info.RedirectStandardError,
-#if NET47 || NET48 || NETCORE
+
+#if NET47_OR_GREATER || NETCOREAPP
                 PasswordInClearText = info.PasswordInClearText,
 #endif
                 Password = info.Password,

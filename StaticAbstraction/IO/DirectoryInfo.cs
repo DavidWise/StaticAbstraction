@@ -134,7 +134,7 @@ namespace StaticAbstraction.IO
             return WrappedObject.GetFiles(mask, searchOption).ToStaticAbstraction();
         }
 
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP3_0_OR_GREATER
         public virtual IFileInfo[] GetFiles(string searchPattern, EnumerationOptions enumerationOptions)
         {
             return WrappedObject.GetFiles(searchPattern, enumerationOptions).ToStaticAbstraction();
@@ -161,7 +161,7 @@ namespace StaticAbstraction.IO
         }
 
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         public virtual IEnumerable<IDirectoryInfo> EnumerateDirectories(string searchPattern, EnumerationOptions enumerationOptions)
         {
             return WrappedObject.EnumerateDirectories(searchPattern, enumerationOptions).ToStaticAbstraction();

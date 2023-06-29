@@ -27,13 +27,13 @@ namespace StaticAbstraction
 
         public virtual OperatingSystem OSVersion => Environment.OSVersion;
 
-#if NETCORE50 || NETCORE60 || NETCORE70
+#if NET5_0_OR_GREATER
         public virtual Int32 ProcessId  => Environment.ProcessId;
 #endif
 
         public virtual int ProcessorCount => Environment.ProcessorCount;
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
         public virtual string ProcessPath => Environment.ProcessPath;
 #endif
         public virtual string StackTrace => Environment.StackTrace;
@@ -44,7 +44,7 @@ namespace StaticAbstraction
 
         public virtual int TickCount => Environment.TickCount;
 
-#if NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP3_0_OR_GREATER
         public virtual long TickCount64 => Environment.TickCount64;
 #endif
 
@@ -65,8 +65,6 @@ namespace StaticAbstraction
         public virtual void FailFast(string message) => Environment.FailFast(message);
 
         public virtual void FailFast(string message, Exception exception) => Environment.FailFast(message, exception);
-
-        //public virtual void FailFast(string message, Exception exception, string errorMessage) => Environment.FailFast(message, exception, errorMessage);
 
         public virtual string[] GetCommandLineArgs() => Environment.GetCommandLineArgs();
 

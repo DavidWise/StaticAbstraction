@@ -21,7 +21,7 @@ namespace StaticAbstraction
         DateTime Parse(string s);
         DateTime Parse(string s, IFormatProvider provider);
 
-#if NETCORE70
+#if NET7_0_OR_GREATER
         DateTime Parse(ReadOnlySpan<Char> s, IFormatProvider provider);
         Boolean TryParse(String s, IFormatProvider provider, out DateTime result);
         Boolean TryParse(ReadOnlySpan<Char> s, IFormatProvider provider, out DateTime result);
@@ -40,7 +40,7 @@ namespace StaticAbstraction
         bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style, out DateTime result);
         bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style, out DateTime result);
 
-#if NETSTANDARD2_1 || NETCORE21 || NETCORE22 || NETCORE30 || NETCORE31 || NETCORE40 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETSTANDARD2_1 || NETCOREAPP2_1_OR_GREATER
         DateTime Parse(ReadOnlySpan<char> s, IFormatProvider provider = null, DateTimeStyles styles = DateTimeStyles.None);
         DateTime ParseExact(ReadOnlySpan<char> s, ReadOnlySpan<char> format, IFormatProvider provider, DateTimeStyles style = DateTimeStyles.None);
         DateTime ParseExact(ReadOnlySpan<char> s, string[] formats, IFormatProvider provider, DateTimeStyles style = DateTimeStyles.None);

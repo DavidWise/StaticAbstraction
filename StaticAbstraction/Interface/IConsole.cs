@@ -35,7 +35,7 @@ namespace StaticAbstraction
         void Beep(int frequency, int duration);
         void Clear();
 
-#if NETCORE50 || NETCORE60 || NETCORE70
+#if NET5_0_OR_GREATER
         ValueTuple<Int32, Int32> GetCursorPosition();
 #endif
         void MoveBufferArea(int sourceLeft, int sourceTop, int sourceWidth, int sourceHeight, int targetLeft, int targetTop);
@@ -71,6 +71,7 @@ namespace StaticAbstraction
         void Write(string format, object arg0);
         void Write(string format, object arg0, object arg1);
         void Write(string format, object arg0, object arg1, object arg2);
+
 #if NETSTANDARD2_0
         void Write(string format, object arg0, object arg1, object arg2, object arg3);
 #endif
@@ -100,7 +101,7 @@ namespace StaticAbstraction
         void WriteLine(String format, Object arg0, Object arg1, Object arg2, Object arg3);
 #endif
 
-#if NETCORE22 || NETCORE30 || NETCORE31 || NETCORE50 || NETCORE60 || NETCORE70
+#if NETCOREAPP2_2_OR_GREATER
         bool IsErrorRedirected { get; }
         bool IsInputRedirected { get; }
         bool IsOutputRedirected { get; }

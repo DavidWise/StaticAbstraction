@@ -22,10 +22,6 @@ namespace StaticAbstraction.IO.Mocks
 
         public virtual string FullName { get; set; }
 
-#if NETCORE60 || NETCORE70
-        public virtual string LinkTarget { get; set; }
-#endif
-
         public virtual void Delete()
         {
         }
@@ -34,24 +30,25 @@ namespace StaticAbstraction.IO.Mocks
         {
         }
 
-#if NETCORE60 || NETCORE70
-        public virtual void CreateAsSymbolicLink(String pathToTarget)
-        {
-        }
-#endif
 
         public virtual void Refresh()
         {
         }
 
-#if NETCORE60 || NETCORE70
+#if NET6_0_OR_GREATER
+        public virtual string LinkTarget { get; set; }
+
+        public virtual void CreateAsSymbolicLink(String pathToTarget)
+        {
+        }
+
         public virtual IFileSystemInfo ResolveLinkTarget(Boolean returnFinalTarget)
         {
             return null;
         }
 #endif
 
-#if NETCORE70
+#if NET7_0_OR_GREATER && !WINDOWS
         public virtual UnixFileMode UnixFileMode { get; set; }
 #endif
     }
