@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using StaticAbstraction.Diagnostics.Interface;
 
 namespace StaticAbstraction.Diagnostics
 {
-    public interface IProcessModuleCollection :IEnumerable<IProcessModule>
-    {
-
-    }
 
 
     public class StAbProcessModuleCollection : IProcessModuleCollection

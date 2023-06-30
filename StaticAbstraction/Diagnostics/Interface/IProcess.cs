@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Security;
 
-namespace StaticAbstraction.Diagnostics
+namespace StaticAbstraction.Diagnostics.Interface
 {
+#if NET40_OR_GREATER || NETCOREAPP3_0_OR_GREATER
     public interface IProcess
     {
         void EnterDebugMode();
@@ -21,4 +22,5 @@ namespace StaticAbstraction.Diagnostics
         IProcessInstance Start(string fileName, string userName, SecureString password, string domain);
         IProcessInstance Start(string fileName, string arguments, string userName, SecureString password, string domain);
     }
+#endif
 }

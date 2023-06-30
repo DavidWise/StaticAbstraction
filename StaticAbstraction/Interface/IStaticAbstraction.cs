@@ -1,4 +1,4 @@
-﻿using StaticAbstraction.Diagnostics;
+﻿using StaticAbstraction.Diagnostics.Interface;
 using StaticAbstraction.IO;
 using StaticAbstraction.Reflection;
 
@@ -16,8 +16,10 @@ namespace StaticAbstraction
         IDateTime DateTime { get; set; }
         IAssembly Assembly { get; set; }
         IEnvironment Environment { get; set; }
-        IProcess Process { get; set; }
 
+#if NETCOREAPP3_0_OR_GREATER
+        IProcess Process { get; set; }
+#endif
         IFileInfo NewFileInfo(string path);
         IDirectoryInfo NewDirectoryInfo(string path);
     }

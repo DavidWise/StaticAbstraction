@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
+using StaticAbstraction.Diagnostics.Interface;
 
 namespace StaticAbstraction.Diagnostics
 {
 
-
+#if NET40_OR_GREATER || NETCOREAPP3_0_OR_GREATER
     public class StAbFileVersionInfoInstance : IFileVersionInfoInstance
     {
         protected FileVersionInfo WrappedObject { get; private set; }
@@ -49,4 +50,6 @@ namespace StaticAbstraction.Diagnostics
             return WrappedObject.ToString();
         }
     }
+
+#endif
 }

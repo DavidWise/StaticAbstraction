@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32.SafeHandles;
+using StaticAbstraction.Diagnostics.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

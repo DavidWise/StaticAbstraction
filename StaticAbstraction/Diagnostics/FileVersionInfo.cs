@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using StaticAbstraction.Diagnostics.Interface;
 
 namespace StaticAbstraction.Diagnostics
 {
-    public interface IFileVersionInfo
-    {
-        IFileVersionInfoInstance GetVersionInfo(string fileName);
-    }
+
+#if NET40_OR_GREATER || NETCOREAPP3_0_OR_GREATER
 
     public class StAbFileVersionInfo : IFileVersionInfo
     {
@@ -18,4 +17,5 @@ namespace StaticAbstraction.Diagnostics
             return new StAbFileVersionInfoInstance(info);
         }
     }
+#endif
 }

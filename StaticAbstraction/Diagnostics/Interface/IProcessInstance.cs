@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace StaticAbstraction.Diagnostics
+namespace StaticAbstraction.Diagnostics.Interface
 {
     public interface IProcessInstance : IComponent, IDisposable
     {

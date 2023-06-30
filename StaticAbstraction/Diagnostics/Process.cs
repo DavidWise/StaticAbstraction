@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security;
 using System.Text;
+using StaticAbstraction.Diagnostics.Interface;
 
 namespace StaticAbstraction.Diagnostics
 {
 
-
+#if NET40_OR_GREATER || NETCOREAPP3_0_OR_GREATER
     public class StAbProcess : IProcess
     {
         public virtual void EnterDebugMode()
@@ -122,4 +123,5 @@ namespace StaticAbstraction.Diagnostics
 
         #endregion
     }
+#endif
 }

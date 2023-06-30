@@ -1,5 +1,6 @@
-﻿namespace StaticAbstraction.Diagnostics
+﻿namespace StaticAbstraction.Diagnostics.Interface
 {
+#if NET40_OR_GREATER || NETCOREAPP3_0_OR_GREATER
     public interface IFileVersionInfoInstance
     {
         //
@@ -219,4 +220,5 @@
         //     true if the file is patched; otherwise, false.
         bool IsPatched { get; }
     }
+#endif
 }

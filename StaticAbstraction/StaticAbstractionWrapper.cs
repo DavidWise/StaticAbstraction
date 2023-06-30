@@ -1,6 +1,8 @@
 ﻿using StaticAbstraction.Diagnostics;
+using StaticAbstraction.Diagnostics.Interface;
 using StaticAbstraction.IO;
 using StaticAbstraction.Reflection;
+using System.ComponentModel;
 
 namespace StaticAbstraction
 {
@@ -14,7 +16,10 @@ namespace StaticAbstraction
         protected IDateTime _dateTime;
         protected IAssembly _assembly;
         protected IEnvironment _environment;
+
+#if NETCOREAPP3_0_OR_GREATER
         protected IProcess _process;
+#endif
 
         public virtual IFile File {
             get {
@@ -95,6 +100,7 @@ namespace StaticAbstraction
             set { _environment = value; }
         }
 
+#if NETCOREAPP3_0_OR_GREATER
         public virtual IProcess Process
         {
             get
@@ -104,12 +110,27 @@ namespace StaticAbstraction
             }
             set { _process = value; }
         }
+#endif
 
         public StAbWrapper()
         {
         }
+#if NET40_OR_GREATER
+        public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly, IEnvironment environment) : this()
+        {
+            Init(file, path, directory, console, driveInfo, dateTime, assembly, environment);
+        }
+#endif
 
+#if NETCOREAPP3_0_OR_GREATER
         public StAbWrapper(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly, IEnvironment environment, IProcess process) : this()
+        {
+            Init(file, path, directory, console, driveInfo, dateTime, assembly, environment);
+            if (process != null) this.Process = process;
+        }
+#endif
+
+        private void Init(IFile file, IPath path, IDirectory directory, IConsole console, IDriveInfo driveInfo, IDateTime dateTime, IAssembly assembly, IEnvironment environment)
         {
             if (file != null) this.File = file;
             if (path != null) this.Path = path;
@@ -119,7 +140,6 @@ namespace StaticAbstraction
             if (dateTime != null) this.DateTime = dateTime;
             if (assembly != null) this.Assembly = assembly;
             if (environment != null) this.Environment = environment;
-            if (process != null) this.Process = process;
         }
 
         public virtual IFileInfo NewFileInfo(string path)
