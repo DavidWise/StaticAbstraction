@@ -1,5 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System;
+using System.Diagnostics;
 using System.Security;
+using System.Threading.Tasks;
 
 namespace StaticAbstraction.Diagnostics.Interface
 {
@@ -19,6 +22,9 @@ namespace StaticAbstraction.Diagnostics.Interface
         IProcessInstance Start(ProcessStartInfo startInfo);
         IProcessInstance Start(IProcessStartInfo startInfo);
         IProcessInstance Start(string fileName, string arguments);
+#if NET5_0_OR_GREATER
+        IProcessInstance Start(String fileName, IEnumerable<String> arguments);
+#endif
         IProcessInstance Start(string fileName, string userName, SecureString password, string domain);
         IProcessInstance Start(string fileName, string arguments, string userName, SecureString password, string domain);
     }

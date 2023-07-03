@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Security;
 using System.Text;
 using StaticAbstraction.Diagnostics.Interface;
+using System.Threading.Tasks;
+
 
 namespace StaticAbstraction.Diagnostics
 {
@@ -88,6 +90,14 @@ namespace StaticAbstraction.Diagnostics
             var proc = Process.Start(fileName, arguments);
             return BuildNewInstance(proc);
         }
+
+#if NET5_0_OR_GREATER
+        public virtual IProcessInstance Start(String fileName, IEnumerable<String> arguments)
+        {
+            var proc = Process.Start(fileName, arguments);
+            return BuildNewInstance(proc);
+        }
+#endif
 
         public virtual IProcessInstance Start(string fileName, string userName, SecureString password, string domain)
         {

@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace StaticAbstraction.Diagnostics
 {
@@ -175,6 +177,7 @@ namespace StaticAbstraction.Diagnostics
         public virtual void CancelOutputRead() => _base.CancelOutputRead();
         public virtual void Close() => _base.Close();
         public virtual void Kill() => _base.Kill();
+
 #if NETCOREAPP3_0_OR_GREATER
         public virtual void Kill(bool entireProcessTree) => _base.Kill(entireProcessTree);
 #endif
@@ -184,8 +187,25 @@ namespace StaticAbstraction.Diagnostics
         public new string ToString() => _base.ToString();
         public virtual void WaitForExit() => _base.WaitForExit();
         public virtual bool WaitForExit(int milliseconds) => _base.WaitForExit(milliseconds);
+
+#if NET7_1_OR_GREATER
+        public virtual bool WaitForExit(TimeSpan timeout) => _base.WaitForExit(timeout);
+#endif
+
+#if NET5_0_OR_GREATER
+        public virtual async Task WaitForExitAsync(CancellationToken cancellationToken = default)
+        {
+            var result = _base.WaitForExitAsync(cancellationToken);
+            return;
+        }
+#endif
         public virtual bool WaitForInputIdle() => _base.WaitForInputIdle();
         public virtual bool WaitForInputIdle(int milliseconds) => _base.WaitForInputIdle(milliseconds);
+
+
+#if NET7_1_OR_GREATER
+        bool WaitForInputIdle(TimeSpan timeout) => _base.WaitForInputIdle(timeout);
+#endif
 
         protected virtual void OnExited()
         {

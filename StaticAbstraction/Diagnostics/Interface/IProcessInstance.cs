@@ -5,6 +5,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace StaticAbstraction.Diagnostics.Interface
 {
@@ -908,6 +911,28 @@ namespace StaticAbstraction.Diagnostics.Interface
         //     milliseconds is a negative number other than -1, which represents an infinite
         //     time-out.
         bool WaitForExit(int milliseconds);
+
+#if NET7_1_OR_GREATER
+        bool WaitForExit(TimeSpan timeout);
+#endif
+
+#if NET5_0_OR_GREATER
+        //
+        // Summary:
+        //     Instructs the process component to wait for the associated process to exit, or
+        //     for the cancellationToken to be cancelled.
+        //
+        // Parameters:
+        //   cancellationToken:
+        //     An optional token to cancel the asynchronous operation.
+        //
+        // Returns:
+        //     A task that will complete when the process has exited, cancellation has been
+        //     requested, or an error occurs.
+        Task WaitForExitAsync(CancellationToken cancellationToken);
+#endif
+
+
         //
         // Summary:
         //     Causes the System.Diagnostics.Process component to wait indefinitely for the
@@ -945,6 +970,10 @@ namespace StaticAbstraction.Diagnostics.Interface
         //     -or- No process is associated with this System.Diagnostics.Process object.
         bool WaitForInputIdle(int milliseconds);
 
+
+#if NET7_1_OR_GREATER
+        bool WaitForInputIdle(TimeSpan timeout);
+#endif
         //
         // Summary:
         //     Occurs when a process exits.

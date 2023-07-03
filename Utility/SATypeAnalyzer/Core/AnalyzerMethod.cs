@@ -38,6 +38,7 @@ namespace SATypeAnalyzer.Core
 
                 foreach (var methodParam in methodParams)
                 {
+
                     var newParam = new AnalyzerParameter(methodParam);
                     this.Parameters.Add(newParam);
                 }
